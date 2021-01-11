@@ -5,13 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>MATH 4180</title>
+<title>Data Types | MATH 4180</title>
 
 <meta name="keywords" content="" />
-<meta name="description" content="week1 author: date: autosize: true
-First Slide For more details on authoring R presentations please visit https://support.rstudio.com/hc/en-us/articles/200486468.
- Bullet 1 Bullet 2 Bullet 3  Slide With Code summary(cars)  speed dist Min. : 4.0 Min. : 2.00 1st Qu.:12.0 1st Qu.: 26.00 Median :15.0 Median : 36.00 Mean :15.4 Mean : 42.98 3rd Qu.:19.0 3rd Qu.: 56.00 Max. :25.0 Max. :120.00 Slide With Plot ">
-<meta name="author" content="">
+<meta name="description" content="class: title-slide
+
+.right-panel[
+Data Types Kim Mandery ]
+class: middle
+ character: takes string values (e.g. a person’s name, address)  integer: integer (single precision)  double: floating decimal (double precision)  numeric: integer or double  factor: categorical variables with different levels logical: TRUE (1), FALSE (0)
+class: inverse middle
+As a data scientist it is .font30[your] job to check the type(s) of data that you are working with.">
+<meta name="author" content="Kim Mandery">
 <link rel="canonical" href="/slides/week1/" />
 <link href="/assets/css/stylesheet.min.d070982e74499bfc7e365ce059942e04be78ff23f45ff9cd1e58831f2cc279c7.css" integrity="sha256-0HCYLnRJm/x&#43;NlzgWZQuBL54/yP0X/nNHliDHyzCecc=" rel="preload stylesheet"
     as="style">
@@ -26,34 +31,48 @@ First Slide For more details on authoring R presentations please visit https://s
 <meta name="generator" content="Hugo 0.80.0" />
 
 
-<meta property="og:title" content="" />
-<meta property="og:description" content="week1 author: date: autosize: true
-First Slide For more details on authoring R presentations please visit https://support.rstudio.com/hc/en-us/articles/200486468.
- Bullet 1 Bullet 2 Bullet 3  Slide With Code summary(cars)  speed dist Min. : 4.0 Min. : 2.00 1st Qu.:12.0 1st Qu.: 26.00 Median :15.0 Median : 36.00 Mean :15.4 Mean : 42.98 3rd Qu.:19.0 3rd Qu.: 56.00 Max. :25.0 Max. :120.00 Slide With Plot " />
+<meta property="og:title" content="Data Types" />
+<meta property="og:description" content="class: title-slide
+
+.right-panel[
+Data Types Kim Mandery ]
+class: middle
+ character: takes string values (e.g. a person’s name, address)  integer: integer (single precision)  double: floating decimal (double precision)  numeric: integer or double  factor: categorical variables with different levels logical: TRUE (1), FALSE (0)
+class: inverse middle
+As a data scientist it is .font30[your] job to check the type(s) of data that you are working with." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/slides/week1/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="week1 author: date: autosize: true
-First Slide For more details on authoring R presentations please visit https://support.rstudio.com/hc/en-us/articles/200486468.
- Bullet 1 Bullet 2 Bullet 3  Slide With Code summary(cars)  speed dist Min. : 4.0 Min. : 2.00 1st Qu.:12.0 1st Qu.: 26.00 Median :15.0 Median : 36.00 Mean :15.4 Mean : 42.98 3rd Qu.:19.0 3rd Qu.: 56.00 Max. :25.0 Max. :120.00 Slide With Plot "/>
+<meta name="twitter:title" content="Data Types"/>
+<meta name="twitter:description" content="class: title-slide
+
+.right-panel[
+Data Types Kim Mandery ]
+class: middle
+ character: takes string values (e.g. a person’s name, address)  integer: integer (single precision)  double: floating decimal (double precision)  numeric: integer or double  factor: categorical variables with different levels logical: TRUE (1), FALSE (0)
+class: inverse middle
+As a data scientist it is .font30[your] job to check the type(s) of data that you are working with."/>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "",
-  "name": "",
-  "description": "week1 author: date: autosize: true\nFirst Slide For more details on authoring R presentations please visit https://support.rstudio.com/hc/en-us/articles/200486468.\n Bullet 1 Bullet …",
+  "headline": "Data Types",
+  "name": "Data Types",
+  "description": "class: title-slide\n\n.right-panel[\nData Types Kim Mandery ]\nclass: middle\n character: takes string values (e.g. a person’s name, address)  integer: integer (single precision) …",
   "keywords": [
     
   ],
-  "articleBody": "week1 author: date: autosize: true\nFirst Slide For more details on authoring R presentations please visit https://support.rstudio.com/hc/en-us/articles/200486468.\n Bullet 1 Bullet 2 Bullet 3  Slide With Code summary(cars)  speed dist Min. : 4.0 Min. : 2.00 1st Qu.:12.0 1st Qu.: 26.00 Median :15.0 Median : 36.00 Mean :15.4 Mean : 42.98 3rd Qu.:19.0 3rd Qu.: 56.00 Max. :25.0 Max. :120.00 Slide With Plot ",
-  "wordCount" : "62",
+  "articleBody": "   class: title-slide\n\n.right-panel[\nData Types Kim Mandery ]\nclass: middle\n character: takes string values (e.g. a person’s name, address)  integer: integer (single precision)  double: floating decimal (double precision)  numeric: integer or double  factor: categorical variables with different levels logical: TRUE (1), FALSE (0)\nclass: inverse middle\nAs a data scientist it is .font30[your] job to check the type(s) of data that you are working with. Do .font30[not] assume you will work with clean data frames, with clean names, labels, and types.\n  ",
+  "wordCount" : "81",
   "inLanguage": "en",
   "datePublished": "0001-01-01T00:00:00Z",
   "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Kim Mandery"
+  },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "/slides/week1/"
@@ -125,7 +144,7 @@ First Slide For more details on authoring R presentations please visit https://s
         </div>
         <ul class="menu" id="menu" onscroll="menu_on_scroll()">
             <li>
-                <a href="/about/" title="About">
+                <a href="/about" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -162,39 +181,56 @@ First Slide For more details on authoring R presentations please visit https://s
 <article class="post-single">
   <header class="post-header">
     <h1 class="post-title">
-      
+      Data Types
     </h1>
     <div class="post-description">
       
     </div>
     <div class="post-meta">
 
+Kim Mandery
+
     </div>
   </header> 
 
   <div class="post-content">
-<h1 id="week1">week1<a hidden class="anchor" aria-hidden="true" href="#week1">#</a></h1>
-<p>author:
-date:
-autosize: true</p>
-<h1 id="first-slide">First Slide<a hidden class="anchor" aria-hidden="true" href="#first-slide">#</a></h1>
-<p>For more details on authoring R presentations please visit <a href="https://support.rstudio.com/hc/en-us/articles/200486468">https://support.rstudio.com/hc/en-us/articles/200486468</a>.</p>
-<ul>
-<li>Bullet 1</li>
-<li>Bullet 2</li>
-<li>Bullet 3</li>
-</ul>
-<h1 id="slide-with-code">Slide With Code<a hidden class="anchor" aria-hidden="true" href="#slide-with-code">#</a></h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">summary</span>(cars)
-</code></pre></div><pre><code>     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  
-</code></pre><h1 id="slide-with-plot">Slide With Plot<a hidden class="anchor" aria-hidden="true" href="#slide-with-plot">#</a></h1>
-<p><img src="week1-figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p>class: title-slide</p>
+<p><br>
+<br>
+.right-panel[</p>
+<div id="data-types" class="section level1">
+<h1>Data Types</h1>
+<div id="kim-mandery" class="section level2">
+<h2>Kim Mandery</h2>
+<p>]</p>
+<p>class: middle</p>
+</div>
+<div id="character-takes-string-values-e.g.-a-persons-name-address" class="section level2">
+<h2><code>character</code>: takes string values (e.g. a person’s name, address)</h2>
+</div>
+<div id="integer-integer-single-precision" class="section level2">
+<h2><code>integer</code>: integer (single precision)</h2>
+</div>
+<div id="double-floating-decimal-double-precision" class="section level2">
+<h2><code>double</code>: floating decimal (double precision)</h2>
+</div>
+<div id="numeric-integer-or-double" class="section level2">
+<h2><code>numeric</code>: integer or double</h2>
+</div>
+<div id="factor-categorical-variables-with-different-levels" class="section level2">
+<h2><code>factor</code>: categorical variables with different levels</h2>
+<p><code>logical</code>: TRUE (1), FALSE (0)</p>
+<hr />
+<p>class: inverse middle</p>
+<p>As a data scientist it is .font30[<strong>your</strong>] job to check the type(s) of data that you are working with. Do .font30[<strong>not</strong>] assume you will work with clean data frames, with clean names, labels, and types.</p>
+</div>
+</div>
 
 </div>
   <footer class="post-footer">

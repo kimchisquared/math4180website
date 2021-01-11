@@ -20,12 +20,8 @@
   </url>
   
   <url>
-    <loc>/policies/</loc>
+    <loc>/materials/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/slides/week1/</loc>
   </url>
   
   <url>
@@ -74,10 +70,6 @@
   
   <url>
     <loc>/tags/sign-up/</loc>
-  </url>
-  
-  <url>
-    <loc>/slides/</loc>
   </url>
   
   <url>
