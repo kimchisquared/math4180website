@@ -12,12 +12,11 @@ tags: []
 **Week 1 - Introduction to the Course and Data** <br> <br>
 Welcome to the course! Before we start learning statistics we will get to know each other, the tools we will use, and the policies of the course. If you have any questions about Week 1 materials please post them on Slack (you will soon see what Slack is). If you click on icons such as it would direct you to the appropriate link where the course material lies.
 
-
 | Tasks | Notes | Links |
 | -------- | ------------- | ------ | 
 | Getting to know the course website | Take time go over the contents of this website, especially read the policies section. Do not forget to bookmark [math4180.netlify.app](https://math4180.netlify.app/) | | 
 | Sign up on Slack | | [&#9728;](https://join.slack.com/t/math4180/shared_invite/zt-kl64pc6d-mdMu3edXjbUhSzg1c4g2Lw) | | 
-| Introduce yourself to your classmates | Post under the People channel in Slack. Include a paragraph or two about yourself and what you hope to learn from the course. | [&#9728;](https://join.slack.com/t/math4180/shared_invite/zt-kl64pc6d-mdMu3edXjbUhSzg1c4g2Lw) | 
+| Introduce yourself to your classmates | Post under the People channel in Slack. Include a paragraph or two about yourself and what you hope to learn from the course. | [&#9728;](https://join.slack.com/t/math4180/shared_invite/zt-kl64pc6d-mdMu3edXjbUhSzg1c4g2Lw) |
 | Add avatar and bio to Slack | Optional | | 
 | Download and install R |  | [&#128279;](https://mirror.las.iastate.edu/CRAN/) [&#128214;](https://mdsr-book.github.io/mdsr2e/ch-R.html) | 
 | Download and install R Studio | | [&#128279;](https://rstudio.com/products/rstudio/download/)[&#128214;](https://mdsr-book.github.io/mdsr2e/ch-R.html) |

@@ -1,0 +1,21 @@
+---
+title: 'Week 2: Visualizing Data'
+slug: week2
+categories: [data-prep]
+tags: [data, grammar-of-graphics, ggplot, data-viz]
+weight: 20
+draft: true
+---
+
+
+
+**Grammar of Graphics & ggplot**\
+\
+This week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics.\
+\
+\
+| Tasks | Notes | Links | Due |
+| -------- | ------------- | ------ | ---- |
+
+-Add links to The Pudding and make it a reading response (https://pudding.cool/)
+- add ggplot flipbook (https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1) note: requires computer (not smart device friendly)

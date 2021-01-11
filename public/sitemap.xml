@@ -3,6 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/week1/</loc>
+  </url>
+  
+  <url>
+    <loc>/week2/</loc>
+  </url>
+  
+  <url>
+    <loc>/week3/</loc>
+  </url>
+  
+  <url>
     <loc>/about/</loc>
     <priority>0</priority>
   </url>
@@ -13,7 +25,23 @@
   </url>
   
   <url>
+    <loc>/slides/week1/</loc>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/data/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/data-prep/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/data-viz/</loc>
   </url>
   
   <url>
@@ -22,6 +50,14 @@
   
   <url>
     <loc>/categories/getting-started/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/ggplot/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/grammar-of-graphics/</loc>
   </url>
   
   <url>
@@ -41,11 +77,19 @@
   </url>
   
   <url>
+    <loc>/slides/</loc>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
   </url>
   
   <url>
-    <loc>/week1/</loc>
+    <loc>/tags/tidy/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/wrangling/</loc>
   </url>
   
 </urlset>

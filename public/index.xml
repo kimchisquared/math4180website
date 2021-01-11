@@ -7,6 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Week 1: Getting Started</title>
+      <link>/week1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/week1/</guid>
+      <description>Introduction to the Course and Tools
+Welcome to the course! Before we start any data science we will get to know each other, the tools we will use, and the policies of the course. If you have any questions about Week 1 materials please post them on Slack (you will soon see what Slack is).
+The following is the basic set-up for all tasks required each week. Week 1 does include a lot of tasks - we will need to sign up and install our tools - but an average week will include about 5 tasks.</description>
+    </item>
+    
+    <item>
+      <title>Week 2: Visualizing Data</title>
+      <link>/week2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/week2/</guid>
+      <description>Grammar of Graphics &amp;amp; ggplot
+This week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics.
+| Tasks | Notes | Links | Due | | ——– | ————- | —— | —- |
+-Add links to The Pudding and make it a reading response (https://pudding.cool/) - add ggplot flipbook (https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1) note: requires computer (not smart device friendly)</description>
+    </item>
+    
+    <item>
+      <title>Week 3: Cleaning Data</title>
+      <link>/week3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/week3/</guid>
+      <description>   Tidy Data, Data Wrangling &amp;amp; Joins
+  Tasks Notes Links Due      </description>
+    </item>
+    
+    <item>
       <title></title>
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -35,14 +68,14 @@ Office Hours MWF 12-1:30pm CST</description>
     </item>
     
     <item>
-      <title>Week 1: Getting Started</title>
-      <link>/week1/</link>
+      <title></title>
+      <link>/slides/week1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/week1/</guid>
-      <description>Introduction to the Course and Tools
-Welcome to the course! Before we start any data science we will get to know each other, the tools we will use, and the policies of the course. If you have any questions about Week 1 materials please post them on Slack (you will soon see what Slack is).
-The following is the basic set-up for all tasks required each week. Week 1 does include a lot of tasks - we will need to sign up and install our tools - but an average week will include about 5 tasks.</description>
+      <guid>/slides/week1/</guid>
+      <description>week1 author: date: autosize: true
+First Slide For more details on authoring R presentations please visit https://support.rstudio.com/hc/en-us/articles/200486468.
+ Bullet 1 Bullet 2 Bullet 3  Slide With Code summary(cars)  speed dist Min. : 4.0 Min. : 2.00 1st Qu.:12.0 1st Qu.: 26.00 Median :15.0 Median : 36.00 Mean :15.4 Mean : 42.98 3rd Qu.:19.0 3rd Qu.: 56.00 Max. :25.0 Max. :120.00 Slide With Plot </description>
     </item>
     
   </channel>

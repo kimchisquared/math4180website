@@ -7,11 +7,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>data</title>
+      <link>/tags/data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data-viz</title>
+      <link>/tags/data-viz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-viz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>download</title>
       <link>/tags/download/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tags/download/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot</title>
+      <link>/tags/ggplot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ggplot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grammar-of-graphics</title>
+      <link>/tags/grammar-of-graphics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/grammar-of-graphics/</guid>
       <description></description>
     </item>
     
@@ -30,6 +66,24 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tags/sign-up/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidy</title>
+      <link>/tags/tidy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wrangling</title>
+      <link>/tags/wrangling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/wrangling/</guid>
       <description></description>
     </item>
     
