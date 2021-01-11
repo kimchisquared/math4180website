@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>week1 on MATH 4180</title>
+    <link>/tags/week1/</link>
+    <description>Recent content in week1 on MATH 4180</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/tags/week1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Week 1: Getting Started</title>
+      <link>/week1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/week1/</guid>
+      <description>Introduction to the Course and Tools
+Welcome to the course! Before we start any data science we will get to know each other, the tools we will use, and the policies of the course. If you have any questions about Week 1 materials please post them on Slack (you will soon see what Slack is).
+The following is the basic set-up for all tasks required each week. Week 1 does include a lot of tasks - we will need to sign up and install our tools - but an average week will include about 5 tasks.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,39 @@
+---
+title: 'Week 1: Getting Started'
+slug: week1
+categories: [getting-started]
+tags: [sign-up, download, policies]
+---
+
+
+
+**Introduction to the Course and Tools** \
+\
+Welcome to the course! Before we start any data science we will get to know each other, the tools we will use, and the policies of the course. If you have any questions about Week 1 materials please post them on Slack (you will soon see what Slack is).\
+\
+The following is the basic set-up for all tasks required each week. Week 1 does include a lot of tasks - we will need to sign up and install our tools - but an average week will include about 5 tasks. \
+To help organize materials, the Links section uses the following icons \
+&#128279; to link to a website; \
+&#9728; to link a sign-up or account creation; and \
+&#128214; to link a reading material.\
+\
+\
+
+| Tasks | Notes | Links | Due |
+| -------- | ------------- | ------ | ---- |
+| Getting to know the course website | Take time go over the contents of this website, especially read the policies section (where the syllabus and schedule are located). Do not forget to bookmark [math4180.netlify.app](https://math4180.netlify.app/) | | 
+| Sign up on Slack | | [&#9728;](https://join.slack.com/t/math4180/shared_invite/zt-kl64pc6d-mdMu3edXjbUhSzg1c4g2Lw) | | 
+| Introduce yourself to your classmates | Post under the People channel in Slack. Include a paragraph or two about yourself and what you hope to learn from the course. | | Friday Jan 15 11pm | 
+| Add avatar and bio to Slack | Optional customization. The avatar can be an icon or simply a picture. | | 
+| Download and install R |  | [&#128279;](https://mirror.las.iastate.edu/CRAN/) [&#128214;](https://mdsr-book.github.io/mdsr2e/ch-R.html) | 
+| Download and install R Studio | | [&#128279;](https://rstudio.com/products/rstudio/download/)[&#128214;](https://mdsr-book.github.io/mdsr2e/ch-R.html) |
+| Customize RStudio theme | Optional customization. tldr; Tools > Global Options > Appearance > Rstudio Theme. I (Kim) am partial to the Sky theme but choose whatever is the most pleasing aesthetic to you . | [&#128279;](https://blog.rstudio.com/2018/10/29/rstudio-ide-custom-theme-support/) |
+| Sign up for WiDS conference | | [&#9728;](https://airtable.com/shrLE1J7hVxuYAILv) | |
+| Sign up for Kaggle | This will bring you to the WiDS Datathon 2021 | [&#9728;](https://www.kaggle.com/c/widsdatathon2021) | |
+| WiDS Datathon videos | Watch Video 1 and Video 2 | [&#128279;](https://www.widsconference.org/datathon-resources.html) | |
+| Check out the swirl package | Optional R practice | [&#128279;](https://swirlstats.com/students.html) | |
+| Reading from MDSR book |Chapter 1. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the Resources channel in Slack  | [&#128214;](https://mdsr-book.github.io/mdsr2e/ch-prologue.html) | Mon Jan 18 11pm |
+| Sign up for Git | Use a username that is *semi* professional as we will use this platform to create personal websites later on in the semester. Post github username as a reply to your post in People | [&#128279;](https://github.com/) | Wed Jan 20 |
+| Add avatar and bio to Github | Optional customization. You can even use the same avatar and bio as Slack, but again, *semi* professional avatars here | | 
+| Download Git | Windows users only. If you have a Mac, installing homebrew may be beneficial | [&#128279;](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git/)[&#128279;](https://brew.sh/)  | |
+| What is the Question? | Optional Reading. Make sure to read the chart carefully. | [&#128214;](https://science.sciencemag.org/content/347/6228/1314.long) | |

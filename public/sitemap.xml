@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/about/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/policies/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/download/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/getting-started/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/policies/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/sign-up/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>/week1/</loc>
+  </url>
+  
+</urlset>

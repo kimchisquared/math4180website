@@ -1,0 +1,55 @@
+baseurl = "/"
+languageCode = "en-us"
+title = "MATH 4180"
+theme = "hugo-PaperMod"
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
+
+[permalinks]
+    post = "/:slug/"
+
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight= 1
+[[menu.main]]
+    name = "Policies"
+    url = "/policies/"
+    weight = 2
+[[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/kimchisquared/math4180"
+[[menu.main]]
+    name = "Canvas"
+    url = "https://canvas.umn.edu/courses/206981"
+[[menu.main]]
+    name = "Slack"
+    url = "https://join.slack.com/t/math4180/shared_invite/zt-kl64pc6d-mdMu3edXjbUhSzg1c4g2Lw"
+[[menu.main]]
+    name = "Zoom"
+    url = "https://join.slack.com/t/math4180/shared_invite/zt-kl64pc6d-mdMu3edXjbUhSzg1c4g2Lw"
+    
+    
+[params]
+    description = "A website for MATH 4180 course at the University of Minnesota Duluth."
+
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.12.0"
+    highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
+    highlightjsLang = ["r", "yaml"]
+    highlightjsTheme = "github"
+
+    MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs"
+    MathJaxVersion = "2.7.5"
+
+    # path to the favicon, under "static"
+    favicon = "favicon.ico"
+    
+
+    [params.logo]
+    url = "logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"
+
