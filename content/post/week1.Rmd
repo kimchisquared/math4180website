@@ -20,7 +20,7 @@ To help organize materials, the Links section uses the following icons \
 :book: to link a reading material.\
 \
 \
-\
+
 | Tasks | Notes | Links | Due |
 | -------- | ------------- | ------ | ---- |
 | Getting to know the course website | Take time go over the contents of this website, especially read the materials section (where the syllabus and schedule are located). Do not forget to bookmark [math4180.netlify.app](https://math4180.netlify.app/) | | 
