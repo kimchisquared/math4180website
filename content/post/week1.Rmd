@@ -13,14 +13,14 @@ weight: 1
 Welcome to the course! Before we start any data science we will get to know each other, the tools we will use, and the policies of the course. If you have any questions about Week 1 materials please post them on Slack (you will soon see what Slack is).\
 \
 The following is the basic set-up for all tasks required each week. Week 1 does include a lot of tasks - we will need to sign up and install our tools - but an average week will include about 5 tasks. \
+\
 To help organize materials, the Links section uses the following icons \
-:link:; to link to a website; \
-:information:; to link a sign-up or account creation; and \
-:book:; to link a reading material.\
+:link: to link to a website; \
+:information: to link a sign-up or account creation; and \
+:book: to link a reading material.\
 \
 \
-
-
+\
 | Tasks | Notes | Links | Due |
 | -------- | ------------- | ------ | ---- |
 | Getting to know the course website | Take time go over the contents of this website, especially read the materials section (where the syllabus and schedule are located). Do not forget to bookmark [math4180.netlify.app](https://math4180.netlify.app/) | | 
