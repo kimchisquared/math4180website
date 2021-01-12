@@ -1,4 +1,4 @@
-| Resource Links |
+|  |
 |-----------|
 |[Modern Data Science in R](https://mdsr-book.github.io/mdsr2e/) by Benjamin S. Baumer, Daniel T. Kaplan, and Nicholas J. Horton. The book is accessible for free. This is the first book of the two main books that we will use for the course. |
 |[R for Data Science](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. The book is accessible for free. This is the second book of the two main books that we will use for the course.|
