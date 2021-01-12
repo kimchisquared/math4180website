@@ -8,15 +8,3 @@ Spring 2021\
 \
 \
 This course introduces the full data cycle. Topics include data collection and retrieval, data cleaning, exploratory analysis and visualization, introduction to statistical modeling and inference, and communicating findings. Applications include real data from wide-range of fields following reproducible practices. 
-\
-\
-**Instructor**\
-Dr. Tracy Bibelnieks (she/her/hers)\
-tbibelni@d.umn.edu \
-Office Hours *TBD*\
-\
-\
-**Instructor**\
-Kim Mandery (she/her/hers)\
-mande143@d.umn.edu\
-Office Hours *MWF 12-1:30pm CST*

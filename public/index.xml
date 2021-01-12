@@ -48,14 +48,7 @@ This week we will be discussing what qualities makes a graphic legible and how w
       <description>MATH 4180 - Industrial Problem Solving
 University of Minnesota Duluth
 Spring 2021
-This course introduces the full data cycle. Topics include data collection and retrieval, data cleaning, exploratory analysis and visualization, introduction to statistical modeling and inference, and communicating findings. Applications include real data from wide-range of fields following reproducible practices. Instructor
-Dr. Tracy Bibelnieks (she/her/hers)
-tbibelni@d.umn.edu
-Office Hours TBD
-Instructor
-Kim Mandery (she/her/hers)
-mande143@d.umn.edu
-Office Hours MWF 12-1:30pm CST</description>
+This course introduces the full data cycle. Topics include data collection and retrieval, data cleaning, exploratory analysis and visualization, introduction to statistical modeling and inference, and communicating findings. Applications include real data from wide-range of fields following reproducible practices.</description>
     </item>
     
     <item>
@@ -65,6 +58,22 @@ Office Hours MWF 12-1:30pm CST</description>
       
       <guid>/materials/</guid>
       <description>Resource Links     Modern Data Science in R by Benjamin S. Baumer, Daniel T. Kaplan, and Nicholas J. Horton. The book is accessible for free. This is the first book of the two main books that we will use for the course.   R for Data Science by Garrett Grolemund and Hadley Wickham. The book is accessible for free. This is the second book of the two main books that we will use for the course.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/people/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/people/</guid>
+      <description>Instructor
+Dr. Tracy Bibelnieks (she/her/hers)
+tbibelni@d.umn.edu
+Office Hours Th 3-4pm CST
+Instructor
+Kim Mandery (she/her/hers)
+mande143@d.umn.edu
+Office Hours MWF 12-1:30pm CST</description>
     </item>
     
   </channel>

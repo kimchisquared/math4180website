@@ -9,22 +9,19 @@ enableEmoji= true
 
 [permalinks]
     post = "/:slug/"
+    
 [[menu.main]]
     name = "Materials"
     url = "/materials/"
     weight = 2
 [[menu.main]]
-    name = "GitHub"
-    url = "https://github.com/kimchisquared/math4180"
+    name = "About"
+    url = "/about/"
+    weight = 1
 [[menu.main]]
-    name = "Canvas"
-    url = "https://canvas.umn.edu/courses/206981"
-[[menu.main]]
-    name = "Slack"
-    url = "https://join.slack.com/t/math4180/shared_invite/zt-kl64pc6d-mdMu3edXjbUhSzg1c4g2Lw"
-[[menu.main]]
-    name = "Zoom"
-    url = "https://umn.zoom.us/j/99004362256?pwd=b0JPVjZvcjdZUjFYRU80V3I0cjA2Zz09"
+    name = "People"
+    url = "/people/"
+    weight = 3
     
     
 [params]
