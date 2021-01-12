@@ -13,7 +13,7 @@ draft: true
 \
 This week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics.\
 \
-\
+
 | Tasks | Notes | Links | Due |
 | -------- | ------------- | ------ | ---- |
 | | | | |
