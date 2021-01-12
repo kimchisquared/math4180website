@@ -13,19 +13,29 @@ enableEmoji= true
 [[menu.main]]
     name = "Materials"
     url = "/materials/"
-    weight = 1
+    weight = 4
+    
+[[menu.main]]
+    name = "Policies"
+    url = "/policies/"
+    weight = 2
+    
+[[menu.main]]
+    name = "Schedule"
+    url = "/schedule/"
+    weight = 3
     
 [[menu.main]]
     name = "People"
     url = "/people/"
-    weight = 3
+    weight = 1
     
 [params]
     description = "A website for MATH 4180 course at the University of Minnesota Duluth."
 
 [params.homeInfoParams]
     Title = "Welcome to Industrial Problem Solving"
-    Content = "This course introduces the full data cycle. Topics include data collection and retrieval, data cleaning, exploratory analysis and visualization, introduction to statistical modeling and inference, and communicating findings. Applications include real data from wide-range of fields following reproducible practices. "
+    Content = "This course introduces the full data cycle. Topics include data collection and retrieval, data cleaning, exploratory analysis and visualization, introduction to statistical modeling and inference, and communicating findings. Applications include real data from wide-range of fields following reproducible practices."
 
 [[params.socialIcons]]
     name = "other"

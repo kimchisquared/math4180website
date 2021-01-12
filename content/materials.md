@@ -7,7 +7,3 @@
 |[Canvas](https://canvas.umn.edu/courses/206981) will be used as a grade-book only.|
 |[Slack](https://join.slack.com/t/math4180/shared_invite/zt-kl64pc6d-mdMu3edXjbUhSzg1c4g2Lw) will be our social space for class communication, group work and responding to readings.|
 |[Zoom](https://umn.zoom.us/j/99004362256?pwd=b0JPVjZvcjdZUjFYRU80V3I0cjA2Zz09) will be our video conferencing software. This link will bring you directly to our Zoom meeting. |
-
-**Schedule**
-
-TBD :smile:
