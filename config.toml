@@ -16,11 +16,6 @@ enableEmoji= true
     weight = 1
     
 [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 2
-    
-[[menu.main]]
     name = "People"
     url = "/people/"
     weight = 3
