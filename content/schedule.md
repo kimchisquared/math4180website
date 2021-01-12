@@ -2,7 +2,7 @@
 |-----------|------|------|------|
 | Jan 13 - 15 | Getting Started | | [Week 1](/week1/) |
 | Jan 18 - 22 | Visualizing Data | MLK: no class 18 | [Week 2](/week2/) |
-| Jan 25 - 29 | Cleaning Data | [Week 3](/week3/) |
+| Jan 25 - 29 | Cleaning Data | | [Week 3](/week3/) |
 | Feb 1 - 5 |  | | [Week 4]() |
 | Feb 8 - 12 | Ethical Data | | [Week 5]()  |
 | Feb 15 - 19 | Modeling: Linear |  |[Week 6]() |
