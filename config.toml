@@ -9,11 +9,6 @@ enableEmoji= true
 
 [permalinks]
     post = "/:slug/"
-
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight= 1
 [[menu.main]]
     name = "Materials"
     url = "/materials/"
