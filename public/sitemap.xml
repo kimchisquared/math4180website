@@ -25,6 +25,16 @@
   </url>
   
   <url>
+    <loc>/policies/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/schedule/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
   </url>
   
