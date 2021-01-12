@@ -16,4 +16,4 @@
 | Apr 12 - 16 |  |  | [Week 14]() |
 | Apr 19 - 23 | |  | [Week 15]() |
 | Apr 26 - 30 | Presentations | | [Week 16]() |
-| May 3 - 7 | Finals Week | no class |  |
+| May 3 - 7 |  | inals Week: no class |  |
