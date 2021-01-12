@@ -44,8 +44,8 @@ enableEmoji= true
     MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs"
     MathJaxVersion = "2.7.5"
 
-    customCSS="css/font-awesome.min.css"    # path to the favicon, under "static"
-    favicon="logo.png"
+    #customCSS="css/font-awesome.min.css"    # path to the favicon, under "static"
+    #favicon="logo.png"
 
     [params.logo]
     url = "logo.png"
