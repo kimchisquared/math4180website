@@ -14,34 +14,38 @@ enableEmoji= true
     name = "Materials"
     url = "/materials/"
     weight = 1
+    
 [[menu.main]]
     name = "About"
     url = "/about/"
     weight = 2
+    
 [[menu.main]]
     name = "People"
     url = "/people/"
     weight = 3
     
-    
 [params]
     description = "A website for MATH 4180 course at the University of Minnesota Duluth."
 
-    # options for highlight.js (version, additional languages, and theme)
-    highlightjsVersion = "9.12.0"
-    highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
-    highlightjsLang = ["r", "yaml"]
-    highlightjsTheme = "github"
+[params.homeInfoParams]
+    Title = "Welcome to Industrial Problem Solving"
+    Content = "This course introduces the full data cycle. Topics include data collection and retrieval, data cleaning, exploratory analysis and visualization, introduction to statistical modeling and inference, and communicating findings. Applications include real data from wide-range of fields following reproducible practices. "
 
-    MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs"
-    MathJaxVersion = "2.7.5"
+[[params.socialIcons]]
+    name = "other"
+    url = "https://umn.zoom.us/j/99004362256?pwd=b0JPVjZvcjdZUjFYRU80V3I0cjA2Zz09" 
+    
+[[params.socialIcons]]
+    name = "slack"
+    url = "https://join.slack.com/t/math4180/shared_invite/zt-kl64pc6d-mdMu3edXjbUhSzg1c4g2Lw"
 
-    #customCSS="css/font-awesome.min.css"    # path to the favicon, under "static"
-    #favicon="logo.png"
+[[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/kimchisquared/math4180"
+    
+[[params.socialIcons]]
+    name = "other"
+    url = "https://canvas.umn.edu/courses/206981" 
 
-    [params.logo]
-    url = "logo.png"
-    width = 50
-    height = 50
-    alt = "Logo"
-
+        
