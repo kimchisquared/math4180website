@@ -1,12 +1,13 @@
 ## Assessment
 It is our intent to design assessments that are a source of intellectual curiosity, joy, and learning rather than a source of stress. Assessments serve the purpose of measuring how much you have learned (i.e. how much you have achieved of the course goals). The time zones indicated for all assessments are in Central Standard Time.
 
-|  | |
-|-----|-----|
-|Participation||
-|Reading Responses||
-|Assignments||
-|Project||
+|  |
+|-----|
+|**Participation** TBD|
+|**Reading Responses** TBD|
+|**Assignments** TBD|
+| **Project** |
+|You will complete a project with a group of 3-4 students. The project will focus on creating a model to classify patient health data and requires a submission to the associated Kaggle competition. You will apply the methods learned in this course to answer whether patients in Intensive Care Units have been diagnosed with a certain type of diabetes which could inform treatment and ultimately lead to better outcomes. The sections of this project will be communicated to you in advance and with more detail |
 
 
 ## Accommodations
