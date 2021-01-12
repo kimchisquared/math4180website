@@ -26,7 +26,7 @@ Our goal is to make everyone (yes, that includes you too) feel welcome, not only
 Most of our online comminication will take place on Slack. While communicating online, please note the following:
 
 - Before posting a question, please make sure that the same question has not been posted before.
-- Piazza channels are:
+- Slack channels are:
   - *in-class*: chat during Zoom lectures
   - *resources*: reading responses
   - *wids-datathon*: project discussion
