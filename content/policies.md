@@ -1,13 +1,54 @@
+## Course Objectives
+At the end of this semester you will be able to:
+- perform data visualization, data cleaning, data augmentation and data organization|
+- apply ethical uses of data in using results of data analytic
+- discern appropriate statistical, computational, and modeling approaches to data problems
+- write technical and nontechnical reports of data analytic insights 
+- write professional level correspondence to ask questions/gather information
+- give professional level presentations to technical and nontechnical audiences whether in academic or industrial settings
+
 ## Assessment
 It is our intent to design assessments that are a source of intellectual curiosity, joy, and learning rather than a source of stress. Assessments serve the purpose of measuring how much you have learned (i.e. how much you have achieved of the course goals). The time zones indicated for all assessments are in Central Standard Time.
 
 |  |
 |-----|
-|**Participation** TBD|
-|**Reading Responses** TBD|
-|**Assignments** TBD|
+|**Participation** |
+| Attendance and participation during class Zoom lectures is essential and expected. Project team meetings outside of class will be required. |
+|**Evaluations**|
+| Starting week 4, project groups will get together to delegate the group roles for project related assignments. You are required to contribute equally to any group task(s) assigned to you. As this is the first hands-on experience for many of the students in the course, there may come a time where a single task turns out to be more time-consuming than originally planned. This is the only time re-delegating tasks is acceptable. As such, you will be required to submit evaluations on your yourself, documenting the tasks you have completed along with your group. The goal of the evaluations is to prepare you and your group members to write and finalize your technical report of the project in a timely manner.|
+|**Reading Responses and Assignments**|
+|You are required to complete weekly reading and/or coding tasks as outlined on the course website. The schedule is fluid and may be adjusted to ensure the timeliness of tasks and data project are appropriate for the course |
 | **Project** |
-|You will complete a project with a group of 3-4 students. The project will focus on creating a model to classify patient health data and requires a submission to the associated Kaggle competition. You will apply the methods learned in this course to answer whether patients in Intensive Care Units have been diagnosed with a certain type of diabetes which could inform treatment and ultimately lead to better outcomes. The sections of this project will be communicated to you in advance and with more detail |
+|**Overview**: You will complete a project with a group of 3-4 students. The project will focus on creating a model to classify patient health data and requires a submission to the associated competition. You will apply the methods learned in this course to answer whether patients diagnoses could inform treatment and ultimately lead to better outcomes. The sections of this project will be communicated to you in advance and with more detail. |
+|**Presentation**: Your group will give a final 30-minute group presentation that may be recorded.  This presentation will be held during the last week of class for this course. The specific date each group presents will be announced later on in the semester. |
+|**Technical Paper**: Your group will write a technical paper summarizing the work of the semester. The breadth, depth and scope of the content will determine the length (minimum 3-pages written in the style of a LaTex journal article). Resources for technical writing and LaTex will be shared under the Materials section as the semester continues |
+## Timeline
+
+|Calendar |	%Grade |	Course Component|
+|-------|--------|--------|
+|Weeks 1 – 2 | 10%	|	Data Visualization and basic statistics and analytic techniques.|
+| | | Focus on software, accessing data, preliminary data science techniques. |
+|Weeks 3 – 4 |	15%	 |	In depth look at data project and review of research literature.|
+| | | Continued teaching and development of knowledge/use of RStudio, github, and Slack.|
+| | | Focus on techniques of imputing data values and missing data. |
+|Weeks 4 – 5 |	10%	|	Project team selection and teamwork begins. Preliminary data/strategy exploration, literature/outside data source research, development of management timelines (specific to project). |
+| | | Continued teaching and development of knowledge/use of RStudio, Github, Slack for communication with focus on ethics of data use and analysis|
+|Weeks 6 – 10  |	30%	 |	Data project work continues (with weekly management timelines/ benchmark setting)
+| | |Continued development of use of RStudio, github, Slack. Predictions of modeling due March 1 (Week 8). 
+|Weeks 11 – 12 |	10%	 |	Preliminary report and assessment of strategic problem solutions with emphasis on further exploration/extension of project/data analysis. |
+| | | Continued work on finalizing projects. |
+|Weeks 13 – 14  |	15%	 |	In-house preparation/practice of final presentations, technical reports.|
+| | | Development of personal netlify websites.|
+| Week 15	| 10%	|	Finalizing formal presentations to class.
+| | | Submission of final project products (technical paper and video presentation). |
+| | |	Final presentations will take place during Final Exam week.|
+
+## Ungrading
+The percentages listed in the timeline refer to approximate time/effort needed to successfully complete the project and the course. The rubric for grading in this course is simple – all students are eligible to receive a 4.0 for satisfactory consistent engagement, effort and delivery of (1) a predictive model in Week 8 and (2) a technical paper and presentation at the end of the course. 
+
+So, what is “ungrading”? In reviewing your performance in this course, we will use vocabulary commensurate with professional work in non-academic jobs. I will not be grading you but rather assessing your progress in the course against timelines and benchmarks. I will not answer questions about “what grade did I get?” but will rather ask YOU “what did you learn?”. There will be no judgement, criticism or negative indicators usually associated with the usual system of percentages and letter grades. Instead, the focus will be on the challenges and opportunities presented to you in the course, your engagement, and the use of constructive feedback from myself and Kim to contribute to you meeting the learning objectives in the course. 
+
+At any time in this course, if I, as the instructor, or Kim, the co-instructor, feel that a student has fallen below the level of expectation of engagement, effort and contribution, I, Dr. Bibelnieks, will contact the student for a one-on-one meeting. Together, the student and I will decide how to move forward in the course. This discussion will include discussion of possible options for ending the course with a 4.0 or an agreed upon lesser grade. The lesser grade will be contractual with specific obligations and expectations articulared for the student.
 
 
 ## Accommodations
