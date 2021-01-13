@@ -7,15 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/tags/data/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Slides: Cleaning Data</title>
-      <link>/slides-clean/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/slides-clean/</guid>
-      <description>Data Cleaning Slides</description>
-    </item>
-    
-    <item>
       <title>Week 2: Visualizing Data</title>
       <link>/data-viz/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -33,7 +24,8 @@ This week we will be discussing what qualities makes a graphic legible and how w
       
       <guid>/data-clean/</guid>
       <description>   Tidy Data, Data Wrangling &amp;amp; Joins
-  Tasks Notes Links Due      </description>
+  Tasks Notes Links Due      Slides
+knitr::include_url(&amp;#39;/slides/data-clean.html&amp;#39;)  </description>
     </item>
     
   </channel>

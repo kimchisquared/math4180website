@@ -16,5 +16,8 @@ draft: true
 | -------- | ------------- | ------ | ---- |
 
 **Slides**
+```{r}
+knitr::include_url('/slides/data-clean.html')
+```
 
 
