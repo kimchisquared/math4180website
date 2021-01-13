@@ -15,9 +15,9 @@ draft: true
 | Tasks | Notes | Links | Due |
 | -------- | ------------- | ------ | ---- |
 
-**Slides**
-```{r}
-knitr::include_url('/slides/data-clean.html')
+[**Slides**](/slides/data-clean.html)
+```{r echo=FALSE}
+knitr::include_url('/slides/data-clean.html', height="505px")
 ```
 
 
