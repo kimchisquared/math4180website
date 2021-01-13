@@ -1,6 +1,6 @@
 ---
 title: 'Week 2: Visualizing Data'
-slug: week2
+slug: data-viz
 categories: [data-prep]
 tags: [data, grammar-of-graphics, ggplot, data-viz]
 weight: 20

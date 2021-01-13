@@ -1,6 +1,6 @@
 ---
 title: 'Week 3: Cleaning Data'
-slug: week3
+slug: data-clean
 categories: [data-prep]
 tags: [data, tidy, wrangling]
 weight: 20
