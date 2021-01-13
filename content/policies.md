@@ -1,6 +1,6 @@
 ## Course Objectives
 At the end of this semester you will be able to:
-- perform data visualization, data cleaning, data augmentation and data organization|
+- perform data visualization, data cleaning, data augmentation and data organization
 - apply ethical uses of data in using results of data analytic
 - discern appropriate statistical, computational, and modeling approaches to data problems
 - write technical and nontechnical reports of data analytic insights 
