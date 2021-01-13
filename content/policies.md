@@ -69,7 +69,7 @@ Most of our online comminication will take place on Slack. While communicating o
 
 - Before posting a question, please make sure that the same question has not been posted before.
 - Slack channels are:
-  - *in-class*: chat during Zoom lectures
+  - *in-class*: chat during Zoom lectures and any questions on the course content
   - *resources*: reading responses
   - *wids-datathon*: project discussion
   - *people*: bios of everyone in the course 
