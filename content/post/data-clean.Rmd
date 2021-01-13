@@ -1,8 +1,6 @@
 ---
 title: 'Week 3: Cleaning Data'
 slug: data-clean
-categories: [data-prep]
-tags: [data, tidy, wrangling]
 weight: 20
 draft: true
 ---
@@ -14,6 +12,9 @@ draft: true
 
 | Tasks | Notes | Links | Due |
 | -------- | ------------- | ------ | ---- |
+
+Add:
+[Chunk Options](https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html)
 
 [**Slides**](/slides/data-clean.html)
 ```{r echo=FALSE}
