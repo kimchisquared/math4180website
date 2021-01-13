@@ -1,8 +1,6 @@
 ---
 title: 'Week 1: Getting Started'
 slug: getting-started
-categories: [getting-started]
-tags: [sign-up, download, policies]
 weight: 1
 ---
 
