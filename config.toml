@@ -36,6 +36,4 @@ enableEmoji= true
 [params.homeInfoParams]
     Title = "Welcome to Industrial Problem Solving"
     Content = "This class offers students to learn the art and statistical techniques of data science with a primary focus on data analytics. The in-depth and semester long project used in this course is designed to give students breadth and depth of experience that mirrors what they will experience in the real world as a data science professional. A major portion of this course will be learning and applying statistical and computational software and tools, and techniques to answer the data question of the project. "
-" 
-
-        
+"
