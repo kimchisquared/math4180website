@@ -8,13 +8,13 @@
     <language>en-us</language><atom:link href="/categories/getting-started/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Week 1: Getting Started</title>
-      <link>/week1/</link>
+      <link>/getting-started/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/week1/</guid>
+      <guid>/getting-started/</guid>
       <description>Introduction to the Course and Tools
-Welcome to the course! Before we start any data science we will get to know each other, the tools we will use, and the policies of the course. If you have any questions about Week 1 materials please post them on Slack (you will soon see what Slack is).
-The following is the basic set-up for all tasks required each week. Week 1 does include a lot of tasks - we will need to sign up and install our tools - but an average week will include about 5 tasks.</description>
+Welcome to the course! Before we start any data science we will get to know each other, the tools we will use, and the policies of the course. If you have any questions about Week 1 materials please post them on Slack (you will soon see what Slack is) under the in-class .
+The following is the basic set-up for all tasks required each week.</description>
     </item>
     
   </channel>
