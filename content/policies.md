@@ -89,4 +89,4 @@ While communicating over email, please make sure the email
 - has a closing statement such as Sincerely, Kind Regards etc.
 - has your name at the end.
 
-Here is a sample [email](mailto:tbibelni@d.umn.edu?cc=mande143@d.umn.edu&?subject=math4180&body=Dear,%0A%0A%0A%0Aquick%20hi%20message%0A%0Aconcern%0A%0Aexplanations%0A%0A%0A%0ABest,%0A%0AName) 
+Here is a sample [email](mailto:tbibelni@d.umn.edu?cc=mande143@d.umn.edu&subject=math4180&body=Dear%20Dr.%20B,%0A%0A%0A%0Aquick%20hi%20message%0A%0Ayour%20concern%0A%0Aany%20explanations,%20code%20snippets,%20or%20screenshots%0A%0A%0A%0ABest,%0A%0AyrName) 
