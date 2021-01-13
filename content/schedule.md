@@ -1,19 +1,19 @@
-| Dates | Topic | Notes | Links |
-|-----------|------|------|------|
-| Jan 13 - 15 | Getting Started | | [Week 1](/week1/) |
-| Jan 18 - 22 | Visualizing Data | MLK: no class 18 | [Week 2](/week2/) |
-| Jan 25 - 29 | Cleaning Data | | [Week 3](/week3/) |
-| Feb 1 - 5 |  | | [Week 4]() |
-| Feb 8 - 12 | Ethical Data | | [Week 5]()  |
-| Feb 15 - 19 | Modeling: Linear |  |[Week 6]() |
-| Feb 22 - 26 | Modeling: Classification |  | [Week 7]() |
-| Mar 1 - 5 | Modeling: Evaluation Metrics | deadline for submission | [Week 8]() |
-| Mar 8 - 12 | Data Storytelling| Spring Break: no class 8-9 | [Week 9]() |
-| Mar 15 - 19 | Statistical Inference |  | [Week 10]() |
-| Mar 22 - 26 | Inference: Numerical |  | [Week 11]() |
-| Mar 29 - Apr 1 | Inference: Regression |  | [Week 12]() |
-| Apr 5 - 9 | Missing Data |  | [Week 13]() |
-| Apr 12 - 16 |  |  | [Week 14]() |
-| Apr 19 - 23 | |  | [Week 15]() |
-| Apr 26 - 30 | Presentations | | [Week 16]() |
-| May 3 - 7 |  | Finals Week: no class |  |
+| Week |Dates | Course Topic | Project Component | Notes |
+|------|-----|------|------|------|
+|1| Jan 13-15| [Getting Started](/getting-started/) | | |
+|2| Jan 18-22 | [Visualizing Data](/data-viz/) | | MLK: no class M |
+|3| Jan 25-29 | [Cleaning Data](/data-clean/) | | |
+|4| Feb 1-5 | Missing Data | Team selection |  |
+|5| Feb 8-12 | Ethical Data | Submit management timeline |  |
+|6| Feb 15-19 | Modeling: Linear |  | |
+|7| Feb 22-26 | Modeling: Classification | ||
+|8| Mar 1-5 | Modeling: Evaluation Metrics | Deadline for submission | |
+|9| Mar 8-12 | Data Storytelling| | Spring Break: no class MTu |
+|10| Mar 15-19 | TBD | ||
+|11| Mar 22-26 | TBD | Begin technical report ||
+|12| Mar 29 - Apr 1 | TBD |  ||
+|13| Apr 5-9 | Personal Websites: Blogdown |  ||
+|14| Apr 12-16 | Personal Websites: Netlify | ||
+|15| Apr 19-23 | Interactive Graphics: Shiny | Report revision ||
+|16| Apr 26-30 | Resume Building | Presentation practice ||
+|| May 3-7 |  | Presentations | | 
