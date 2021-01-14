@@ -1,6 +1,6 @@
 | Week |Dates | Course Topic | Project Component | Notes |
 |------|-----|------|------|------|
-|1| Jan 13-15| [Getting Started](/getting-started/) [Toolkit](/slides/toolkit.html) | | |
+|1| Jan 13-15| [Getting Started](/getting-started/) | | |
 |2| Jan 18-22 | Visualizing Data | | MLK: no class M |
 |3| Jan 25-29 | Cleaning Data | | |
 |4| Feb 1-5 | Missing Data | Team selection |  |
