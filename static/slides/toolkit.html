@@ -124,11 +124,211 @@ class: inverse, middle, center
 
 - We're going to work with a small (but important) subset of these!
 ---
+# Tour: R and RStudio
 
-![](/slides/toolkit_files/tour-r-rstudio.png)
+&lt;img src="rstudio_tour.png" width="3399" /&gt;
 
 ---
+#A short list of R essentials
 
+- Packages are installed with the **install.packages** function loaded with the **library** function, oner per session:
+
+
+```r
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+--
+- Columns (also called variables) in data frames are accessed with **$**:
+
+```r
+iris$Sepal.Length
+```
+--
+- Object documentation (how to ask RStudio for help) can be accessed with **?**:
+
+```r
+?plot
+```
+
+---
+#A short list of R essentials
+- The object assignment operator is denoted by **&lt;-**
+
+```r
+birth_year = 1941
+```
+
+||Windows|Mac|
+|----|----|---|--|
+|Shortcut| **Alt** + **-** | **Option** + **-**|
+
+--
+- R is case-sensitive
+
+```r
+my_age &lt;- 2020 - birth_year
+My_age
+```
+
+The code outputs an error
+---
+#A short list of R essentials
+
+- Functions are (most often) verbs, followed by what they will be applied to in parentheses:
+
+
+```r
+do(something)
+```
+
+--
+
+**do** is a function;
+
+**something** is the argument of the function.
+
+--
+
+
+```r
+do(something, wicked)
+```
+
+--
+
+**do** is a function;
+
+**something** is the first argument of the function;
+
+**wicked** is the second argument of the function.
+
+---
+#A short list of R essentials
+
+- Functions are (most often) verbs, followed by what they will be applied to in parentheses:
+
+
+
+```r
+head(iris)
+```
+
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+```
+
+
+---
+#A short list of R essentials
+
+- Functions are (most often) verbs, followed by what they will be applied to in parentheses:
+
+
+```r
+plot(iris$Sepal.Length,iris$Sepal.Width)
+```
+
+&lt;img src="toolkit_files/figure-html/unnamed-chunk-10-1.png" height="300" /&gt;
+
+---
+#tidyverse
+
+.pull-left[
+&lt;img src="tidyverse.png" width="1232" /&gt;
+]
+
+.pull-right[
+[tidyverse.org](https://www.tidyverse.org/)
+- The **tidyverse** is an opinionated collection of R packages designed for data science
+
+- All packages share an underlying philosophy and a common grammar
+]
+---
+#tidyverse_style_guide
+
+**canyoureadthissentence? WhatAboutThisOne? how_about_this_one?**
+--
+- After function names do not leave any spaces.
+
+- Before and after operators (e.g. &lt;-, =) leave spaces.
+
+- Put a space after a comma, not before.
+
+- Object names are all lower case, with words separated by an underscore.
+
+---
+#rmarkdown
+[rmarkdown.rstudio.com](rmarkdown.rstudio.com)
+- **rmarkdown** and the various packages that support it enable R users to write their code and prose in reproducible computational documents
+
+- We will generally refer to R Markdown documents (with **.Rmd** extension), e.g. "*Do this in your R Markdown document"* and rarely discuss loading the rmarkdown package
+
+---
+class: inverse, center, middle
+#R Markdown
+---
+#R Markdown
+
+- Fully reproducible reports &amp;rightarrow; each time you knit the analysis is run from the beginning
+
+- Simple markdown syntax for text
+
+- Code goes in chunks, defined by three backticks, narrative goes outside of chunks
+---
+#Tour: R Markdown
+&lt;img src="rmarkdown_tour.png" width="3359" /&gt;
+
+---
+#Environments
+
+**The environment of your R Markdown document is separate from the Console!**
+
+Remember this, and expect it to bite you a few times as you're learning to work with R Markdown!
+
+--
+
+First, run the following in the console
+
+
+```r
+x&lt;-2
+x * 3
+```
+--
+
+Then, add the following in an R chunk in your R Markdown document
+
+
+```r
+x*3
+```
+
+--
+
+What happens? Why the error?
+
+---
+#R Markdown help
+
+- R Markdown Cheatsheets
+
+    **Help &amp;rightarrow; Cheatsheets**
+    
+- Mardown Quick Reference
+
+    **Help &amp;rightarrow; Markdown Quick Reference**
+    
+- When in doubt, Google it out
+    
+    
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
