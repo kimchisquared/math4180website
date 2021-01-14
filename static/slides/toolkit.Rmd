@@ -3,7 +3,7 @@ title: 'Data Science Toolkit'
 subtitle: "using R and Git"
 institute: "University of Minnesota Duluth"
 date: "Spring 2021"
-author: "Kim Mandery"
+author: "MATH 4180"
 output:
   xaringan::moon_reader:
     lib_dir: libs
