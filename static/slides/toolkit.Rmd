@@ -1,0 +1,127 @@
+---
+title: 'Data Science Toolkit'
+subtitle: "using R and Git"
+institute: "University of Minnesota Duluth"
+date: "Spring 2021"
+author: "Kim Mandery"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# Toolkit
+.pull-left[Course Operation
+- math4180.netlify.app
+- Zoom
+- Slack
+- Canvas]
+
+--
+
+.pull-right[Programming
+- R 
+- RStudio
+- tidyverse
+- R Markdown]
+
+--
+
+.pull-right[Version control and collaboration
+- Git
+- Github]
+
+---
+class: inverse, center, middle
+
+# Programming
+
+---
+
+# Learning Goals
+
+By the end of the course, you will be able to:
+- perform data visualization, data cleaning, data augmentation and data organization
+
+- gain insight from data, reproducibly (with literate programming and version control) and collaboratively, using modern programming tools and techniques
+
+---
+class: inverse, center, middle
+
+#Reproducible data analysis
+
+---
+# Reproducibility checklist
+
+**What does it take for a data analysis to be "reproducible"?**
+
+--
+
+Short-term goals:
+- Are the tables and figures reproducible from the code and data?
+
+- Does the code actually do what you think it does?
+
+- In addition to what was done, is it clear why it was done?
+
+--
+
+
+Long-term goals:
+- Can the code be used for other data?
+
+- Can you extend the code to do other things?
+
+---
+#Toolkit for reproducibility
+
+
+- Scripting &rightarrow;**R**
+
+- Literate programming &rightarrow;   **R Markdown**
+
+- Version control &rightarrow; **Git/Github**
+
+???
+
+Notes here:
+---
+class: inverse, middle, center
+#R and RStudio
+---
+#R and RStudio
+.pull-left[
+- R is an open-source statistical **programming language**
+
+- R is also and environment for statistical computing and graphics
+
+- It is extendable to suit your needs by installing *packages*
+]
+
+--
+
+.pull-right[
+- RStudio is a convenient interface for R called an **IDE** (integrated development environment) e.g. *"I write code in the RStudio IDE"*
+
+- RStudio is not a requirement for programming with R, but it's very commonly used by R programmers and data scientists
+]
+---
+#R packages
+- **Packages** are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data
+
+- As of January 2021, there are over 16,000 R packages available on CRAN (the Comprehensive R Archive Network)
+
+- We're going to work with a small (but important) subset of these!
+---
+
+```{r}
+knitr::include_graphics("/slides/toolkit_files/tour-r-rstudio.png")
+```
+
+![](/slides/toolkit_files/tour-r-rstudio.png)
+
+---
+
