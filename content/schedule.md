@@ -1,6 +1,6 @@
 | Week |Dates | Course Topic | Project Component | Notes |
 |------|-----|------|------|------|
-|1| Jan 13-15| [Getting Started](/getting-started/) | | |
+|1| Jan 13-15| [Getting Started](/getting-started/) [Toolkit](/slides/toolkit.html) | | |
 |2| Jan 18-22 | Visualizing Data | | MLK: no class M |
 |3| Jan 25-29 | Cleaning Data | | |
 |4| Feb 1-5 | Missing Data | Team selection |  |
@@ -16,4 +16,4 @@
 |14| Apr 12-16 | Personal Websites: Netlify | ||
 |15| Apr 19-23 | Interactive Graphics: Shiny | Report revision ||
 |16| Apr 26-30 | Resume Building | Presentation practice ||
-|| May 3-7 |  | Presentations | | 
+| | May 3-7 |  | Presentations | | 
