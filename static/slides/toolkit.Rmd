@@ -125,7 +125,7 @@ knitr::include_graphics("rstudio_tour.png")
 ---
 #A short list of R essentials
 
-- Packages are installed with the **install.packages** function loaded with the **library** function, oner per session:
+- Packages are installed with the **install.packages** function loaded with the **library** function, once per session:
 
 ```{r, eval=FALSE}
 install.packages("tidyverse")
@@ -147,12 +147,19 @@ iris$Sepal.Length
 #A short list of R essentials
 - The object assignment operator is denoted by **<-**
 ```{r, eval=FALSE}
-birth_year = 1941
+birth_year <- 1941
 ```
 
 ||Windows|Mac|
 |----|----|---|--|
-|Shortcut| **Alt** + **-** | **Option** + **-**|
+|Shortcut| **Alt** + **-** | **Option** + **-**| 
+
+--
+You can also use **=** in a pinch
+
+```{r}
+birth_year = 1941
+```
 
 --
 - R is case-sensitive

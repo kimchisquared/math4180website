@@ -13,7 +13,7 @@
 class: center, middle, inverse, title-slide
 
 # Data Science Toolkit
-## using R and Git
+## using R
 ### MATH 4180
 ### University of Minnesota Duluth
 ### Spring 2021
@@ -131,7 +131,7 @@ class: inverse, middle, center
 ---
 #A short list of R essentials
 
-- Packages are installed with the **install.packages** function loaded with the **library** function, oner per session:
+- Packages are installed with the **install.packages** function loaded with the **library** function, once per session:
 
 
 ```r
@@ -157,12 +157,20 @@ iris$Sepal.Length
 - The object assignment operator is denoted by **&lt;-**
 
 ```r
-birth_year = 1941
+birth_year &lt;- 1941
 ```
 
 ||Windows|Mac|
 |----|----|---|--|
-|Shortcut| **Alt** + **-** | **Option** + **-**|
+|Shortcut| **Alt** + **-** | **Option** + **-**| 
+
+--
+You can also use **=** in a pinch
+
+
+```r
+birth_year = 1941
+```
 
 --
 - R is case-sensitive
@@ -236,7 +244,7 @@ head(iris)
 plot(iris$Sepal.Length,iris$Sepal.Width)
 ```
 
-&lt;img src="toolkit_files/figure-html/unnamed-chunk-10-1.png" height="300" /&gt;
+&lt;img src="toolkit_files/figure-html/unnamed-chunk-11-1.png" height="300" /&gt;
 
 ---
 #tidyverse
