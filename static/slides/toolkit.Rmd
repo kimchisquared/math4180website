@@ -1,6 +1,6 @@
 ---
 title: 'Data Science Toolkit'
-subtitle: "using R and Git"
+subtitle: "using R"
 institute: "University of Minnesota Duluth"
 date: "Spring 2021"
 author: "MATH 4180"
