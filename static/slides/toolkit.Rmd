@@ -237,10 +237,31 @@ knitr::include_graphics("tidyverse.png")
 ]
 ---
 #tidyverse_style_guide
+.pull-left[
+canyoureadthissentence?
 
-**canyoureadthissentence? WhatAboutThisOne? how_about_this_one?**
+WhatAboutThisOne?
+
+orThisOne? 
+
+how_about_this_one?
+]
 
 --
+
+.pull-left[
+**Variable naming conventions**
+
+- Pascalcase *VariableOne *
+
+- Camelcase *variableOne*
+
+- Snakecase *variable_one*
+]
+
+---
+#tidyverse_style_guide
+** Readable code **
 
 - After function names do not leave any spaces.
 
@@ -248,7 +269,25 @@ knitr::include_graphics("tidyverse.png")
 
 - Put a space after a comma, not before.
 
-- Object names are all lower case, with words separated by an underscore.
+- Object names are written in snakecase and are useful descriptors of the data it is holding
+
+- Use whitespace (spaces, newlines) liberally, i.e. do not *crunch* your code
+
+- Add commentary as the narrative or within large coding chunks to separate action
+
+---
+#What went wrong? What went right?
+```{r, eval=FALSE}
+plot (iris)
+
+
+myvar <- 3
+myvar= 3+myvar
+small_list <- c (1,2,3)
+
+small_list<-c("A" ,"B" ,"C")
+```
+
 
 ---
 #rmarkdown
