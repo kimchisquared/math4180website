@@ -36,4 +36,4 @@ To help organize materials, the Links section uses the following icons \
 | Sign up for Github | Use a username that is *semi* professional as we will use this platform to create personal websites later on in the semester. Post github username as a reply to your post in People | [:information:](https://github.com/) | Wed Jan 20 |
 | Add avatar and bio to Github | Optional customization. You can even use the same avatar and bio as Slack, but again, *semi* professional avatars here | | 
 | Download Git | Windows users only. If you have a Mac, installing homebrew may be beneficial | [:link:](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git/)[:link:](https://brew.sh/)  | |
-| What is the Question? | Optional Reading. Make sure to read the chart carefully. | [:book:](https://science.sciencemag.org/content/347/6228/1314.long) | |
+| Toolkit: R and Git | Slides | [:link:](/slides/toolkit.html) | |
