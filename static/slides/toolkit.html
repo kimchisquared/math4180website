@@ -311,7 +311,7 @@ Chunk 2
 
 ```r
 myvar &lt;- 3
-myvar= 3+myvar
+myvar = 4 + myvar
 ```
 Chunk 3
 
@@ -334,12 +334,12 @@ plot(iris)
 
 --
 
-Chunk 2: Rename temporary variables as **x** or **y** if single value, or **temp_list** if a list. Add spacing before/after any operations. Additionally you may change = to the assignment operator, but it is not necessary. 
+Chunk 2: Rename temporary variables as **x** or **y** if numeric value, **a** or **b** for categorical, or **temp_list** if a list. If you plan to use **x=3** multiple times, the second command should be a new variable rather than overwriting an existing variable. Overwriting may be the preferred method in some instances - we will cover this in upcoming lectures.
 
 
 ```r
 x &lt;- 3           
-x = 3 + x         
+y = 4 + x         
 ```
 
 --
