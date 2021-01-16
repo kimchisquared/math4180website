@@ -306,7 +306,7 @@ plot(iris)
 
 --
 
-Chunk 2: Rename temporary variables as **x** or **y** if single value, or **temp_list** if a list. Add spacing before/after any operations.
+Chunk 2: Rename temporary variables as **x** or **y** if single value, or **temp_list** if a list. Add spacing before/after any operations. Additionally you may change = to the assignment operator, but it is not necessary. 
 
 ```{r}
 x <- 3           
