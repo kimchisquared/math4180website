@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Vizualization</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="MATH 4180" />
+    <script src="libs/header-attrs-2.5/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Data Vizualization
+## using ggplot
+### MATH 4180
+### University of Minnesota Duluth
+### Spring 2021
+
+---
+
+#[The Pudding](https://pudding.cool/)
+digital publication that explains ideas debated in culture with visual essays
+
+[Why are K-pop groups so big?](https://pudding.cool/2020/10/kpop/)
+
+[How many high school stars make it in the NBA?](https://pudding.cool/2019/03/hype/)
+
+[How candidate diversity impacts campaign colors](https://pudding.cool/2020/08/campaign-colors/)
+---
+#Data visualizations
+
+- are graphical representations of data
+
+--
+
+- use different colors, shapes, and the coordinate system to summarize data
+
+--
+
+- tell a story
+
+--
+
+- are useful for exploring data; we call this exploratory data analysis 
+
+---
+class: inverse, middle, center
+#ggplot introduction
+---
+class: middle
+
+- This specific lecture will not necessarily show you beautiful plots.
+
+--
+
+- In this lecture we will focus on how ggplot works.
+
+--
+
+- In the next lecture we will improve the plots that we make.
+---
+# **gg**plot is based on **g**rammar of **g**raphics
+
+![](https://www2.stat.duke.edu/courses/Spring20/sta199.002/slides/img/02a/grammar-of-graphics.png)
+
+---
+# How to use ggplot
+
+If you have never used a package before you will need to install it. 
+
+--
+
+
+```r
+install.packages("ggplot2")
+```
+
+--
+
+You only ever need to do this step once. Usually I just run this command in my Console rather than put it inside my **.Rmd** file. 
+
+You can see which packages you have installed by going to Your Files, Plots, Packages panel, selecting Packages, and searching *ggplot2* in the Search bar.
+
+--
+
+You can now load the package. 
+
+--
+
+
+```r
+library(ggplot2)
+```
+
+--
+
+You need to run this command *every* time you open a file. It may be useful to keep a chunk at the beginning of your file where you store all the libraries you plan to use.
+
+---
+class:inverse, middle, center
+#Single Categorical Variable
+---
+class: middle
+
+.pull-left[
+If you could speak to R in English, how would you tell R to make this plot for you?
+
+OR
+
+If you had the data and had to draw this bar plot by hand, what would you do?
+]
+
+.pull-right[
+![](data-viz_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+]
+---
+class: middle
+
+.pull-left[
+Possible ideas
+
+- Consider the data frame
+- Count number of flowers in each **species**
+- Put **species** on x-axis
+- Put **count** on y-axis
+- Draw the bars
+]
+
+.pull-right[
+![](data-viz_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+---
+class: middle
+
+.pull-left[
+These ideas are all correct but some are not necessary in R
+
+- Consider the data frame
+- ~~Count number of flowers in each **species**~~
+- Put **species** on x-axis
+- ~~Put **count** on y-axis~~
+- Draw the bars
+
+R will do some of these steps by default. Making a bar plot with another tool might look slightly different.
+]
+
+.pull-right[
+![](data-viz_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+]
+---
+class: middle
+
+# 3 Steps of Making a Basic ggplot
+
+1. Pick dataset
+
+2. Map features onto aesthetics
+
+3. Add the geometric layer
+---
+# 1. Pick dataset
+
+.pull-left[
+
+```r
+* ggplot(iris)
+```
+]
+.pull-right[
+![](data-viz_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+]
+---
+# 2. Map features onto aesthetics
+
+.pull-left[
+
+```r
+ggplot(iris)+
+*  aes(x=Species)
+```
+]
+.pull-right[
+![](data-viz_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+]
+---
+# 3. Add the geometric layer
+
+.pull-left[
+
+```r
+ggplot(iris)+
+  aes(x=Species)+
+*  geom_bar()
+```
+]
+.pull-right[
+![](data-viz_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+]
+---
+# Overview: Single Categorical Variable
+
+1. Create a ggplot using the **iris** data frame.
+2. Map the **Species** to the x-axis.
+3. Add a layer of a bar plot.
+
+.pull-left[
+
+```r
+ggplot(iris)+
+  aes(x=Species)+
+  geom_bar()
+```
+]
+.pull-right[
+![](data-viz_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+]
+---
+class:inverse, middle, center
+#Single Numeric Variable
+---
+# Single Categorical Variable
+
+.pull-left[
+
+```r
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram()
+```
+]
+.pull-right[
+
+```
+## `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.
+```
+
+![](data-viz_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+]
+---
+# 1. Pick dataset
+
+.pull-left[
+
+```r
+* ggplot(iris)
+```
+]
+.pull-right[
+![](data-viz_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+]
+---
+# 2. Map features onto aesthetics
+
+.pull-left[
+
+```r
+ggplot(iris)+
+*  aes(x=Sepal.Length)
+```
+]
+.pull-right[
+![](data-viz_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+]
+---
+# 3. Add the geometric layer
+
+.pull-left[
+
+```r
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+*  geom_histogram()
+```
+]
+.pull-right[
+
+```
+## `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.
+```
+
+![](data-viz_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+]
+---
+#What is this warning?
+
+```
+## `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.
+```
+
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-22-1.png" height="400" /&gt;
+
+---
+#binwidth=0.5
+
+```r
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram(binwidth=.5)
+```
+
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-24-1.png" height="400" /&gt;
+---
+#binwidth=1
+
+```r
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+*  geom_histogram(binwidth=1)
+```
+
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-26-1.png" height="400" /&gt;
+---
+#binwidth=2
+
+```r
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+*  geom_histogram(binwidth=2)
+```
+
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-28-1.png" height="400" /&gt;
+---
+#binwidth=5
+
+```r
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+*  geom_histogram(binwidth=5)
+```
+
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-30-1.png" height="400" /&gt;
+
+---
+class: middle
+[There is no "best" number of bins](https://en.wikipedia.org/wiki/Histogram#Number_of_bins_and_width)
+---
+class: middle
+.pull-left[
+**Experiment!**
+
+
+```r
+sample(iris$Sepal.Length)
+count(iris$Sepal.Length)
+min(iris$Sepal.Length)
+max(iris$Sepal.Length)
+table(iris$Sepal.Length)
+plot(iris$Sepal.Length)
+```
+
+]
+
+--
+
+.pull-right[
+
+See which method you prefer to use. 
+
+Do you prefer tables? Subsets? Outliers? Plots? 
+
+Visualizing these relationships is usually the better option, but not always! Some graphics may be hard to interpret. Other times we may want to know exact values -- this is where a table can really shine.
+
+]
+---
+class: middle
+
+Pick your favorite [colors](/slides/Rcolor.pdf)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

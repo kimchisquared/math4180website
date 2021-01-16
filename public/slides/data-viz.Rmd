@@ -1,0 +1,42 @@
+---
+title: 'Data Vizualization'
+subtitle: "using ggplot"
+institute: "University of Minnesota Duluth"
+date: "Spring 2021"
+author: "MATH 4180"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+#[The Pudding](https://pudding.cool/)
+digital publication that explains ideas debated in culture with visual essays
+
+[Why are K-pop groups so big?](https://pudding.cool/2020/10/kpop/)
+
+[How many high school stars make it in the NBA?](https://pudding.cool/2019/03/hype/)
+
+[How candidate diversity impacts campaign colors](https://pudding.cool/2020/08/campaign-colors/)
+---
+#Data visualizations
+
+- are graphical representations of data
+
+- use different colors, shapes, and the coordinate system to summarize data
+
+- tell a story
+
+- are useful for exploring data
+
+---
+class: inverse, middle, center
+#ggplot introduction
+---
+This specific lecture will not necessarily show you beautiful plots.
+
+In this lecture we will focus on how ggplot works.
+
+In the next lecture we will improve the plots that we make.

@@ -1,0 +1,390 @@
+---
+title: 'Data Vizualization'
+subtitle: "using ggplot"
+institute: "University of Minnesota Duluth"
+date: "Spring 2021"
+author: "MATH 4180"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+#[The Pudding](https://pudding.cool/)
+digital publication that explains ideas debated in culture with visual essays
+
+[Why are K-pop groups so big?](https://pudding.cool/2020/10/kpop/)
+
+[How many high school stars make it in the NBA?](https://pudding.cool/2019/03/hype/)
+
+[How candidate diversity impacts campaign colors](https://pudding.cool/2020/08/campaign-colors/)
+---
+#Data visualizations
+
+- are graphical representations of data
+
+--
+
+- use different colors, shapes, and the coordinate system to summarize data
+
+--
+
+- tell a story
+
+--
+
+- are useful for exploring data; we call this exploratory data analysis 
+
+---
+class: inverse, middle, center
+#ggplot introduction
+---
+class: middle
+
+- This specific lecture will not necessarily show you beautiful plots.
+
+--
+
+- In this lecture we will focus on how ggplot works.
+
+--
+
+- In the next lecture we will improve the plots that we make.
+---
+# **gg**plot is based on **g**rammar of **g**raphics
+
+![](https://www2.stat.duke.edu/courses/Spring20/sta199.002/slides/img/02a/grammar-of-graphics.png)
+
+---
+# How to use ggplot
+
+If you have never used a package before you will need to install it. 
+
+--
+
+```{r, eval=F}
+install.packages("ggplot2")
+```
+
+--
+
+You only ever need to do this step once. Usually I just run this command in my Console rather than put it inside my **.Rmd** file. 
+
+You can see which packages you have installed by going to Your Files, Plots, Packages panel, selecting Packages, and searching *ggplot2* in the Search bar.
+
+--
+
+You can now load the package. 
+
+--
+
+```{r}
+library(ggplot2)
+```
+
+--
+
+You need to run this command *every* time you open a file. It may be useful to keep a chunk at the beginning of your file where you store all the libraries you plan to use.
+
+---
+class:inverse, middle, center
+#Single Categorical Variable
+---
+class: middle
+
+.pull-left[
+If you could speak to R in English, how would you tell R to make this plot for you?
+
+OR
+
+If you had the data and had to draw this bar plot by hand, what would you do?
+]
+
+.pull-right[
+```{r, echo=F}
+library(ggplot2)
+ggplot(iris) +
+  aes(x=Species)+
+  geom_bar()
+```
+]
+---
+class: middle
+
+.pull-left[
+Possible ideas
+
+- Consider the data frame
+- Count number of flowers in each **species**
+- Put **species** on x-axis
+- Put **count** on y-axis
+- Draw the bars
+]
+
+.pull-right[
+```{r, echo=F}
+ggplot(iris) +
+  aes(x=Species)+
+  geom_bar()
+```
+]
+---
+class: middle
+
+.pull-left[
+These ideas are all correct but some are not necessary in R
+
+- Consider the data frame
+- ~~Count number of flowers in each **species**~~
+- Put **species** on x-axis
+- ~~Put **count** on y-axis~~
+- Draw the bars
+
+R will do some of these steps by default. Making a bar plot with another tool might look slightly different.
+]
+
+.pull-right[
+```{r, echo=F}
+ggplot(iris) +
+  aes(x=Species)+
+  geom_bar()
+```
+]
+---
+class: middle
+
+# 3 Steps of Making a Basic ggplot
+
+1. Pick dataset
+
+2. Map features onto aesthetics
+
+3. Add the geometric layer
+---
+# 1. Pick dataset
+
+.pull-left[
+```{r, eval=F}
+* ggplot(iris)
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)
+```
+]
+---
+# 2. Map features onto aesthetics
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris)+
+*  aes(x=Species)
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Species)
+```
+]
+---
+# 3. Add the geometric layer
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris)+
+  aes(x=Species)+
+*  geom_bar()
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Species)+
+  geom_bar()
+```
+]
+---
+# Overview: Single Categorical Variable
+
+1. Create a ggplot using the **iris** data frame.
+2. Map the **Species** to the x-axis.
+3. Add a layer of a bar plot.
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris)+
+  aes(x=Species)+
+  geom_bar()
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Species)+
+  geom_bar()
+```
+]
+---
+class:inverse, middle, center
+#Single Numeric Variable
+---
+# Single Categorical Variable
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram()
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram()
+```
+]
+---
+# 1. Pick dataset
+
+.pull-left[
+```{r, eval=F}
+* ggplot(iris)
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)
+```
+]
+---
+# 2. Map features onto aesthetics
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris)+
+*  aes(x=Sepal.Length)
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)
+```
+]
+---
+# 3. Add the geometric layer
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+*  geom_histogram()
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram()
+```
+]
+---
+#What is this warning?
+```{r, echo=F, out.height=400}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram()
+```
+
+---
+#binwidth=0.5
+```{r, eval=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram(binwidth=.5)
+```
+
+```{r, echo=F, out.height=400}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram(binwidth=.5)
+```
+---
+#binwidth=1
+```{r, eval=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+*  geom_histogram(binwidth=1)
+```
+
+```{r, echo=F, out.height=400}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram(binwidth=1)
+```
+---
+#binwidth=2
+```{r, eval=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+*  geom_histogram(binwidth=2)
+```
+
+```{r, echo=F, out.height=400}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram(binwidth=2)
+```
+---
+#binwidth=5
+```{r, eval=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+*  geom_histogram(binwidth=5)
+```
+
+```{r, echo=F, out.height=400}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram(binwidth=5)
+```
+
+---
+class: middle
+[There is no "best" number of bins](https://en.wikipedia.org/wiki/Histogram#Number_of_bins_and_width)
+---
+class: middle
+.pull-left[
+**Experiment!**
+
+```{r, eval=F}
+sample(iris$Sepal.Length)
+count(iris$Sepal.Length)
+min(iris$Sepal.Length)
+max(iris$Sepal.Length)
+table(iris$Sepal.Length)
+plot(iris$Sepal.Length)
+```
+
+]
+
+--
+
+.pull-right[
+
+See which method you prefer to use. 
+
+Do you prefer tables? Subsets? Outliers? Plots? 
+
+Visualizing these relationships is usually the better option, but not always! Some graphics may be hard to interpret. Other times we may want to know exact values -- this is where a table can really shine.
+
+]
+---
+class: middle
+
+Pick your favorite [colors](/slides/Rcolor.pdf)
