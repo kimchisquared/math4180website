@@ -315,12 +315,12 @@ x = 3 + x
 
 --
 
-Chunk 3: Convert variables to snakecase. Delete spacing after function call.. here **c** is a function that creates a list. You will see this function pop up as the semester continues. Add spacing before and after assignment operator.
+Chunk 3: Convert variables to snakecase. Delete spacing after function call.. here **c** is a function that creates a list. You will see this function pop up as the semester continues. Add spacing before and after assignment operator, and after commas rather than before.
 
 ```{r}
 small_list <- c(1,2,3)  
                         
-small_list <- c("A" ,"B" ,"C") 
+small_list <- c("A", "B", "C") 
 ```
 
 ---
