@@ -106,7 +106,7 @@ If you had the data and had to draw this bar plot by hand, what would you do?
 ```{r, echo=F}
 library(ggplot2)
 ggplot(iris) +
-  aes(x=Species)+
+  aes(x = Species) +
   geom_bar()
 ```
 ]
@@ -126,7 +126,7 @@ Possible ideas
 .pull-right[
 ```{r, echo=F}
 ggplot(iris) +
-  aes(x=Species)+
+  aes(x = Species) +
   geom_bar()
 ```
 ]
@@ -148,7 +148,7 @@ R will do some of these steps by default. Making a bar plot with another tool mi
 .pull-right[
 ```{r, echo=F}
 ggplot(iris) +
-  aes(x=Species)+
+  aes(x = Species) +
   geom_bar()
 ```
 ]
@@ -180,8 +180,8 @@ ggplot(iris)
 
 .pull-left[
 ```{r, eval=F}
-ggplot(iris)+
-*  aes(x=Species)
+ggplot(iris) +
+*  aes(x = Species)
 ```
 ]
 .pull-right[
@@ -195,8 +195,8 @@ ggplot(iris)+
 
 .pull-left[
 ```{r, eval=F}
-ggplot(iris)+
-  aes(x=Species)+
+ggplot(iris) +
+  aes(x = Species) +
 *  geom_bar()
 ```
 ]
@@ -216,8 +216,8 @@ ggplot(iris)+
 
 .pull-left[
 ```{r, eval=F}
-ggplot(iris)+
-  aes(x=Species)+
+ggplot(iris) +
+  aes(x = Species) +
   geom_bar()
 ```
 ]
@@ -236,8 +236,8 @@ class:inverse, middle, center
 
 .pull-left[
 ```{r, eval=F}
-ggplot(iris)+
-  aes(x=Sepal.Length)+
+ggplot(iris) +
+  aes(x = Sepal.Length) +
   geom_histogram()
 ```
 ]
@@ -266,8 +266,8 @@ ggplot(iris)
 
 .pull-left[
 ```{r, eval=F}
-ggplot(iris)+
-*  aes(x=Sepal.Length)
+ggplot(iris) +
+*  aes(x = Sepal.Length)
 ```
 ]
 .pull-right[
@@ -281,15 +281,15 @@ ggplot(iris)+
 
 .pull-left[
 ```{r, eval=F}
-ggplot(iris)+
-  aes(x=Sepal.Length)+
+ggplot(iris) +
+  aes(x = Sepal.Length) +
 *  geom_histogram()
 ```
 ]
 .pull-right[
 ```{r, echo=F}
-ggplot(iris)+
-  aes(x=Sepal.Length)+
+ggplot(iris) +
+  aes(x = Sepal.Length) +
   geom_histogram()
 ```
 ]
@@ -297,7 +297,7 @@ ggplot(iris)+
 #What is this warning?
 ```{r, echo=F, out.height=400}
 ggplot(iris)+
-  aes(x=Sepal.Length)+
+  aes(x = Sepal.Length) +
   geom_histogram()
 ```
 
@@ -305,21 +305,21 @@ ggplot(iris)+
 #binwidth=0.5
 ```{r, eval=F}
 ggplot(iris)+
-  aes(x=Sepal.Length)+
-  geom_histogram(binwidth=.5)
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5)
 ```
 
 ```{r, echo=F, out.height=400}
-ggplot(iris)+
-  aes(x=Sepal.Length)+
-  geom_histogram(binwidth=.5)
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5)
 ```
 ---
 #binwidth=1
 ```{r, eval=F}
-ggplot(iris)+
-  aes(x=Sepal.Length)+
-*  geom_histogram(binwidth=1)
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+*  geom_histogram(binwidth = 1)
 ```
 
 ```{r, echo=F, out.height=400}
@@ -331,27 +331,27 @@ ggplot(iris)+
 #binwidth=2
 ```{r, eval=F}
 ggplot(iris)+
-  aes(x=Sepal.Length)+
-*  geom_histogram(binwidth=2)
+  aes(x = Sepal.Length) +
+*  geom_histogram(binwidth = 2)
 ```
 
 ```{r, echo=F, out.height=400}
-ggplot(iris)+
-  aes(x=Sepal.Length)+
-  geom_histogram(binwidth=2)
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 2)
 ```
 ---
 #binwidth=5
 ```{r, eval=F}
-ggplot(iris)+
-  aes(x=Sepal.Length)+
-*  geom_histogram(binwidth=5)
+ggplot(iris) +
+  aes(x=Sepal.Length) +
+*  geom_histogram(binwidth = 5)
 ```
 
 ```{r, echo=F, out.height=400}
-ggplot(iris)+
-  aes(x=Sepal.Length)+
-  geom_histogram(binwidth=5)
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 5)
 ```
 
 ---
@@ -388,3 +388,84 @@ Visualizing these relationships is usually the better option, but not always! So
 class: middle
 
 Pick your favorite [colors](/slides/Rcolor.pdf)
+---
+```{r, eval=F}
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+*                  fill= "coral3")
+```
+
+```{r, echo=F, out.height=400}
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+                 fill = "coral3")
+```
+
+---
+```{r, eval=F}
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+*                  color= "goldenrod4")
+```
+
+```{r, echo=F, out.height=400}
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+                 color = "goldenrod4")
+```
+
+---
+```{r, eval=F}
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+*                  fill = "coral3",
+*                  color = "goldenrod4")
+```
+
+```{r, echo=F, out.height=400}
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+                 fill = "coral3",
+                 color = "goldenrod4")
+```
+
+---
+class: inverse, middle, center
+
+# Two Categorical Variables
+---
+Stacked Bar-Plot
+ggplot(data = titanic,
+       aes(x = pclass, 
+           fill = survived)) +
+  geom_bar()
+---
+Standardized Bar Plot
+ggplot(data = titanic,
+       aes(x = pclass, 
+           fill = survived)) + 
+  geom_bar(position = "fill")
+---
+Dodged Bar Plot
+ggplot(data = titanic,
+       aes(x = pclass, 
+           fill = survived)) + 
+  geom_bar(position = "dodge")
+---
+class: inverse, middle, center
+
+# Single Categorical and a SingleNumerical Variable Together
+---
+Create a ggplot using the penguins data frame.
+Map the species to the x-axis and bill_length_mm to the y-axis.
+Add a layer of a violin plot.
+ggplot(penguins,
+       aes(x = species,
+           y = bill_length_mm))  +
+  geom_violin()

@@ -177,8 +177,8 @@ class: middle
 .pull-left[
 
 ```r
-ggplot(iris)+
-*  aes(x=Species)
+ggplot(iris) +
+*  aes(x = Species)
 ```
 ]
 .pull-right[
@@ -190,8 +190,8 @@ ggplot(iris)+
 .pull-left[
 
 ```r
-ggplot(iris)+
-  aes(x=Species)+
+ggplot(iris) +
+  aes(x = Species) +
 *  geom_bar()
 ```
 ]
@@ -208,8 +208,8 @@ ggplot(iris)+
 .pull-left[
 
 ```r
-ggplot(iris)+
-  aes(x=Species)+
+ggplot(iris) +
+  aes(x = Species) +
   geom_bar()
 ```
 ]
@@ -225,8 +225,8 @@ class:inverse, middle, center
 .pull-left[
 
 ```r
-ggplot(iris)+
-  aes(x=Sepal.Length)+
+ggplot(iris) +
+  aes(x = Sepal.Length) +
   geom_histogram()
 ```
 ]
@@ -257,8 +257,8 @@ ggplot(iris)+
 .pull-left[
 
 ```r
-ggplot(iris)+
-*  aes(x=Sepal.Length)
+ggplot(iris) +
+*  aes(x = Sepal.Length)
 ```
 ]
 .pull-right[
@@ -270,8 +270,8 @@ ggplot(iris)+
 .pull-left[
 
 ```r
-ggplot(iris)+
-  aes(x=Sepal.Length)+
+ggplot(iris) +
+  aes(x = Sepal.Length) +
 *  geom_histogram()
 ```
 ]
@@ -299,8 +299,8 @@ ggplot(iris)+
 
 ```r
 ggplot(iris)+
-  aes(x=Sepal.Length)+
-  geom_histogram(binwidth=.5)
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5)
 ```
 
 &lt;img src="data-viz_files/figure-html/unnamed-chunk-24-1.png" height="400" /&gt;
@@ -308,9 +308,9 @@ ggplot(iris)+
 #binwidth=1
 
 ```r
-ggplot(iris)+
-  aes(x=Sepal.Length)+
-*  geom_histogram(binwidth=1)
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+*  geom_histogram(binwidth = 1)
 ```
 
 &lt;img src="data-viz_files/figure-html/unnamed-chunk-26-1.png" height="400" /&gt;
@@ -319,8 +319,8 @@ ggplot(iris)+
 
 ```r
 ggplot(iris)+
-  aes(x=Sepal.Length)+
-*  geom_histogram(binwidth=2)
+  aes(x = Sepal.Length) +
+*  geom_histogram(binwidth = 2)
 ```
 
 &lt;img src="data-viz_files/figure-html/unnamed-chunk-28-1.png" height="400" /&gt;
@@ -328,9 +328,9 @@ ggplot(iris)+
 #binwidth=5
 
 ```r
-ggplot(iris)+
-  aes(x=Sepal.Length)+
-*  geom_histogram(binwidth=5)
+ggplot(iris) +
+  aes(x=Sepal.Length) +
+*  geom_histogram(binwidth = 5)
 ```
 
 &lt;img src="data-viz_files/figure-html/unnamed-chunk-30-1.png" height="400" /&gt;
@@ -370,6 +370,74 @@ Visualizing these relationships is usually the better option, but not always! So
 class: middle
 
 Pick your favorite [colors](/slides/Rcolor.pdf)
+---
+
+```r
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+*                  fill= "coral3")
+```
+
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-33-1.png" height="400" /&gt;
+
+---
+
+```r
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+*                  color= "goldenrod4")
+```
+
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-35-1.png" height="400" /&gt;
+
+---
+
+```r
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+*                  fill = "coral3",
+*                  color = "goldenrod4")
+```
+
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-37-1.png" height="400" /&gt;
+
+---
+class: inverse, middle, center
+
+# Two Categorical Variables
+---
+Stacked Bar-Plot
+ggplot(data = titanic,
+       aes(x = pclass, 
+           fill = survived)) +
+  geom_bar()
+---
+Standardized Bar Plot
+ggplot(data = titanic,
+       aes(x = pclass, 
+           fill = survived)) + 
+  geom_bar(position = "fill")
+---
+Dodged Bar Plot
+ggplot(data = titanic,
+       aes(x = pclass, 
+           fill = survived)) + 
+  geom_bar(position = "dodge")
+---
+class: inverse, middle, center
+
+# Single Categorical and a SingleNumerical Variable Together
+---
+Create a ggplot using the penguins data frame.
+Map the species to the x-axis and bill_length_mm to the y-axis.
+Add a layer of a violin plot.
+ggplot(penguins,
+       aes(x = species,
+           y = bill_length_mm))  +
+  geom_violin()
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
