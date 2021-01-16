@@ -1,6 +1,6 @@
 ---
 title: 'Data Science Toolkit'
-subtitle: "using R and Git"
+subtitle: "using R"
 institute: "University of Minnesota Duluth"
 date: "Spring 2021"
 author: "MATH 4180"
@@ -125,7 +125,7 @@ knitr::include_graphics("rstudio_tour.png")
 ---
 #A short list of R essentials
 
-- Packages are installed with the **install.packages** function loaded with the **library** function, oner per session:
+- Packages are installed with the **install.packages** function loaded with the **library** function, once per session:
 
 ```{r, eval=FALSE}
 install.packages("tidyverse")
@@ -147,12 +147,19 @@ iris$Sepal.Length
 #A short list of R essentials
 - The object assignment operator is denoted by **<-**
 ```{r, eval=FALSE}
-birth_year = 1941
+birth_year <- 1941
 ```
 
 ||Windows|Mac|
 |----|----|---|--|
-|Shortcut| **Alt** + **-** | **Option** + **-**|
+|Shortcut| **Alt** + **-** | **Option** + **-**| 
+
+--
+You can also use **=** in a pinch
+
+```{r}
+birth_year = 1941
+```
 
 --
 - R is case-sensitive
@@ -230,10 +237,31 @@ knitr::include_graphics("tidyverse.png")
 ]
 ---
 #tidyverse_style_guide
+.pull-left[
+canyoureadthissentence?
 
-**canyoureadthissentence? WhatAboutThisOne? how_about_this_one?**
+WhatAboutThisOne?
+
+orThisOne? 
+
+how_about_this_one?
+]
 
 --
+
+.pull-left[
+**Variable naming conventions**
+
+- Pascalcase *VariableOne *
+
+- Camelcase *variableOne*
+
+- Snakecase *variable_one*
+]
+
+---
+#tidyverse_style_guide
+** Readable code **
 
 - After function names do not leave any spaces.
 
@@ -241,7 +269,59 @@ knitr::include_graphics("tidyverse.png")
 
 - Put a space after a comma, not before.
 
-- Object names are all lower case, with words separated by an underscore.
+- Object names are written in snakecase and are useful descriptors of the data it is holding
+
+- Use whitespace (spaces, newlines) liberally, i.e. do not *crunch* your code
+
+- Add commentary as the narrative or within large coding chunks to separate action
+
+---
+#What went wrong? What went right?
+
+Chunk 1
+```{r, eval=FALSE}
+plot (iris)
+```
+Chunk 2
+```{r}
+myvar <- 3
+myvar= 3+myvar
+```
+Chunk 3
+```{r}
+smalllist <- c (1,2,3)
+small_list<-c("A" ,"B" ,"C")
+```
+
+
+*Using the previous slide, try to fix each chunk before going to the next slide*
+
+---
+#What went wrong? What went right?
+
+Chunk 1: Delete extra space after **plot** function.
+```{r, eval=FALSE}
+plot(iris)        
+```
+
+--
+
+Chunk 2: Rename temporary variables as **x** or **y** if single value, or **temp_list** if a list. Add spacing before/after any operations. Additionally you may change = to the assignment operator, but it is not necessary. 
+
+```{r}
+x <- 3           
+x = 3 + x         
+```
+
+--
+
+Chunk 3: Convert variables to snakecase. Delete spacing after function call.. here **c** is a function that creates a list. You will see this function pop up as the semester continues. Add spacing before and after assignment operator, and after commas rather than before.
+
+```{r}
+small_list <- c(1,2,3)  
+                        
+small_list <- c("A", "B", "C") 
+```
 
 ---
 #rmarkdown
