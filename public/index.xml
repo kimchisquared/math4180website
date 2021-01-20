@@ -29,17 +29,6 @@ This week we will be discussing what qualities makes a graphic legible and how w
     </item>
     
     <item>
-      <title>Week 2: Intro to Visualizing Data</title>
-      <link>/data-viz-intro/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/data-viz-intro/</guid>
-      <description>Grammar of Graphics &amp;amp; ggplot
-This week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics.
-    Tasks Notes Links Due         Data Viz: intro Slides 🔗   Reading from MSDR book Chapter 2: Data visualization. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the Resources channel in Slack    Exercise Using the in-class exercise as a guide, answer the same questions but pick one of the visual essays from The Pudding.</description>
-    </item>
-    
-    <item>
       <title>Week 3: Cleaning Data</title>
       <link>/data-clean/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
