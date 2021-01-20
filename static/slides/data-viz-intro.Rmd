@@ -1,6 +1,5 @@
 ---
 title: 'Intro to Data Vizualization'
-subtitle: "using ggplot"
 institute: "University of Minnesota Duluth"
 date: "Spring 2021"
 author: "MATH 4180"
@@ -14,35 +13,54 @@ output:
 ---
 #Recap: Why data science?
 
----
-- While programming is useful and I am excited to improve my coding skills, it’s comforting to know I don’t need to be an expert at it in order to succeed in this course and in the world of data science. 
+--
+- don' need to be an expert at it in order to succeed in this course and in the world of data science. 
+
 - all students (or anyone) can benefit from "awareness and competence" in data science
+--
 
 - With data science drawing from so many different fields (CS, Statistics, Data Expert, Mathematics, Modeling), where does one start his/her studies to actually become a data scientist and be fluent within the field?
 
-- "operations" the authors were referring to when describing coding and wheter we should think about these "operations" in more of a mathematical sense or a computer science sense
+--
 
-- What is the scientific goal? Do we have the relevant data to reach this goal? What do we want to predict? If we aren’t asking the right questions from the start, we will never find the outcomes that we are looking for.
-- it is so important to make sure that you are looking at the right data, because anyone can just take numbers and put them in a graph but then the graph will not have a story so you have to make sure that you are asking and answering the right questions to be helpful.
+- What is the scientific goal? Do we have the relevant data to reach this goal? What do we want to predict? If we aren't asking the right questions from the start, we will never find the outcomes that we are looking for.
 
-- further discussion about the future of statistics. As we move away from computational methods, and increase our emphasis on technological processes, what is next for statistics as a field? Will the methods and tests still be considered viable tools when most of the data is observed, and not random?
-- more detail about the future of statistics since they seemed to imply that the field is becoming obsolete with modern technology and overflow of data. 
+- It is so important to make sure that you are looking at the right data, because anyone can just take numbers and put them in a graph but then the graph will not have a story so you have to make sure that you are asking and answering the right questions to be helpful.
 
-- My question is based on the rapid advancements in data science – and continued collection of large sums of data. What are the next steps in the data revolution? I feel like we are very naïve to the possibilities that could happen past our lifetimes.
+---
+#Recap: Why data science?
 
-- broadly summarize commonly employed data tools.
+- Further discussion about the future of statistics. As we move away from computational methods, and increase our emphasis on technological processes, what is next for statistics as a field? Will the methods and tests still be considered viable tools when most of the data is observed, and not random?
+
+- More detail about the future of statistics since they seemed to imply that the field is becoming obsolete with modern technology and overflow of data. 
+
+- What are the next steps in the data revolution? I feel like we are very naïve to the possibilities that could happen past our lifetimes.
+
+---
+#Recap: Why data science?
+
+- Broadly summarize commonly employed data tools.
+
+--
 
 - An example of this would be taking race, gender, and social status into consideration when "scoring" individuals for how well they perform a task. We all need to be mindful that just because we have all of this information, it does not mean that it is morally right to use it in every instance.
 
-- I am wondering, do the original researchers have to give permission for their data to be publicly used? Or once the information is out there, is it free game?
+--
 
-- will we be working with sports data at all this semester?
-- sabermetrics. It is stated that the first analysts used a spreadsheet but I am curious as to how they read the spreadsheet or if they used any statistical tests. Or rather, did they just look at basic computations such as averages?
+- Do the original researchers have to give permission for their data to be publicly used? Or once the information is out there, is it free game?
+
+--
+
+- Will we be working with sports data at all this semester
+
+- It is stated that the first analysts used a spreadsheet but I am curious as to how they read the spreadsheet or if they used any statistical tests. Or rather, did they just look at basic computations such as averages?
+
 ---
-#[The Pudding](https://pudding.cool/)
-digital publication that explains ideas debated in culture with visual essays
+class:middle
+[The Pudding](https://pudding.cool/) is a digital publication that explains ideas debated in culture with visual essays
 
-> ""
+> "Visual essays are an emerging form of journalism. Some of the most complex, debated topics get lost in “too long; didn’t read” 10,000-word articles. Visual storytelling makes ideas more accessible—or so goes the adage “a picture is worth a thousand words.”"
+
 
 
 [Why are K-pop groups so big?](https://pudding.cool/2020/10/kpop/)
@@ -68,31 +86,127 @@ digital publication that explains ideas debated in culture with visual essays
 - are useful for exploring data; we call this exploratory data analysis 
 
 ---
-class: center
-```{r, echo=F}
-knitr::include_url("http://mdsr-book.github.io/exercises.html#exercise_23")
-```
+# Data Viz Exercise
+
+--
+
+Supplemental [Exercise 3](http://mdsr-book.github.io/exercises.html#Exercise_23): Choose one of the data graphics listed below and answer the following questions. Choose one group member to **post your response to the *in-class* Slack channel**. You can tag your group members by doing the @ symbol and then typing their name(s). Be sure to include (or link to) the graphic you choose within your post.
+
+--
+
+.pull-left[
+- Identify the visual cues, coordinate system, and scale(s).
+- How many variables are depicted in the graphic? Explicitly link each variable to a visual cue that you listed above.
+- Critique this data graphic using the taxonomy described in this chapter.
+]
+.pull-right[
+- [Who does not Pay Income Tax?](https://thefuturebuzz.com/2012/09/19/simplicity-with-data-visualization-is-still-best)
+- [World’s Top 10 Best Selling Cigarette Brands, 2004-2007
+](https://www.vizwiz.com/2009/12/simple-is-better.html)
+- [NBA Playoff Rings](https://champsring.com/products/pro-basketball-2013)
+- [UK University Rankings](https://static.guim.co.uk/sys-images/Guardian/Pix/maps_and_graphs/2010/9/7/1283876186403/Top-universities-graphic-001.jpg)
+- [Relationship between ages and psychosocial maturity](http://ars.els-cdn.com/content/image/1-s2.0-S1043276005002602-gr2.jpg)
+]
 
 ---
 class: inverse, middle, center
-#data set structure
+# what is in a dataset?
 ---
-each row is a observation
-each column is a variable
+#data set structure
 
+- each row is an **observation**
+- each column is a **variable**
 
-nrow()
-ncol()
-dim()
-glimpse()
-?
+--
+
+```{r}
+iris
+```
+
+---
+#data set structure
+
+View the data:
+
+```{r, eval=F}
+View(iris)
+```
+
+--
+
+Put the data into your Environment:
+
+```{r, eval=F}
+data(iris)
+```
+
+--
+
+Take a glimpse at the data:
+
+```{r, eval=F}
+library(tidyverse)
+glimpse(iris)
+```
+
+This command requires the **tidyverse** library but essentially does what the **data()** function lets you do. The benefit is you get a table output.
+
+---
+How many rows and columns does this dataset have? What does each row represent? What does each column represent?
+
+```{r}
+?iris
+```
+
+---
+How many rows and columns does this dataset have?
+
+```{r}
+nrow(iris)
+ncol(iris)
+dim(iris)
+```
+
 
 ---
 class: inverse, middle, center
 #exporatory data analysis
 ---
-summary()
-plot()
+# what is eda?
+- Exploratory data analysis (EDA) is an approach to analysing data sets to summarize its main characteristics
+
+- Often, this is visual -- this is what we'll focus on first
+
+- But we might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of the analysis -- this is what we'll focus on next week
+
+---
+#exporatory data analysis
+
+```{r}
+summary(iris)
+```
+
+---
+#exporatory data analysis
+```{r}
+plot(iris$Sepal.Length)
+```
+
+---
+class: inverse, middle, center
+#data visualization
+---
+#data vizualisation
+
+>"The simple graph has brought more information to the data analyst's mind than any other device." 
+>
+>--- John Tukey
+
+- Data visualization is the creation and study of the visual representation of data
+
+- Many tools for visualizing data -- R is one of them. 
+
+- Many approaches/systems within R for making data visualizations -- **ggplot2** is one of them, and that's what we're going to use
 ---
 class: inverse, middle, center
 #ggplot introduction
