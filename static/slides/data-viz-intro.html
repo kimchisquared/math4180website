@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Cleaning Data</title>
+    <title>Intro to Data Vizualization</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Kim Mandery" />
+    <meta name="author" content="MATH 4180" />
     <script src="libs/header-attrs-2.5/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
@@ -12,37 +12,98 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Cleaning Data
-## using R
-### Kim Mandery
-### UMD
+# Intro to Data Vizualization
+## using ggplot
+### MATH 4180
+### University of Minnesota Duluth
 ### Spring 2021
 
 ---
 
+#[The Pudding](https://pudding.cool/)
+digital publication that explains ideas debated in culture with visual essays
 
-class: center, middle
+[Why are K-pop groups so big?](https://pudding.cool/2020/10/kpop/)
 
-# Code
+[How many high school stars make it in the NBA?](https://pudding.cool/2019/03/hype/)
+
+[How candidate diversity impacts campaign colors](https://pudding.cool/2020/08/campaign-colors/)
+---
+#data visualizations
+
+- are graphical representations of data
+
+--
+
+- use different colors, shapes, and the coordinate system to summarize data
+
+--
+
+- tell a story
+
+--
+
+- are useful for exploring data; we call this exploratory data analysis 
 
 ---
-class: inverse, center, middle
+class: inverse, middle, center
+#data set structure
+---
+each row is a observation
+each column is a variable
 
-# Topic Slide
+nrow()
+ncol()
+dim()
+glimpse()
+?
 
 ---
+class: inverse, middle, center
+#exporatory data analysis
+---
+summary()
+plot()
+---
+class: inverse, middle, center
+#ggplot introduction
 
-# Hello World
+# **gg**plot is based on **g**rammar of **g**raphics
 
-Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
+![](https://www2.stat.duke.edu/courses/Spring20/sta199.002/slides/img/02a/grammar-of-graphics.png)
+
+---
+# how to use ggplot
+
+If you have never used a package before you will need to install it. 
+
+--
 
 
 ```r
-devtools::install_github("yihui/xaringan")
+install.packages("ggplot2")
 ```
 
 --
 
+You only ever need to do this step once. Usually I just run this command in my Console rather than put it inside my **.Rmd** file. 
+
+You can see which packages you have installed by going to Your Files, Plots, Packages panel, selecting Packages, and searching *ggplot2* in the Search bar.
+
+--
+
+You can now load the package. 
+
+--
+
+
+```r
+library(ggplot2)
+```
+
+--
+
+You need to run this command *every* time you open a file. It may be useful to keep a chunk at the beginning of your file where you store all the libraries you plan to use.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
