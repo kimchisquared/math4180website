@@ -14,7 +14,7 @@ output:
 #Recap: Why data science?
 
 --
-- don' need to be an expert at it in order to succeed in this course and in the world of data science. 
+- don't need to be an expert at it in order to succeed in this course and in the world of data science. 
 
 - all students (or anyone) can benefit from "awareness and competence" in data science
 --

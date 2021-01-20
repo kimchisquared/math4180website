@@ -1,6 +1,6 @@
 ---
 title: 'Week 2: Intro to Visualizing Data'
-slug: data-viz
+slug: data-viz-intro
 weight: 20
 ---
 
