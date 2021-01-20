@@ -5,12 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>MATH 4180</title>
+<title>Week 2: Intro to Visualizing Data | MATH 4180</title>
 
 <meta name="keywords" content="" />
-<meta name="description" content="   Week Dates Course Topic Project Component Notes     1 Jan 13-15 Getting Started     2 Jan 18-22 Visualizing Data  MLK: no class M   3 Jan 25-29 Cleaning Data     4 Feb 1-5 Missing Data Team selection    5 Feb 8-12 Ethical Data Submit management timeline    6 Feb 15-19 Modeling: Linear     7 Feb 22-26 Modeling: Classification     8 Mar 1-5 Modeling: Evaluation Metrics Deadline for submission    9 Mar 8-12 Data Storytelling  Spring Break: no class MTu   10 Mar 15-19 TBD     11 Mar 22-26 TBD Begin technical report    12 Mar 29 - Apr 1 TBD     13 Apr 5-9 Personal Websites: Blogdown     14 Apr 12-16 Personal Websites: Netlify     15 Apr 19-23 Interactive Graphics: Shiny Report revision    16 Apr 26-30 Resume Building Presentation practice     May 3-7  Presentations     ">
+<meta name="description" content="Grammar of Graphics &amp; ggplot
+This week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics.
+    Tasks Notes Links Due         Data Viz: intro Slides 🔗   Reading from MSDR book Chapter 2: Data visualization. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the Resources channel in Slack    Exercise Using the in-class exercise as a guide, answer the same questions but pick one of the visual essays from The Pudding.">
 <meta name="author" content="">
-<link rel="canonical" href="/schedule/" />
+<link rel="canonical" href="/data-viz-intro/" />
 <link href="/assets/css/stylesheet.min.d070982e74499bfc7e365ce059942e04be78ff23f45ff9cd1e58831f2cc279c7.css" integrity="sha256-0HCYLnRJm/x&#43;NlzgWZQuBL54/yP0X/nNHliDHyzCecc=" rel="preload stylesheet"
     as="style">
 
@@ -24,33 +26,37 @@
 <meta name="generator" content="Hugo 0.80.0" />
 
 
-<meta property="og:title" content="" />
-<meta property="og:description" content="   Week Dates Course Topic Project Component Notes     1 Jan 13-15 Getting Started     2 Jan 18-22 Visualizing Data  MLK: no class M   3 Jan 25-29 Cleaning Data     4 Feb 1-5 Missing Data Team selection    5 Feb 8-12 Ethical Data Submit management timeline    6 Feb 15-19 Modeling: Linear     7 Feb 22-26 Modeling: Classification     8 Mar 1-5 Modeling: Evaluation Metrics Deadline for submission    9 Mar 8-12 Data Storytelling  Spring Break: no class MTu   10 Mar 15-19 TBD     11 Mar 22-26 TBD Begin technical report    12 Mar 29 - Apr 1 TBD     13 Apr 5-9 Personal Websites: Blogdown     14 Apr 12-16 Personal Websites: Netlify     15 Apr 19-23 Interactive Graphics: Shiny Report revision    16 Apr 26-30 Resume Building Presentation practice     May 3-7  Presentations     " />
+<meta property="og:title" content="Week 2: Intro to Visualizing Data" />
+<meta property="og:description" content="Grammar of Graphics &amp; ggplot
+This week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics.
+    Tasks Notes Links Due         Data Viz: intro Slides 🔗   Reading from MSDR book Chapter 2: Data visualization. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the Resources channel in Slack    Exercise Using the in-class exercise as a guide, answer the same questions but pick one of the visual essays from The Pudding." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/schedule/" />
+<meta property="og:url" content="/data-viz-intro/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="   Week Dates Course Topic Project Component Notes     1 Jan 13-15 Getting Started     2 Jan 18-22 Visualizing Data  MLK: no class M   3 Jan 25-29 Cleaning Data     4 Feb 1-5 Missing Data Team selection    5 Feb 8-12 Ethical Data Submit management timeline    6 Feb 15-19 Modeling: Linear     7 Feb 22-26 Modeling: Classification     8 Mar 1-5 Modeling: Evaluation Metrics Deadline for submission    9 Mar 8-12 Data Storytelling  Spring Break: no class MTu   10 Mar 15-19 TBD     11 Mar 22-26 TBD Begin technical report    12 Mar 29 - Apr 1 TBD     13 Apr 5-9 Personal Websites: Blogdown     14 Apr 12-16 Personal Websites: Netlify     15 Apr 19-23 Interactive Graphics: Shiny Report revision    16 Apr 26-30 Resume Building Presentation practice     May 3-7  Presentations     "/>
+<meta name="twitter:title" content="Week 2: Intro to Visualizing Data"/>
+<meta name="twitter:description" content="Grammar of Graphics &amp; ggplot
+This week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics.
+    Tasks Notes Links Due         Data Viz: intro Slides 🔗   Reading from MSDR book Chapter 2: Data visualization. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the Resources channel in Slack    Exercise Using the in-class exercise as a guide, answer the same questions but pick one of the visual essays from The Pudding."/>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "",
-  "name": "",
-  "description": "   Week Dates Course Topic Project Component Notes     1 Jan 13-15 Getting Started     2 Jan 18-22 Visualizing Data  MLK: no class M   3 Jan 25-29 Cleaning Data     4 Feb 1-5 …",
+  "headline": "Week 2: Intro to Visualizing Data",
+  "name": "Week 2: Intro to Visualizing Data",
+  "description": "Grammar of Graphics \u0026amp;amp; ggplot\nThis week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics. …",
   "keywords": [
     
   ],
-  "articleBody": "   Week Dates Course Topic Project Component Notes     1 Jan 13-15 Getting Started     2 Jan 18-22 Visualizing Data  MLK: no class M   3 Jan 25-29 Cleaning Data     4 Feb 1-5 Missing Data Team selection    5 Feb 8-12 Ethical Data Submit management timeline    6 Feb 15-19 Modeling: Linear     7 Feb 22-26 Modeling: Classification     8 Mar 1-5 Modeling: Evaluation Metrics Deadline for submission    9 Mar 8-12 Data Storytelling  Spring Break: no class MTu   10 Mar 15-19 TBD     11 Mar 22-26 TBD Begin technical report    12 Mar 29 - Apr 1 TBD     13 Apr 5-9 Personal Websites: Blogdown     14 Apr 12-16 Personal Websites: Netlify     15 Apr 19-23 Interactive Graphics: Shiny Report revision    16 Apr 26-30 Resume Building Presentation practice     May 3-7  Presentations     ",
-  "wordCount" : "118",
+  "articleBody": "   Grammar of Graphics \u0026 ggplot\nThis week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics.\n    Tasks Notes Links Due         Data Viz: intro Slides 🔗   Reading from MSDR book Chapter 2: Data visualization. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the Resources channel in Slack    Exercise Using the in-class exercise as a guide, answer the same questions but pick one of the visual essays from The Pudding. Post your response in the in-class channel on Slack. Include the link to the visual essay you chose. 🔗   Reading from R for DS book Section 2.5. Text on Markdown shortcuts. Create an .Rmd titled markdown_basics and try these commands out using a dataset of your choice (you may use the built-in iris data set). 📖   Reading from R for DS book Section 2.6 (skip 2.6.2: tables). Text on Markdown code chunks and plots. Try these commands out in your markdown_basics.Rmd file. 📖   top 10 do and don’t for charts Optional Reading 🔗     ",
+  "wordCount" : "189",
   "inLanguage": "en",
   "datePublished": "0001-01-01T00:00:00Z",
   "dateModified": "0001-01-01T00:00:00Z",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/schedule/"
+    "@id": "/data-viz-intro/"
   },
   "publisher": {
     "@type": "Organization",
@@ -130,7 +136,7 @@
             </li>
             <li>
                 <a href="/schedule/" title="Schedule">
-                    <span class="active">Schedule</span>
+                    <span>Schedule</span>
                 </a>
             </li>
             <li>
@@ -146,7 +152,7 @@
 <article class="post-single">
   <header class="post-header">
     <h1 class="post-title">
-      
+      Week 2: Intro to Visualizing Data
     </h1>
     <div class="post-description">
       
@@ -157,134 +163,73 @@
   </header> 
 
   <div class="post-content">
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p><strong>Grammar of Graphics &amp; ggplot</strong><br />
+<br />
+This week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics.<br />
+<br />
+</p>
 <table>
+<colgroup>
+<col width="25%" />
+<col width="41%" />
+<col width="19%" />
+<col width="12%" />
+</colgroup>
 <thead>
-<tr>
-<th>Week</th>
-<th>Dates</th>
-<th>Course Topic</th>
-<th>Project Component</th>
+<tr class="header">
+<th>Tasks</th>
 <th>Notes</th>
+<th>Links</th>
+<th>Due</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>1</td>
-<td>Jan 13-15</td>
-<td><a href="/getting-started/">Getting Started</a></td>
+<tr class="odd">
+<td></td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td>2</td>
-<td>Jan 18-22</td>
-<td><a href="/data-viz-intro/">Visualizing Data</a></td>
+<tr class="even">
+<td>Data Viz: intro</td>
+<td>Slides</td>
+<td><a href="/slides/data-viz-intro.html">🔗</a></td>
 <td></td>
-<td>MLK: no class M</td>
 </tr>
-<tr>
-<td>3</td>
-<td>Jan 25-29</td>
-<td>Cleaning Data</td>
+<tr class="odd">
+<td>Reading from MSDR book</td>
+<td>Chapter 2: Data visualization. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the Resources channel in Slack</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td>4</td>
-<td>Feb 1-5</td>
-<td>Missing Data</td>
-<td>Team selection</td>
+<tr class="even">
+<td>Exercise</td>
+<td>Using the in-class exercise as a guide, answer the same questions but pick one of the visual essays from <a href="https://pudding.cool/">The Pudding</a>. Post your response in the <em>in-class</em> channel on Slack. Include the link to the visual essay you chose.</td>
+<td><a href="http://mdsr-book.github.io/exercises.html#exercise_23">🔗</a></td>
 <td></td>
 </tr>
-<tr>
-<td>5</td>
-<td>Feb 8-12</td>
-<td>Ethical Data</td>
-<td>Submit management timeline</td>
+<tr class="odd">
+<td>Reading from R for DS book</td>
+<td>Section 2.5. Text on Markdown shortcuts. Create an <strong>.Rmd</strong> titled <em>markdown_basics</em> and try these commands out using a dataset of your choice (you may use the built-in <strong>iris</strong> data set).</td>
+<td><a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">📖</a></td>
 <td></td>
 </tr>
-<tr>
-<td>6</td>
-<td>Feb 15-19</td>
-<td>Modeling: Linear</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>7</td>
-<td>Feb 22-26</td>
-<td>Modeling: Classification</td>
-<td></td>
+<tr class="even">
+<td>Reading from R for DS book</td>
+<td>Section 2.6 (skip 2.6.2: tables). Text on Markdown code chunks and plots. Try these commands out in your <em>markdown_basics.Rmd</em> file.</td>
+<td><a href="https://bookdown.org/yihui/rmarkdown/r-code.html">📖</a></td>
 <td></td>
 </tr>
-<tr>
-<td>8</td>
-<td>Mar 1-5</td>
-<td>Modeling: Evaluation Metrics</td>
-<td>Deadline for submission</td>
-<td></td>
-</tr>
-<tr>
-<td>9</td>
-<td>Mar 8-12</td>
-<td>Data Storytelling</td>
-<td></td>
-<td>Spring Break: no class MTu</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Mar 15-19</td>
-<td>TBD</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>11</td>
-<td>Mar 22-26</td>
-<td>TBD</td>
-<td>Begin technical report</td>
-<td></td>
-</tr>
-<tr>
-<td>12</td>
-<td>Mar 29 - Apr 1</td>
-<td>TBD</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>13</td>
-<td>Apr 5-9</td>
-<td>Personal Websites: Blogdown</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>14</td>
-<td>Apr 12-16</td>
-<td>Personal Websites: Netlify</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>15</td>
-<td>Apr 19-23</td>
-<td>Interactive Graphics: Shiny</td>
-<td>Report revision</td>
-<td></td>
-</tr>
-<tr>
-<td>16</td>
-<td>Apr 26-30</td>
-<td>Resume Building</td>
-<td>Presentation practice</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>May 3-7</td>
-<td></td>
-<td>Presentations</td>
+<tr class="odd">
+<td>top 10 do and don’t for charts</td>
+<td>Optional Reading</td>
+<td><a href="https://guides.lib.uci.edu/datavis/do">🔗</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -311,6 +256,8 @@
 
 
 
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {
         if (localStorage.getItem("menu-scroll-position")) {

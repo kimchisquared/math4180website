@@ -1,0 +1,567 @@
+---
+title: 'Data Vizualization using ggplot'
+subtitle: "Part 1"
+institute: "University of Minnesota Duluth"
+date: "Spring 2021"
+author: "MATH 4180"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+class:inverse, middle, center
+#single categorical variable
+---
+class: middle
+
+.pull-left[
+If you could speak to R in English, how would you tell R to make this plot for you?
+
+OR
+
+If you had the data and had to draw this bar plot by hand, what would you do?
+]
+
+.pull-right[
+```{r, echo=F}
+library(ggplot2)
+ggplot(iris) +
+  aes(x = Species) +
+  geom_bar()
+```
+]
+---
+class: middle
+
+.pull-left[
+Possible ideas
+
+- Consider the data frame
+- Count number of flowers in each **species**
+- Put **species** on x-axis
+- Put **count** on y-axis
+- Draw the bars
+]
+
+.pull-right[
+```{r, echo=F}
+ggplot(iris) +
+  aes(x = Species) +
+  geom_bar()
+```
+]
+---
+class: middle
+
+.pull-left[
+These ideas are all correct but some are not necessary in R
+
+- Consider the data frame
+- ~~Count number of flowers in each **species**~~
+- Put **species** on x-axis
+- ~~Put **count** on y-axis~~
+- Draw the bars
+
+R will do some of these steps by default. Making a bar plot with another tool might look slightly different.
+]
+
+.pull-right[
+```{r, echo=F}
+ggplot(iris) +
+  aes(x = Species) +
+  geom_bar()
+```
+]
+---
+class: middle
+
+# 3 steps of making a basic ggplot
+
+1. Pick dataset
+
+2. Map features onto aesthetics
+
+3. Add the geometric layer
+---
+# 1. pick dataset
+
+.pull-left[
+```{r, eval=F}
+* ggplot(iris)
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)
+```
+]
+---
+# 2. Map features onto aesthetics
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris) +
+*  aes(x = Species)
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Species)
+```
+]
+---
+# 3. Add the geometric layer
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris) +
+  aes(x = Species) +
+*  geom_bar()
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Species)+
+  geom_bar()
+```
+]
+---
+# Overview: Single Categorical Variable
+
+1. Create a ggplot using the **iris** data frame.
+2. Map the **Species** to the x-axis.
+3. Add a layer of a bar plot.
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris) +
+  aes(x = Species) +
+  geom_bar()
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Species)+
+  geom_bar()
+```
+]
+---
+class:inverse, middle, center
+#Single Numeric Variable
+---
+# Single Numerical Variable
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram()
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram()
+```
+]
+---
+# 1. Pick dataset
+
+.pull-left[
+```{r, eval=F}
+* ggplot(iris)
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)
+```
+]
+---
+# 2. Map features onto aesthetics
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris) +
+*  aes(x = Sepal.Length)
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris)+
+  aes(x=Sepal.Length)
+```
+]
+---
+# 3. Add the geometric layer
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+*  geom_histogram()
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram()
+```
+]
+---
+#What is this warning?
+```{r, echo=F, out.height=400}
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram()
+```
+
+---
+#binwidth=5
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris) +
+  aes(x=Sepal.Length) +
+*  geom_histogram(binwidth = 5)
+```
+]
+.pull-right[
+```{r, echo=F, out.height=400}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 5)
+```
+]
+---
+#binwidth=2
+.pull-left[
+```{r, eval=F}
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+*  geom_histogram(binwidth = 2)
+```
+]
+.pull-right[
+```{r, echo=F, out.height=400}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 2)
+```
+]
+
+---
+#binwidth=0.5
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris)+
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5)
+```
+]
+.pull-right[
+```{r, echo=F, out.height=400}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5)
+```
+]
+---
+#binwidth=1
+.pull-left[
+```{r, eval=F}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+*  geom_histogram(binwidth = 1)
+```
+]
+.pull-right[
+```{r, echo=F, out.height=400}
+ggplot(iris)+
+  aes(x=Sepal.Length)+
+  geom_histogram(binwidth=1)
+```
+]
+
+---
+class: middle
+[There is no "best" number of bins](https://en.wikipedia.org/wiki/Histogram#Number_of_bins_and_width)
+---
+class: middle 
+
+.pull-left[
+**Experiment!**
+
+
+```{r, eval=F}
+sample(iris$Sepal.Length, 10)
+count(iris$Sepal.Length)
+min(iris$Sepal.Length)
+max(iris$Sepal.Length)
+table(iris$Sepal.Length)
+plot(iris$Sepal.Length)
+```
+
+]
+
+--
+.pull-right[
+See which method you prefer to use. Do you prefer tables? Subsets? Outliers? Plots? 
+
+Visualizing these relationships is usually the better option, but not always! Some graphics may be hard to interpret. Other times we may want to know exact values -- this is where a table can really shine.
+
+]
+---
+class: middle
+
+Pick your favorite [colors](/slides/Rcolor.pdf)
+---
+class:middle
+
+
+```{r, eval=F}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+*                  fill = "coral3")
+```
+
+.pull-right[
+```{r, echo=F, out.height=400}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+                 fill = "coral3")
+```
+]
+---
+class: middle
+
+
+```{r, eval=F}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+*                  color= "goldenrod4")
+```
+
+.pull-right[
+```{r, echo=F, out.height = 400}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+                 color = "goldenrod4")
+```
+]
+---
+class: middle
+
+
+```{r, eval=F}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+*                  fill = "coral3",
+*                  color = "goldenrod4")
+```
+
+.pull-right[
+```{r, echo=F, out.height = 400}
+ggplot(iris) +
+  aes(x = Sepal.Length) +
+  geom_histogram(binwidth = 0.5,
+                 fill = "coral3",
+                 color = "goldenrod4")
+```
+]
+---
+
+class: inverse, middle, center
+
+# Two Categorical Variables
+
+---
+# Stacked Bar-Plot
+.pull-left[
+```{r, eval=F}
+ggplot(data = iris) +
+  aes(x = Species, 
+*      fill = Sepal.Length > 5) +
+  geom_bar()
+```
+]
+.pull-right[
+```{r, echo=F, out.width=400}
+ggplot(data = iris) +
+  aes(x = Species, 
+      fill = Sepal.Length > 5) +
+  geom_bar() 
+```
+]
+---
+#Standardized Bar Plot
+.pull-left[
+```{r, eval=F}
+ggplot(data = iris) +
+  aes(x = Species, 
+      fill = Sepal.Length > 5) +
+*  geom_bar(position = "fill")
+```
+]
+.pull-right[
+```{r, echo=F, out.width=400}
+ggplot(data = iris) +
+  aes(x = Species, 
+      fill = Sepal.Length > 5) +
+  geom_bar(position = "fill")
+```
+]
+---
+class: middle
+Those two plots looked the same... in which instance would they be different?
+
+Hint: what is going on with the y-axis?
+
+---
+#Dodged Bar Plot
+.pull-left[
+```{r, eval=F}
+ggplot(data = iris)  +
+  aes(x = Species,
+      fill = Sepal.Length > 5) + 
+*  geom_bar(position = "dodge")
+```
+]
+.pull-right[
+```{r, echo=F, out.width=400}
+ggplot(data = iris)  +
+  aes(x = Species,
+      fill = Sepal.Length > 5) + 
+  geom_bar(position = "dodge")
+```
+]
+---
+class: inverse, middle, center
+# Single Categorical and a Single Numerical Variable 
+
+---
+# Single Categorical, Single Numerical
+
+.pull-left[
+1. Create a ggplot using **iris** data frame
+2. Map the **Species** to x-axis and **Sepal.Length** to y-axis
+3. Add layer of violin plot
+]
+--
+.pull-right[
+```{r, eval = F}
+ggplot(data = iris) +
+  aes(x = Species,
+      y = Sepal.Length)  +
+*  geom_violin()
+```
+]
+
+---
+
+.pull-left[
+```{r, echo = F, out.width=400, out.height=400}
+ggplot(data = iris) +
+  aes(x = Species,
+      y = Sepal.Length)  +
+  geom_violin() +
+  labs(title = "Violin plot")
+```
+]
+
+--
+
+.pull-right[
+```{r, echo=F, out.width=400, out.height=400}
+ggplot(data = iris) +
+  aes (x = Sepal.Length) +
+  geom_bar() +
+  coord_flip() +
+  facet_wrap(~Species)+
+  labs(title = "Bar plot with facet wrap")
+```
+]
+
+--
+
+.pull-left[
+```{r, eval=F}
+ggplot(data = iris) +
+  aes(x = Species,
+      y = Sepal.Length)  +
+  geom_violin() +
+  labs(title = "Violin plot")
+```
+]
+
+.pull-right[
+```{r, eval=F}
+ggplot(data = iris) +
+  aes (x = Sepal.Length) +
+  geom_bar() +
+  coord_flip() +
+  facet_wrap(~Species)+
+  labs(title = "Bar plot with facet wrap")
+```
+]
+---
+class:middle, center, inverse
+#Two Numerical Variables
+---
+class: middle
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris) + 
+  aes(x = Sepal.Length,
+      y = Sepal.Width,
+      color = Species) +
+  geom_point()
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris) + 
+  aes(x = Sepal.Length,
+      y = Sepal.Width,
+      color = Species) +
+  geom_point()
+```
+]
+---
+class:inverse, middle, center
+#More than Two Categorical Variables
+---
+class: middle
+
+.pull-left[
+```{r, eval=F}
+ggplot(iris) + 
+  aes(x = Sepal.Length) +
+  aes(y = Sepal.Width) +
+  geom_point()
+```
+]
+.pull-right[
+```{r, echo=F}
+ggplot(iris) + 
+  aes(x = Sepal.Length) +
+  aes(y = Sepal.Width) +
+  geom_point()
+```
+]
