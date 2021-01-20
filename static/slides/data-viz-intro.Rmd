@@ -245,3 +245,16 @@ library(ggplot2)
 --
 
 You need to run this command *every* time you open a file. It may be useful to keep a chunk at the beginning of your file where you store all the libraries you plan to use.
+---
+# R Markdown
+
+New File
+- File > New File > R Markdown 
+- or you can click the new file icon > R Markdown
+
+Once you click the R Markdown, you will have to add a title. Note, this title only adds a title to your Markdown. It does not save or name this file in your directory. 
+Saving your File:
+
+- File > Save
+- or click the floppy disk icon and name your file
+
