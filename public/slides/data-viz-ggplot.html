@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Data Vizualization using ggplot</title>
+    <title>Data Vizualization</title>
     <meta charset="utf-8" />
     <meta name="author" content="MATH 4180" />
     <script src="libs/header-attrs-2.5/header-attrs.js"></script>
@@ -12,8 +12,8 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Data Vizualization using ggplot
-## Part 2
+# Data Vizualization
+## using
 ### MATH 4180
 ### University of Minnesota Duluth
 ### Spring 2021
@@ -35,7 +35,7 @@ If you had the data and had to draw this bar plot by hand, what would you do?
 ]
 
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
 ]
 ---
 class: middle
@@ -51,7 +51,7 @@ Possible ideas
 ]
 
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
 ]
 ---
 class: middle
@@ -69,7 +69,7 @@ R will do some of these steps by default. Making a bar plot with another tool mi
 ]
 
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
 ]
 ---
 class: middle
@@ -91,7 +91,7 @@ class: middle
 ```
 ]
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
 ]
 ---
 # 2. Map features onto aesthetics
@@ -104,7 +104,7 @@ ggplot(iris) +
 ```
 ]
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 ]
 ---
 # 3. Add the geometric layer
@@ -118,7 +118,7 @@ ggplot(iris) +
 ```
 ]
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
 ]
 ---
 # Overview: Single Categorical Variable
@@ -136,7 +136,7 @@ ggplot(iris) +
 ```
 ]
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
 ]
 ---
 class:inverse, middle, center
@@ -158,7 +158,7 @@ ggplot(iris) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](data-viz-2_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 ]
 ---
 # 1. Pick dataset
@@ -170,7 +170,7 @@ ggplot(iris) +
 ```
 ]
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 ]
 ---
 # 2. Map features onto aesthetics
@@ -183,7 +183,7 @@ ggplot(iris) +
 ```
 ]
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 ]
 ---
 # 3. Add the geometric layer
@@ -202,7 +202,7 @@ ggplot(iris) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](data-viz-2_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
 ]
 ---
 #What is this warning?
@@ -211,7 +211,7 @@ ggplot(iris) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-20-1.png" height="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-20-1.png" height="400" /&gt;
 
 ---
 #binwidth=5
@@ -225,7 +225,7 @@ ggplot(iris) +
 ```
 ]
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-22-1.png" height="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-22-1.png" height="400" /&gt;
 ]
 ---
 #binwidth=2
@@ -238,7 +238,7 @@ ggplot(iris)+
 ```
 ]
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-24-1.png" height="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-24-1.png" height="400" /&gt;
 ]
 
 ---
@@ -253,7 +253,7 @@ ggplot(iris)+
 ```
 ]
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-26-1.png" height="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-26-1.png" height="400" /&gt;
 ]
 ---
 #binwidth=1
@@ -266,7 +266,7 @@ ggplot(iris) +
 ```
 ]
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-28-1.png" height="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-28-1.png" height="400" /&gt;
 ]
 
 ---
@@ -315,7 +315,7 @@ ggplot(iris) +
 ```
 
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-31-1.png" height="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-31-1.png" height="400" /&gt;
 ]
 ---
 class: middle
@@ -330,7 +330,7 @@ ggplot(iris) +
 ```
 
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-33-1.png" height="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-33-1.png" height="400" /&gt;
 ]
 ---
 class: middle
@@ -346,7 +346,7 @@ ggplot(iris) +
 ```
 
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-35-1.png" height="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-35-1.png" height="400" /&gt;
 ]
 ---
 
@@ -366,7 +366,7 @@ ggplot(data = iris) +
 ```
 ]
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-37-1.png" width="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-37-1.png" width="400" /&gt;
 ]
 ---
 #Standardized Bar Plot
@@ -380,7 +380,7 @@ ggplot(data = iris) +
 ```
 ]
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-39-1.png" width="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-39-1.png" width="400" /&gt;
 ]
 ---
 class: middle
@@ -400,7 +400,7 @@ ggplot(data = iris)  +
 ```
 ]
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-41-1.png" width="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-41-1.png" width="400" /&gt;
 ]
 ---
 class: inverse, middle, center
@@ -428,13 +428,13 @@ ggplot(data = iris) +
 ---
 
 .pull-left[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-43-1.png" width="400" height="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-43-1.png" width="400" height="400" /&gt;
 ]
 
 --
 
 .pull-right[
-&lt;img src="data-viz-2_files/figure-html/unnamed-chunk-44-1.png" width="400" height="400" /&gt;
+&lt;img src="data-viz-ggplot_files/figure-html/unnamed-chunk-44-1.png" width="400" height="400" /&gt;
 ]
 
 --
@@ -478,7 +478,7 @@ ggplot(iris) +
 ```
 ]
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
 ]
 ---
 class:inverse, middle, center
@@ -496,7 +496,7 @@ ggplot(iris) +
 ```
 ]
 .pull-right[
-![](data-viz-2_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
+![](data-viz-ggplot_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

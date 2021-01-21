@@ -29,14 +29,14 @@ This week we will be discussing what qualities makes a graphic legible and how w
     </item>
     
     <item>
-      <title>Week 3: Cleaning Data</title>
-      <link>/data-clean/</link>
+      <title>Week 3: Visualizing Data</title>
+      <link>/data-viz-ggplot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/data-clean/</guid>
-      <description>Tidy Data, Data Wrangling &amp;amp; Joins
-  Tasks Notes Links Due      Add: Chunk Options
-Slides</description>
+      <guid>/data-viz-ggplot/</guid>
+      <description>Grammar of Graphics &amp;amp; ggplot cont’d
+This week we will be discussing ggplot functionality.
+    Tasks Notes Links Due    Data Viz: using ggplot Slides 🔗   Reading from MSDR book Chapter 3. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the Resources channel in Slack 📖   Reading from R4DS book Section 3.</description>
     </item>
     
     <item>

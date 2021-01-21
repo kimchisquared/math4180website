@@ -1,6 +1,6 @@
 ---
-title: 'Data Vizualization using ggplot'
-subtitle: "Part 2"
+title: 'Data Vizualization'
+subtitle: "using"
 institute: "University of Minnesota Duluth"
 date: "Spring 2021"
 author: "MATH 4180"
