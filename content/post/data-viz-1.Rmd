@@ -3,6 +3,7 @@ title: 'Week 3: Visualizing Data'
 subtitle: 'using ggplot'
 slug: data-viz-1
 weight: 20
+draft: true
 ---
 
 
