@@ -13,8 +13,9 @@ This week we will be discussing ggplot functionality.\
 
 | Tasks | Notes | Links | Due |
 | -------- | ------------- | ------ | ---- |
-| Webinar | Tutorial about R Markdown basics. Post any questions in the in-class channel|[:videocassette:](https://rstudio.com/resources/webinars/getting-started-with-r-markdown/)| Wed Jan 27 |
+| Webinar | Tutorial about R Markdown basics. Post any questions in the in-class channel|[:videocassette:](https://rstudio.com/resources/webinars/getting-started-with-r-markdown/)| |
 |Webinar|Tutorial about ggplot. Post any questions in the in-class channel.|[:videocassette:](https://rstudio.com/resources/additional-talks/the-grammar-and-graphics-of-data-science/)||
+|Primers |Check out with **Work with Data** or **Tidy Your Data** | [:link:](https://rstudio.cloud/learn/primers)||
 |Slides| Intro to ggplot slide deck. Peruse at your own pace| [:link:](/slides/data-viz-ggplot.html)||
 | Reading from MSDR book | Chapter 3. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the Resources channel in Slack | [:book:]()| |
 |Reading from R4DS book | Section 3.6-3.10. Post any questions in the Resources channel. Work through the rest of material in Chapter 3, including the exercises. Add the code to your **.Rmd** file from last week. |[:book:](https://r4ds.had.co.nz/data-visualisation.html#geometric-objects) | |
