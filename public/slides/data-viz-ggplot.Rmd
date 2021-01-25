@@ -14,7 +14,7 @@ output:
 ---
 
 class:inverse, middle, center
-#single categorical variable
+#Single Categorical Variable
 ---
 class: middle
 
@@ -324,7 +324,7 @@ Visualizing these relationships is usually the better option, but not always! So
 ---
 class: middle
 
-Pick your favorite [colors](/slides/Rcolor.pdf)
+Pick your favorite [colors](/slides/Rcolor.pdf) or visit this [site](https://www.datanovia.com/en/blog/the-a-z-of-rcolorbrewer-palette/) for more options
 ---
 class:middle
 
