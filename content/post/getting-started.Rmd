@@ -32,7 +32,7 @@ To help organize materials, the Links section uses the following icons \
 | Sign up for Kaggle | This will bring you to the WiDS Datathon 2021 | [:information:](https://www.kaggle.com/c/widsdatathon2021) | |
 | WiDS Datathon videos | Watch Video 1 and Video 2 | [:link:](https://www.widsconference.org/datathon-resources.html) | |
 | Check out the swirl package | Optional R practice | [:link:](https://swirlstats.com/students.html) | |
-| Reading from MDSR book |Chapter 1. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the Resources channel in Slack  | [:book:](https://mdsr-book.github.io/mdsr2e/ch-prologue.html) | Mon Jan 18 11pm |
+| Reading from MDSR book |Chapter 1. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the reading_response_viz channel in Slack  | [:book:](https://mdsr-book.github.io/mdsr2e/ch-prologue.html) | Mon Jan 18 11pm |
 | Sign up for Github | Use a username that is *semi* professional as we will use this platform to create personal websites later on in the semester. Post github username as a reply to your post in People | [:information:](https://github.com/) | Wed Jan 20 |
 | Add avatar and bio to Github | Optional customization. You can even use the same avatar and bio as Slack, but again, *semi* professional avatars here | | 
 | Download Git | Windows users only. If you have a Mac, installing homebrew may be beneficial | [:link:](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git/)[:link:](https://brew.sh/)  | |
