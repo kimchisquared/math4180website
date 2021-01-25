@@ -543,25 +543,3 @@ ggplot(iris) +
   geom_point()
 ```
 ]
----
-class:inverse, middle, center
-#More than Two Categorical Variables
----
-class: middle
-
-.pull-left[
-```{r, eval=F}
-ggplot(iris) + 
-  aes(x = Sepal.Length) +
-  aes(y = Sepal.Width) +
-  geom_point()
-```
-]
-.pull-right[
-```{r, echo=F}
-ggplot(iris) + 
-  aes(x = Sepal.Length) +
-  aes(y = Sepal.Width) +
-  geom_point()
-```
-]
