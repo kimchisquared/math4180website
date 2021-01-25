@@ -1,8 +1,8 @@
 | Week |Dates | Course Topic | Project Component | Notes |
 |------|-----|------|------|------|
 |1| Jan 13-15| [Getting Started](/getting-started/) | | |
-|2| Jan 18-22 | [Visualizing Data](/data-viz-intro/) | | MLK: no class M |
-|3| Jan 25-29 | Cleaning Data | | |
+|2| Jan 18-22 | [Intro to Visualizations](/data-viz-intro/) | | MLK: no class M |
+|3| Jan 25-29 | [Data Vizualizations using ggplot](/data-viz-ggplot/)| | |
 |4| Feb 1-5 | Missing Data | Team selection |  |
 |5| Feb 8-12 | Ethical Data | Submit management timeline |  |
 |6| Feb 15-19 | Modeling: Linear |  | |
