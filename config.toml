@@ -31,7 +31,7 @@ enableEmoji= true
     weight = 1
     
 [params]
-    description = "A website for MATH 4180 course at the University of Minnesota Duluth."
+    description = "A website for the MATH 4180 course at the University of Minnesota Duluth."
 
 [params.homeInfoParams]
     Title = "Welcome to Industrial Problem Solving"
