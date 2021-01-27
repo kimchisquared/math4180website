@@ -21,7 +21,7 @@ The first and most important step is to understand your data. Since all the data
 
 Below are two libraries that may be useful. Remember, if you have never installed a package, you'll need to do so first. Most of the exercises require installing a new package in order to access the associated data set.
 
-```{r load-packages, message=FALSE, eval=F}
+```{r load-packages, message=FALSE}
 library(tidyverse)
 library(mdsr)
 ```
@@ -63,9 +63,37 @@ Using the `penguins` data set from the `palmerpenguins` package, create a scatte
 
 ## Pulling it all together
 
-Using data from the `nasaweather` package, use the `geom_path` function to plot the path of each tropical storm in the `storms` data table. Use color to distinguish the storms from one another, and use faceting to plot each `year` in its own panel.
+Using data from the `nasaweather` package, we can use the `geom_path` function to plot the path of each tropical storm in the `storms` data table. Then we can use color to distinguish the storms from one another, and use faceting to plot each `year` in its own panel.
 
-```{r storms_path, eval=F, echo=F}
+First let's check out the data set:
+
+```{r storms_library, message=F}
+
+```
+
+Notice how we have features for latitude `lat` and longitude `long`. First let's see if we can find the range for `lat` and `long`
+```{r storms_summary}
+
+```
+
+Okay, now let's store just min and max as a data frame. The `apply` function includes `MARGINS = 2` to say we want to write lat and long as the column names, and includes the function `range` to take only Min and Max values from `summary`
+```{r storm_lat_long}
+
+```
+
+Now let's create a basic map of the world
+```{r storms_map, message=F, warning=F, echo=F, eval=F}
+#install.packages("maps")
+
+```
+
+And now lets add a new variable names `the_date` to pull together all the information from the `year` `month` and `day` columns.
+```{r storms_add_date}
+
+```
+
+Putting it all together
+```{r storms_path, message=F, warning=F}
 
 ```
 
