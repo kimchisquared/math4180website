@@ -1,0 +1,71 @@
+---
+title: "Chapter 3: Grammar for Graphics exercises"
+author: "MATH 4180"
+date: "1/27/2020"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## Introduction
+This file contains exercises from Chapter 3 in the [MDSR text](https://mdsr-book.github.io/mdsr2e/ch-vizII.html#datavizII-exercises). In order to run a code chunk, you'll need to change `eval=F` to `eval=T`. Likewise, you may need to change `echo=F` if you want your code to show up in the document. 
+
+The first and most important step is to understand your data. Since all the data we're working with today is located in some package, you can find more information on your data by typing `??package::dataset` (replacing package and data set with the ones you're using). The commands `View`, `glimpse`, and/or `summary` may be useful. As you begin building your plots, you may also find these resources helpful:
+
+- [textbook](https://mdsr-book.github.io/mdsr2e/ch-vizII.html#datavizII-exercises)
+
+- [ggplot cheatsheet](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+
+
+## Warm-Up Exercises 
+
+Below are two libraries that may be useful. Remember, if you have never installed a package, you'll need to do so first. Most of the exercises require installing a new package in order to access the associated data set.
+
+```{r load-packages, message=FALSE, eval=F}
+library(tidyverse)
+library(mdsr)
+```
+
+### Group 1: MLB
+
+Use the `MLB_teams` data in the `mdsr` package to create a scatter plot between winning percentage and team `payroll`. Add a regression line and use color to distinguish the leagues from one another. Use faceting to plot each year in its own panel.
+
+```{r mlb_wins, eval=F, echo=F}
+
+```
+
+
+## Group 2: Storms
+
+Using the `storms` data from the `nasaweather` package, create a scatter plot of the  maximum wind speed and the air pressure. Use color to distinguish the storm classifications, and use faceting to plot each `month` in its own panel. 
+
+```{r storms, eval=F, echo=F}
+
+```
+
+### Group 3: Rail Trail
+
+The `RailTrail` data set from the `mosaicData` package describes the usage of a rail trail in Western Massachusetts. Create a scatter plot of the number of trail users per day against the high temperature that day. Add a regression line and use color to distinguish cloud cover. Separate your plot into facets by `weekday` (an indicator of whether it was a weekend/holiday or a weekday). 
+
+```{r railtrail, eval=F, echo=F}
+
+````
+
+
+### Group 4: Penguins
+
+Using the `penguins` data set from the `palmerpenguins` package, create a scatter plot of `bill_length_mm` against `bill_depth_mm` where individual species are colored and a regression line is added to each `species`. What do you observe about the association of bill depth and bill length? Now separate your plot into facets by `species`. How would you summarize the association between bill depth and bill length.
+
+```{r penguins, eval=F, echo=F}
+
+```
+
+
+## Pulling it all together
+
+Using data from the `nasaweather` package, use the `geom_path` function to plot the path of each tropical storm in the `storms` data table. Use color to distinguish the storms from one another, and use faceting to plot each `year` in its own panel.
+
+```{r storms_path, eval=F, echo=F}
+
+```
+

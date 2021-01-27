@@ -16,8 +16,10 @@ This week we will be discussing ggplot functionality.\
 | Webinar | Tutorial about R Markdown basics. Post any questions in the questions channel. Watch when it suits your schedule. |[:videocassette:](https://rstudio.com/resources/webinars/getting-started-with-r-markdown/)| |
 | Webinar |Tutorial about dplyr Post any questions in the questions channel.|[:videocassette:](https://rstudio.com/resources/additional-talks/the-grammar-and-graphics-of-data-science/)|Watch at least the first half before Wed meeting|
 | Primers |Check out with **Work with Data** and **Tidy Your Data**. Post any questions in the questions channel. | [:link:](https://rstudio.cloud/learn/primers)| Wed Jan 27|
-| Slides | Intro to ggplot slide deck. Peruse at your own pace| [:link:](/slides/data-viz-ggplot.html)||
-| Reading from MSDR book | Chapter 3. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the reading_response_ggplot channel | [:book:](https://mdsr-book.github.io/mdsr2e/ch-vizII.html)| Quick pass through by Wed meeting|
+| Slides | Optional slide deck. Includes basic plotting techniques for `ggplot`| [:link:](/slides/data-viz-ggplot.html)||
+| Reading from MDSR book | Chapter 3. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the reading_response_ggplot channel | [:book:](https://mdsr-book.github.io/mdsr2e/ch-vizII.html)| Quick pass through by Wed meeting; Post by Mon Feb 1|
 | Reading from R4DS book | Section 3.6-3.10. Post any questions in the reading_response_ggplot channel. Work through the rest of material in Chapter 3, including the exercises. Add the code to your **.Rmd** file from last week. |[:book:](https://r4ds.had.co.nz/data-visualisation.html#geometric-objects) | |
+|Exercises|Grammar of Graphics exercises from Chapter 3. This is the **.Rmd** file we will be using in-class on Wed Jan 27 |[:link:]()||
 |ggplot Flipbook | Slide deck for creating striking ggplot graphics. This is a very thorough deck so it *may not * load properly on a smart device. |[:link:](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#5)||
+|Reading from MDSR| Chapter 4. Read through, paying attention to the code used. We will be doing exercises related to this content on Monday Feb 1 |[:book;](https://mdsr-book.github.io/mdsr2e/ch-dataI.html)| Mon Feb 1|
 
