@@ -425,7 +425,13 @@ library(mdsr)</code></pre>
 </div>
 <div id="pulling-it-all-together" class="section level2">
 <h2>Pulling it all together</h2>
-<p>Using data from the <code>nasaweather</code> package, use the <code>geom_path</code> function to plot the path of each tropical storm in the <code>storms</code> data table. Use color to distinguish the storms from one another, and use faceting to plot each <code>year</code> in its own panel.</p>
+<p>Using data from the <code>nasaweather</code> package, we can use the <code>geom_path</code> function to plot the path of each tropical storm in the <code>storms</code> data table. Then we can use color to distinguish the storms from one another, and use faceting to plot each <code>year</code> in its own panel.</p>
+<p>First let’s check out the data set:</p>
+<p>Notice how we have features for latitude <code>lat</code> and longitude <code>long</code>. First let’s see if we can find the range for <code>lat</code> and <code>long</code></p>
+<p>Okay, now let’s store just min and max as a data frame. The <code>apply</code> function includes <code>MARGINS = 2</code> to say we want to write lat and long as the column names, and includes the function <code>range</code> to take only Min and Max values from <code>summary</code></p>
+<p>Now let’s create a basic map of the world</p>
+<p>And now lets add a new variable names <code>the_date</code> to pull together all the information from the <code>year</code> <code>month</code> and <code>day</code> columns.</p>
+<p>Putting it all together</p>
 </div>
 
 
