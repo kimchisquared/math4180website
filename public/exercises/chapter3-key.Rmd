@@ -145,7 +145,7 @@ Now let's create a basic map of the world
 #install.packages("maps")
 library(maps)
 
-base_map <- ggplot(map_data("world"), aes(x= long, y = lat))+
+base_map <- ggplot(map_data("world"),aes(x= long, y = lat)) + 
   geom_path(aes(group = group), color = "black", size=0.1) +
   lims(x=bbox$long, y = bbox$lat)
 ```
@@ -159,11 +159,14 @@ storms <- storms %>%
 Putting it all together
 ```{r storms_path, message=F, warning=F}
 base_map +
-  geom_path(data = storms, aes(color = name, alpha = 0.1),
-            arrow = arrow(angle=90, length = unit(0.1,"inches"), ends = "last",
+  geom_path(data = storms, aes(color = name, 
+                               alpha = 0.1),
+            arrow = arrow(angle=90, 
+                          length = unit(0.1,"inches"), 
+                          ends = "last",
                           type = "closed")) +
   theme(legend.position = "none") +
-    facet_wrap(~year, 3) +
+  facet_wrap(~year, 3) +
   labs(title = "Storm paths for Tropical cyclones from 1995 to 2005", 
        caption = "National Hurricane Center's archive of Tropical Cyclone Reports (http://www.nhc.noaa.gov/).",
        x ="", 

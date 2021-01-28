@@ -568,7 +568,7 @@ storms %&gt;% glimpse()</code></pre>
 <pre class="r"><code>#install.packages(&quot;maps&quot;)
 library(maps)
 
-base_map &lt;- ggplot(map_data(&quot;world&quot;), aes(x= long, y = lat))+
+base_map &lt;- ggplot(map_data(&quot;world&quot;),aes(x= long, y = lat)) + 
   geom_path(aes(group = group), color = &quot;black&quot;, size=0.1) +
   lims(x=bbox$long, y = bbox$lat)</code></pre>
 <p>And now lets add a new variable names <code>the_date</code> to pull together all the information from the <code>year</code> <code>month</code> and <code>day</code> columns.</p>
@@ -576,11 +576,14 @@ base_map &lt;- ggplot(map_data(&quot;world&quot;), aes(x= long, y = lat))+
   mutate(the_date = lubridate::ymd(paste(year, month, day)))</code></pre>
 <p>Putting it all together</p>
 <pre class="r"><code>base_map +
-  geom_path(data = storms, aes(color = name, alpha = 0.1),
-            arrow = arrow(angle=90, length = unit(0.1,&quot;inches&quot;), ends = &quot;last&quot;,
+  geom_path(data = storms, aes(color = name, 
+                               alpha = 0.1),
+            arrow = arrow(angle=90, 
+                          length = unit(0.1,&quot;inches&quot;), 
+                          ends = &quot;last&quot;,
                           type = &quot;closed&quot;)) +
   theme(legend.position = &quot;none&quot;) +
-    facet_wrap(~year, 3) +
+  facet_wrap(~year, 3) +
   labs(title = &quot;Storm paths for Tropical cyclones from 1995 to 2005&quot;, 
        caption = &quot;National Hurricane Center&#39;s archive of Tropical Cyclone Reports (http://www.nhc.noaa.gov/).&quot;,
        x =&quot;&quot;, 
