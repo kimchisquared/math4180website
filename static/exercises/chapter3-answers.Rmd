@@ -1,0 +1,155 @@
+---
+title: "Chapter 3: Grammar for Graphics exercises"
+author: "MATH 4180"
+date: "1/27/2020"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## Introduction
+This file contains exercises from Chapter 3 in the [MDSR text](https://mdsr-book.github.io/mdsr2e/ch-vizII.html#datavizII-exercises). In order to run a code chunk, you'll need to change `eval=F` to `eval=T`. Likewise, you may need to change `echo=F` if you want your code to show up in the document. 
+
+The first and most important step is to understand your data. Since all the data we're working with today is located in some package, you can find more information on your data by typing `??package::dataset` (replacing package and data set with the ones you're using). The commands `View`, `glimpse`, and/or `summary` may be useful. As you begin building your plots, you may also find these resources helpful:
+
+- [textbook](https://mdsr-book.github.io/mdsr2e/ch-vizII.html#datavizII-exercises)
+
+- [ggplot cheatsheet](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+
+
+## Warm-Up Exercises 
+
+Below are two libraries that may be useful. Remember, if you have never installed a package, you'll need to do so first. Most of the exercises require installing a new package in order to access the associated data set.
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(mdsr)
+```
+
+### Group 1: MLB
+
+Use the `MLB_teams` data in the `mdsr` package to create a scatter plot between winning percentage and team `payroll`. Add a regression line and use color to distinguish the leagues from one another. Use faceting to plot each year in its own panel.
+
+```{r mlb_wins, eval=F, echo=F}
+??mdsr::MLB_teams
+library(mdsr)
+MLB_teams %>% glimpse()
+
+MLB_teams %>%
+  ggplot(aes(WPct, payroll/1000000, color = lgID)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  facet_wrap(~yearID) +
+  labs(Title = "MLB payroll by winning percentage",
+       x= "WPct",
+       y= "Payroll (millions)")
+
+```
+
+
+## Group 2: Storms
+
+Using the `storms` data from the `nasaweather` package, create a scatter plot of the  maximum wind speed and the air pressure. Use color to distinguish the storm classifications, and use faceting to plot each `month` in its own panel. 
+
+```{r storms, eval=F, echo=F}
+library(nasaweather)
+??nasaweather::storms
+nasaweather::storms %>% glimpse()
+nasaweather::storms %>%
+  ggplot(aes(wind, pressure, color = type)) +
+  geom_point() +
+  geom_smooth(method = "lm", se=0) +
+  facet_wrap(~month) +
+  labs(Title = "Comparing max wind speed and pressure of Tropical storms",
+       x = "max wind speed (knots)",
+       y = "air pressure (millibars)")
+```
+
+### Group 3: Rail Trail
+
+The `RailTrail` data set from the `mosaicData` package describes the usage of a rail trail in Western Massachusetts. Create a scatter plot of the number of trail users per day against the high temperature that day. Add a regression line and use color to distinguish cloud cover. Separate your plot into facets by `weekday` (an indicator of whether it was a weekend/holiday or a weekday). 
+
+```{r railtrail, eval=F, echo=F}
+??mosaicData::RailTrail
+mosaicData::RailTrail %>% glimpse()
+library(mosaicData)
+RailTrail %>% 
+  ggplot(aes(hightemp, volume, color = as.factor(summer))) +
+  geom_point() +
+  geom_smooth(method ="lm", se=0) +
+  facet_wrap(~weekday) 
+````
+
+
+### Group 4: Penguins
+
+Using the `penguins` data set from the `palmerpenguins` package, create a scatter plot of `bill_length_mm` against `bill_depth_mm` where individual species are colored and a regression line is added to each `species`. What do you observe about the association of bill depth and bill length? Now separate your plot into facets by `species`. How would you summarize the association between bill depth and bill length.
+
+```{r penguins, eval=F, echo=F}
+??palmerpenguins::penguins
+library(palmerpenguins)
+penguins %>% glimpse()
+penguins %>%
+  ggplot(aes(bill_length_mm, bill_depth_mm, color = species)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  facet_wrap(~species)
+```
+
+
+## Pulling it all together
+
+Using data from the `nasaweather` package, we can use the `geom_path` function to plot the path of each tropical storm in the `storms` data table. Then we can use color to distinguish the storms from one another, and use faceting to plot each `year` in its own panel.
+
+First let's check out the data set:
+
+```{r storms_library, message=F}
+library(nasaweather)
+storms %>% glimpse()
+```
+
+Notice how we have features for latitude `lat` and longitude `long`. First let's see if we can find the range for `lat` and `long`
+```{r storms_summary}
+storms %>% 
+  select(lat, long) %>% 
+  summary()
+```
+
+Okay, now let's store just min and max as a data frame. The `apply` function includes `MARGINS = 2` to say we want to write lat and long as the column names, and includes the function `range` to take only Min and Max values from `summary`
+```{r storm_lat_long}
+bbox <- storms %>%
+  select(lat, long) %>%
+  apply(MARGIN = 2, range) %>%
+  as.data.frame()
+```
+
+Now let's create a basic map of the world
+```{r storms_map, message=F, warning=F}
+#install.packages("maps")
+library(maps)
+
+base_map <- ggplot(map_data("world"), aes(x= long, y = lat))+
+  geom_path(aes(group = group), color = "black", size=0.1) +
+  lims(x=bbox$long, y = bbox$lat)
+```
+
+And now lets add a new variable names `the_date` to pull together all the information from the `year` `month` and `day` columns.
+```{r storms_add_date}
+storms <- storms %>%
+  mutate(the_date = lubridate::ymd(paste(year, month, day)))
+```
+
+Putting it all together
+```{r storms_path, message=F, warning=F}
+base_map +
+  geom_path(data = storms, aes(color = name, alpha = 0.1),
+            arrow = arrow(angle=90, length = unit(0.1,"inches"), ends = "last",
+                          type = "closed")) +
+  theme(legend.position = "none") +
+    facet_wrap(~year, 3) +
+  labs(title = "Storm paths for Tropical cyclones from 1995 to 2005", 
+       caption = "National Hurricane Center's archive of Tropical Cyclone Reports (http://www.nhc.noaa.gov/).",
+       x ="", 
+       y = "")
+```
+
