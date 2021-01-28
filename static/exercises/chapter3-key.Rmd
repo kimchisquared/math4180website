@@ -30,8 +30,8 @@ library(mdsr)
 
 Use the `MLB_teams` data in the `mdsr` package to create a scatter plot between winning percentage and team `payroll`. Add a regression line and use color to distinguish the leagues from one another. Use faceting to plot each year in its own panel.
 
-```{r mlb_wins, eval=F, echo=F}
-??mdsr::MLB_teams
+```{r mlb_wins, message=F}
+#??mdsr::MLB_teams #to checkout dataset
 library(mdsr)
 MLB_teams %>% glimpse()
 
@@ -40,9 +40,13 @@ MLB_teams %>%
   geom_point() +
   geom_smooth(method = "lm", se = 0) +
   facet_wrap(~yearID) +
-  labs(Title = "MLB payroll by winning percentage",
-       x= "WPct",
-       y= "Payroll (millions)")
+  labs(title = "Are MLB teams paid accoring to their winnings?",
+       subtitle = "Comparing American and National Leagues from 2008-2014",
+       x = "Winning Percentage",
+       y = "Payroll (millions)",
+       fill = "Leagues") +
+  theme(legend.position = c(0.7, 0.1), 
+        legend.direction = "horizontal") 
 
 ```
 
@@ -51,49 +55,62 @@ MLB_teams %>%
 
 Using the `storms` data from the `nasaweather` package, create a scatter plot of the  maximum wind speed and the air pressure. Use color to distinguish the storm classifications, and use faceting to plot each `month` in its own panel. 
 
-```{r storms, eval=F, echo=F}
+```{r storms, message=F}
 library(nasaweather)
-??nasaweather::storms
+#??nasaweather::storms #to check out dataset
 nasaweather::storms %>% glimpse()
 nasaweather::storms %>%
   ggplot(aes(wind, pressure, color = type)) +
   geom_point() +
   geom_smooth(method = "lm", se=0) +
   facet_wrap(~month) +
-  labs(Title = "Comparing max wind speed and pressure of Tropical storms",
+  labs(title = "Comparing Monthly Data of Tropical Storms",
+       subtitle = "using maximum wind speed and air pressure",
        x = "max wind speed (knots)",
-       y = "air pressure (millibars)")
+       y = "air pressure (millibars)") 
 ```
 
 ### Group 3: Rail Trail
 
 The `RailTrail` data set from the `mosaicData` package describes the usage of a rail trail in Western Massachusetts. Create a scatter plot of the number of trail users per day against the high temperature that day. Add a regression line and use color to distinguish cloud cover. Separate your plot into facets by `weekday` (an indicator of whether it was a weekend/holiday or a weekday). 
 
-```{r railtrail, eval=F, echo=F}
-??mosaicData::RailTrail
-mosaicData::RailTrail %>% glimpse()
+```{r railtrail, message=F}
 library(mosaicData)
+#??mosaicData::RailTrail #to check out data set
+mosaicData::RailTrail %>% glimpse()
+
 RailTrail %>% 
-  ggplot(aes(hightemp, volume, color = as.factor(summer))) +
+  ggplot(aes(hightemp, volume, color = cloudcover)) +
   geom_point() +
   geom_smooth(method ="lm", se=0) +
-  facet_wrap(~weekday) 
-````
+  facet_wrap(~weekday) +
+  labs(title = "What weather conditions do hikers prefer?",
+       subtitle = "Comparing max temperature and cloud coverage",
+       x = "High Temperature per day (F)",
+       y = "Number of hikers per day",
+       fill = "Cloud Level (0-10)")
+```
 
 
 ### Group 4: Penguins
 
 Using the `penguins` data set from the `palmerpenguins` package, create a scatter plot of `bill_length_mm` against `bill_depth_mm` where individual species are colored and a regression line is added to each `species`. What do you observe about the association of bill depth and bill length? Now separate your plot into facets by `species`. How would you summarize the association between bill depth and bill length.
 
-```{r penguins, eval=F, echo=F}
-??palmerpenguins::penguins
+```{r penguins, message=F, warning=F}
+#??palmerpenguins::penguins #to check out dataset
 library(palmerpenguins)
 penguins %>% glimpse()
+
 penguins %>%
   ggplot(aes(bill_length_mm, bill_depth_mm, color = species)) +
   geom_point() +
   geom_smooth(method = "lm", se = 0) +
-  facet_wrap(~species)
+  facet_wrap(~species) +
+  labs(title = "How does bill shape compare across penguin species?",
+       subtitle = "Comparing bill length and depth",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)",
+       fill = "Species")
 ```
 
 

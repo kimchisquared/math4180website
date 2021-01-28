@@ -30,7 +30,7 @@ library(mdsr)
 
 Use the `MLB_teams` data in the `mdsr` package to create a scatter plot between winning percentage and team `payroll`. Add a regression line and use color to distinguish the leagues from one another. Use faceting to plot each year in its own panel.
 
-```{r mlb_wins, eval=F, echo=F}
+```{r mlb_wins}
 ??mdsr::MLB_teams
 library(mdsr)
 MLB_teams %>% glimpse()
@@ -51,7 +51,7 @@ MLB_teams %>%
 
 Using the `storms` data from the `nasaweather` package, create a scatter plot of the  maximum wind speed and the air pressure. Use color to distinguish the storm classifications, and use faceting to plot each `month` in its own panel. 
 
-```{r storms, eval=F, echo=F}
+```{r storms}
 library(nasaweather)
 ??nasaweather::storms
 nasaweather::storms %>% glimpse()
@@ -69,7 +69,7 @@ nasaweather::storms %>%
 
 The `RailTrail` data set from the `mosaicData` package describes the usage of a rail trail in Western Massachusetts. Create a scatter plot of the number of trail users per day against the high temperature that day. Add a regression line and use color to distinguish cloud cover. Separate your plot into facets by `weekday` (an indicator of whether it was a weekend/holiday or a weekday). 
 
-```{r railtrail, eval=F, echo=F}
+```{r railtrail}
 ??mosaicData::RailTrail
 mosaicData::RailTrail %>% glimpse()
 library(mosaicData)
@@ -85,7 +85,7 @@ RailTrail %>%
 
 Using the `penguins` data set from the `palmerpenguins` package, create a scatter plot of `bill_length_mm` against `bill_depth_mm` where individual species are colored and a regression line is added to each `species`. What do you observe about the association of bill depth and bill length? Now separate your plot into facets by `species`. How would you summarize the association between bill depth and bill length.
 
-```{r penguins, eval=F, echo=F}
+```{r penguins}
 ??palmerpenguins::penguins
 library(palmerpenguins)
 penguins %>% glimpse()
