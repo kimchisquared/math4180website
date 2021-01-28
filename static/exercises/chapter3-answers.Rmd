@@ -1,9 +1,7 @@
 ---
-<<<<<<< HEAD
+
 title: "Chapter 3: Grammar for Graphics exercise key"
-=======
-title: "Chapter 3: Grammar for Graphics exercises"
->>>>>>> 36a0aa7a7aa93a43475fdd909eceab74ef4a97a4
+
 author: "MATH 4180"
 date: "1/27/2020"
 output: html_document
