@@ -1,0 +1,113 @@
+---
+title: "Chapter 5: Data Wrangling"
+author: "Math 4180"
+date: "2/1/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#Data Transformatino with `dplyr`.
+This .Rmd file steps examples of how to use the five key functions from `dplyr`: `filter()`, `arrange()`, `select()`, `mutate()` and `summarize()`. For the examples, we will use the `flights` data from the `nycflights13` package, and `dplyr` functions that are a part of the `tidyverse` package. To get started, we need to load the libraries and let's also look at our data so we can readily see th variable names and types.
+
+```{r cars, eval=F}
+library(nycflights13)
+library(tidyverse)
+data(flights)  #adds the data set to the Global Environment
+View(flights)  #opens a spreadsheet to view the data
+```
+
+##Creating a subset of your data by selecting rows and arranging rows. 
+
+# Using `filter()` and `arrange()`
+The filter command is used to select rows based on values.
+
+To select values, we will make use of the logical operators of `==` (equal), `&` (and), `|` (or), and `!` (not). We can use this in combination with `<`, `>`, `<=`, and `>=`.
+
+Let's work through using `filter()` to find all flights that
+
+1. Had an arrival delay of two or more hours (Ans. 10,200 rows)
+2. Flew to Houston (IAH or HOU) (Ans. 9,313 rows)
+3. Were operated by United, American, or Delta (Ans. 139,504 rows)
+4. Departed in summer (July, August, and September) (Ans. 86,326 rows)
+5. Arrived more than two hours late, but didn’t leave late
+6. Were delayed by at least an hour, but made up over 30 minutes in flight
+7. Departed between midnight and 6 am (inclusive)
+
+8. Use the `summary` command to find out where there are missing values in the `flights` dataset.
+
+```{r filter, eval=F}
+#1
+flights %>%
+  filter(arr_delay >=  )
+
+```
+
+The arrange command works similarly to `filter()` but instead of slecting rows, it reorders the rows in ascending order.
+ 1. Arrange the flights by departure time.
+ 2. Are there missing values for departure time on any of the flights? use the `is.na` function.
+ 3. Where does `arrange()` place the rows with missing values?
+ 4. Use the `summary()` function to determine other variables that have missing values. 
+
+We can use the `desc()` command can be used within `arrange()` to reorder the elements in descending order. As an example, arrange the flights from December to January. 
+
+```{r arrange, eval=F}
+
+
+
+
+```
+
+
+While `filter()` and `arrange()` work on the rows of the data,  `select()` is used to select columns. Here are some examples:
+
+```{r, eval=F}
+flights %>%
+  select(year, month, day)
+
+flights %>%
+  select(1, 2, 3)
+
+flights %>%
+  select(year:carrier)
+
+flights %>%
+  select(carrier, tailnum, everything())
+
+flights %>%
+  select(starts_with("a"))
+
+flights %>%
+  select(ends_with("e"))
+
+flights %>%
+  select(contains("th")) 
+
+flights %>%
+  select(matches("(.)\\1"))  #finds variables with repeated characters use ?matches
+
+# other selects include all_of() or any_of()
+```
+
+To add new variables to a data set we use `mutate()`. Let's see if we can address these questions:
+
+
+```{r, eval=F}
+flights %>%
+  mutate(flight_time=distance/air_time) %>%
+  select(flight_time, everything()) %>%
+  arrange(flight_time)
+
+```
+
+
+
+
+
+
+
+
+
