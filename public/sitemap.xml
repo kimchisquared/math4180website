@@ -15,6 +15,10 @@
   </url>
   
   <url>
+    <loc>/data-wrangle/</loc>
+  </url>
+  
+  <url>
     <loc>/materials/</loc>
     <priority>0</priority>
   </url>

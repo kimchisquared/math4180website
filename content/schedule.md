@@ -3,7 +3,7 @@
 |1| Jan 13-15| [Getting Started](/getting-started/) | | |
 |2| Jan 18-22 | [Intro to Visualizations](/data-viz-intro/) | | MLK: no class M |
 |3| Jan 25-29 | [Data Vizualizations using ggplot](/data-viz-ggplot/)| | |
-|4| Feb 1-5 | Missing Data | Team selection |  |
+|4| Feb 1-5 | [Wrangling Data](/data-wrangle/) | Team selection |  |
 |5| Feb 8-12 | Ethical Data | Submit management timeline |  |
 |6| Feb 15-19 | Modeling: Linear |  | |
 |7| Feb 22-26 | Modeling: Classification | ||

@@ -39,5 +39,16 @@ This week we will be discussing ggplot functionality.
     Tasks Notes Links Due    Webinar Tutorial about R Markdown basics. Post any questions in the questions channel. Watch when it suits your schedule. 📼   Webinar Tutorial about dplyr Post any questions in the questions channel. 📼 Watch at least the first half before Wed meeting  Primers Check out with Work with Data and Tidy Your Data.</description>
     </item>
     
+    <item>
+      <title>Week 4: Wrangling Data</title>
+      <link>/data-wrangle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/data-wrangle/</guid>
+      <description>Data Wrangling, pipe operators, and dplyr commands
+This week we will be discussing data wrangling techniques using the dplyr functions: select, filter, arrange, mutate, summarise, group_by
+    Tasks Notes Links Due    Cheatsheets You can find these by going to Help &amp;gt; Cheatsheets in RStudio as well 🔗   Reading from MDSR book Chapter 4. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the reading_response_wrangling channel 📖   Reading from R4DS book Chapter 5.</description>
+    </item>
+    
   </channel>
 </rss>
