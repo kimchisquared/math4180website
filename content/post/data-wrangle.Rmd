@@ -17,4 +17,5 @@ This week we will be discussing data wrangling techniques using the `dplyr` func
 | Reading from MDSR book | Chapter 4. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the reading_response_wrangling channel | [:book:](https://mdsr-book.github.io/mdsr2e/ch-dataI.html)| |
 | Reading from R4DS book | Chapter 5. Post any questions in the reading_response_wrangling channel. |[:book:](https://r4ds.had.co.nz/transform.html) | |
 |Exercises|Data Wrangling exercises from R4DS: Chapter 5 . This is the **.Rmd** file we will be using in-class on Mon Feb 1. Download [here](https://math4180.netlify.app/exercises/chapter5.Rmd) |[:link:](https://math4180.netlify.app/exercises/chapter5.html)||
+|Project Work| We will begin working on our project. You can download the **.Rmd** [here](https://math4180.netlify.app/exercises/WIDS-clean.Rmd) or on the *WiDS_channel* on Slack|[:link: Rmd](https://math4180.netlify.app/exercises/WIDS-clean.html) [:link: kaggle](https://www.kaggle.com/c/widsdatathon2021)||
 

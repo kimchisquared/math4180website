@@ -33,12 +33,15 @@ The data is provided by [MIT's GOSSIS (Global Open Source Severity of Illness Sc
 - 179 features from 6 feature categories: identifier, demographic, APACHE co-variate, vitals, labs blood gas, APACHE co-morbidity
 - 1 target *diabetes_mellitus*
 
-What other information would we want to include about our data set?
+
+### Question 1
+What other information would we want to know about our data set?
 *Answer here*
 
 ## Read in our data
 
-```{r load-libraries, warning=F, message=F,echo=F}
+You will need to install the `janitor` and `skimr` packages. The commands are below, simply uncomment out the lines and run the chunk.
+```{r load-libraries, warning=F, message=F,}
 library(tidyverse)
 library(readr) #for reading in data
 #install.libraries("janitor") #for tabyl function (similar to table function)
@@ -46,7 +49,8 @@ library(readr) #for reading in data
 ```
 
 
-We need to read in our data. You can download the **TrainingWiDS2021** and **DataDictionaryWiDS2021** [here](https://www.kaggle.com/c/widsdatathon2021/data)
+We need to read in our data. You can download the **TrainingWiDS2021** and **DataDictionaryWiDS2021** [here](https://www.kaggle.com/c/widsdatathon2021/data). If you keep it in your Downloads folder, you can use the following code chunk. If you keep this .Rmd file and the data sets in your Math4180 folder, you can just refer to the data by its name ie read_csv(*"TrainingWiDS2021.csv"*)
+
 ```{r read-data, message=F, warning=F}
 training <- read_csv("~/Downloads/TrainingWiDS2021.csv")
 dictionary <- read_csv("~/Downloads/DataDictionaryWiDS2021.csv")
@@ -58,7 +62,7 @@ Let's take a look at the training data
 training %>% head()
 ```
 
-Notice, the first column is just the left-over indeces from the csv file. We can go ahead and remove that.
+Notice, the first column is just the left-over indices from the csv file. We can go ahead and remove that.
 ```{r training-remove-index}
 training <- training[-1]
 ```
@@ -68,12 +72,16 @@ Now let's see descriptive statistics for this data set. We can use the `summary(
 training %>% skimr::skim()
 ```
 
-## Q&A
-1. Look through the n_missing and complete_rate columns outputted by the `skim` command. What are these variables telling us? How could would we use this information in our analysis? 
+### Question 2
+Look through the n_missing and complete_rate columns outputted by the `skim` command. What are these variables telling us? How could would we use this information in our analysis? 
 *Answer here*
-2. Which of the variable types have the most complete data? Why do you think this is?
+
+### Question 3
+Which of the variable types have the most complete data? Why do you think this is?
 *Answer here*
-3. What variables do you think we could let go of down the line? 
+
+### Question 4
+What variables do you think will be the most/least important?
 *Answer here*
 
 ## Tabulate some variables
@@ -90,8 +98,10 @@ table(training$gender)
 training %>% janitor::tabyl(gender)
 ```
 
+### Question 5
 What do you notice about the outputs? When would you prefer one over the other?
 *Answer here*
+
 Now, let's use one of the outputs above to create a graphic that includes a title, appropriate labels and colors of your choice. 
 
 ```{r gender-plot_grouped, eval=F}
@@ -111,6 +121,7 @@ training %>%
   labs(title = "Gender Distribution")
 ```
 
+## Question 6
 Is this graphic an accurate representation of the whole population? If not, how could it become more representative?
 *Answer here*
 
@@ -126,8 +137,10 @@ training %>%
   summary()
 ```
 
+### Question 7
 So what are these values? Would any be indicators for our target variable?
 *Answer here*
+
 ## Vitals
 
 Let's take at all the variables associated with vitals. 
@@ -136,6 +149,8 @@ dictionary %>%
   filter(Category == "vitals") %>%
   select(`Variable Name`)
 ```
+
+### Question 8 
 What do you notice about the variable names? 
 *Answer here*
 
