@@ -1,0 +1,142 @@
+---
+title: "WiDS Data Cleaning and Wrangling"
+author: "Math 4180"
+date: "2/1/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Problem Definition 
+
+In the Women in Data Science (WiDS) Datathon 2021, we will build a model to **determine whether a patient has been diagnosed with Diabetes Mellitus within the first 24 hours of being admitted to an Intensive Care Unit (ICU)**. To improve a patient's outcome in an ICU knowledge about their medical conditions can improve clinical decisions. However, often a patient's medical records are not immediately available due to transfer times. An additional challenge is when a patient is not able to provide such information due to their health condition, e.g. shock or unconsciousness. Therefore, it is important to be able to diagnose whether a patient has chronic diseases based on data that can be gathered within the first 24 hours of being admitted to an ICU.
+
+# Diabetes Mellitus
+
+According to the World Health Organization (WHO) Diabetes Mellitus, or commonly know as diabetes, is defined as follows:
+
+> Diabetes is a chronic disease that occurs either when the pancreas **does not produce enough insulin or when the body cannot effectively use the insulin it produces**. Insulin is a hormone that regulates blood sugar. Hyperglycaemia, or **raised blood sugar**, is a common effect of uncontrolled diabetes and over time leads to serious damage to many of the body's systems, especially the nerves and blood vessels. - [WHO Diabetes Fact Sheet](https://www.who.int/news-room/fact-sheets/detail/diabetes)
+
+There are two types of diabetes - **Type 1 diabetes and Type 2 diabetes**. Type 2 diabetes is more common than Type 1 diabetes and often results from excess body weight and physical inactivity while Type 1 diabetes is independent on body size. Additionally, there is **Gestational diabetes** in which a woman without diabetes develops high blood sugar levels during pregnancy. The latter usually resolves after birth while the other two types of diabetes have to be treated in the long-term.
+
+Around 8.5% of the adult population is diagnosed with Diabetes independent of the gender (World Health Organization, 2020).
+
+Diabetes mellitus is characterized by high blood sugar levels over a prolonged period of time and is diagnosed by demonstrating any one of the following:
+
+- Fasting plasma glucose level ≥ 7.0 mmol/L (126 mg/dL)
+- Plasma glucose ≥ 11.1 mmol/L (200 mg/dL) two hours after a 75 gram oral glucose load as in a glucose tolerance test
+- Symptoms of high blood sugar and casual plasma glucose ≥ 11.1 mmol/L (200 mg/dL)
+- Glycated hemoglobin (HbA1C) ≥ 48 mmol/mol (≥ 6.5 DCCT %)
+
+# Data Overview
+The data is provided by [MIT's GOSSIS (Global Open Source Severity of Illness Score)](https://gossis.mit.edu/) initiative. It contains:
+
+- 179 features from 6 feature categories: identifier, demographic, APACHE co-variate, vitals, labs blood gas, APACHE co-morbidity
+- 1 target *diabetes_mellitus*
+
+What other information would we want to include about our data set?
+*Answer here*
+
+## Read in our data
+
+```{r load-libraries, warning=F, message=F,echo=F}
+library(tidyverse)
+library(readr) #for reading in data
+#install.libraries("janitor") #for tabyl function (similar to table function)
+#install.libraries("skimr") #for skim function (similar to summary function)
+```
+
+
+We need to read in our data. You can download the **TrainingWiDS2021** and **DataDictionaryWiDS2021** [here](https://www.kaggle.com/c/widsdatathon2021/data)
+```{r read-data, message=F, warning=F}
+training <- read_csv("~/Downloads/TrainingWiDS2021.csv")
+dictionary <- read_csv("~/Downloads/DataDictionaryWiDS2021.csv")
+```
+
+## Skim our data
+Let's take a look at the training data
+```{r data-head, message=F}
+training %>% head()
+```
+
+Notice, the first column is just the left-over indeces from the csv file. We can go ahead and remove that.
+```{r training-remove-index}
+training <- training[-1]
+```
+
+Now let's see descriptive statistics for this data set. We can use the `summary(training)` command, or we can use a slightly more descriptive `skim()` command from the `skimr` package. 
+```{r skim-data}
+training %>% skimr::skim()
+```
+
+## Q&A
+1. Look through the n_missing and complete_rate columns outputted by the `skim` command. What are these variables telling us? How could would we use this information in our analysis? 
+*Answer here*
+2. Which of the variable types have the most complete data? Why do you think this is?
+*Answer here*
+3. What variables do you think we could let go of down the line? 
+*Answer here*
+
+## Tabulate some variables
+
+Let's take a look at some of the demographic variables. How would you be able to find these? Pick one variable of this category and use 1. `group_by` and `count`, 2. `table`, 3. `janitor::tabyl` to check the distribution further. 
+
+```{r gender-tables}
+training %>%
+  group_by(gender) %>%
+  count()
+
+table(training$gender)
+
+training %>% janitor::tabyl(gender)
+```
+
+What do you notice about the outputs? When would you prefer one over the other?
+*Answer here*
+Now, let's use one of the outputs above to create a graphic that includes a title, appropriate labels and colors of your choice. 
+
+```{r gender-plot_grouped, eval=F}
+training %>%
+  group_by(gender) %>%
+  count() %>%
+  ggplot(aes(gender, n, fill = gender)) +
+  geom_col() +
+  labs(title = "Gender Distribution")
+```
+
+```{r gender-plot_tabyl}
+training %>% 
+  janitor::tabyl(gender) %>%
+  ggplot(aes(gender, percent, fill = gender)) +
+  geom_col() +
+  labs(title = "Gender Distribution")
+```
+
+Is this graphic an accurate representation of the whole population? If not, how could it become more representative?
+*Answer here*
+
+# Data Cleaning
+
+## Identifiers
+
+Let's look at all the variables that identify a patient in the data set
+
+```{r check_ids}
+training %>%
+  select(contains("_id")) %>%
+  summary()
+```
+
+So what are these values? Would any be indicators for our target variable?
+*Answer here*
+## Vitals
+
+Let's take at all the variables associated with vitals. 
+```{r check_vitals}
+dictionary %>%
+  filter(Category == "vitals") %>%
+  select(`Variable Name`)
+```
+What do you notice about the variable names? 
+*Answer here*
+
+

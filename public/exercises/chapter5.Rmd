@@ -11,7 +11,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 #Data Transformatino with `dplyr`.
-This .Rmd file steps examples of how to use the five key functions from `dplyr`: `filter()`, `arrange()`, `select()`, `mutate()` and `summarize()`. For the examples, we will use the `flights` data from the `nycflights13` package, and `dplyr` functions that are a part of the `tidyverse` package. To get started, we need to load the libraries and let's also look at our data so we can readily see th variable names and types.
+This .Rmd file steps examples of how to use the five key functions from `dplyr`: `filter()`, `arrange()`, `select()`, `mutate()` and `summarize()`. For the examples, we will use the `flights` data from the `nycflights13` package, and `dplyr` functions that are a part of the `tidyverse` package. To get started, we need to load the libraries and let's also look at our data so we can readily see the variable names and types.
 
 ```{r cars, eval=F}
 library(nycflights13)
