@@ -40,16 +40,16 @@ What other information would we want to know about our data set?
 
 ## Read in our data
 
-You will need to install the `janitor` and `skimr` packages. The commands are below, simply uncomment out the lines and run the chunk.
+You will need to install the `janitor` and `skimr` packages if you do not have them. 
 ```{r load-libraries, warning=F, message=F,}
 library(tidyverse)
 library(readr) #for reading in data
-#install.libraries("janitor") #for tabyl function (similar to table function)
-#install.libraries("skimr") #for skim function (similar to summary function)
+library(janitor) #for tably function (similar to table function)
+library(skimr) # for skim function (similar to summary function)
 ```
 
 
-We need to read in our data. You can download the **TrainingWiDS2021** and **DataDictionaryWiDS2021** [here](https://www.kaggle.com/c/widsdatathon2021/data). If you keep it in your Downloads folder, you can use the following code chunk. If you keep this .Rmd file and the data sets in your Math4180 folder, you can just refer to the data by its name ie read_csv(*"TrainingWiDS2021.csv"*)
+We need to read in our data. You can download the **TrainingWiDS2021** and **DataDictionaryWiDS2021** [here](https://www.kaggle.com/c/widsdatathon2021/data). If you keep it in your Downloads folder, you can use the following code chunk. If you keep this .Rmd file and the data sets in the same folder and set that as your working directory, you can just refer to the data by its name ie read_csv(*"TrainingWiDS2021.csv"*)
 
 ```{r read-data, message=F, warning=F}
 training <- read_csv("~/Downloads/TrainingWiDS2021.csv")
