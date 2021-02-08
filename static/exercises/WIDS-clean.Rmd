@@ -41,7 +41,7 @@ What other information would we want to know about our data set?
 ## Read in our data
 
 You will need to install the `janitor` and `skimr` packages if you do not have them. 
-```{r load-libraries, warning=F, message=F,}
+```{r load-libraries, warning=F, message=F}
 library(tidyverse)
 library(readr) #for reading in data
 library(janitor) #for tably function (similar to table function)

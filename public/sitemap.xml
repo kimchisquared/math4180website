@@ -19,6 +19,10 @@
   </url>
   
   <url>
+    <loc>/missing-data/</loc>
+  </url>
+  
+  <url>
     <loc>/materials/</loc>
     <priority>0</priority>
   </url>
