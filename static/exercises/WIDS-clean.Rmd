@@ -52,8 +52,8 @@ library(skimr) # for skim function (similar to summary function)
 We need to read in our data. You can download the **TrainingWiDS2021** and **DataDictionaryWiDS2021** [here](https://www.kaggle.com/c/widsdatathon2021/data). If you keep it in your Downloads folder, you can use the following code chunk. If you keep this .Rmd file and the data sets in the same folder and set that as your working directory, you can just refer to the data by its name ie read_csv(*"TrainingWiDS2021.csv"*)
 
 ```{r read-data, message=F, warning=F}
-training <- read_csv("~/Downloads/TrainingWiDS2021.csv")
-dictionary <- read_csv("~/Downloads/DataDictionaryWiDS2021.csv")
+training <- read_csv("~/Desktop/math4180/TrainingWiDS2021.csv")
+dictionary <- read_csv("~/Desktop/math4180/DataDictionaryWiDS2021.csv")
 ```
 
 ## Skim our data
