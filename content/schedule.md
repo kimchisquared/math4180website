@@ -5,10 +5,10 @@
 |3| Jan 25-29 | [Data Vizualizations using ggplot](/data-viz-ggplot/)| | |
 |4| Feb 1-5 | [Wrangling Data](/data-wrangle/) | Team selection |  |
 |5| Feb 8-12 | ][Missing Data](/missing-data/) | Submit management timeline |  |
-|6| Feb 15-19 | Modeling: Linear |  | |
-|7| Feb 22-26 | Modeling: Classification | ||
-|8| Mar 1-5 | Modeling: Evaluation Metrics | Deadline for submission | |
-|9| Mar 8-12 | Data Storytelling| | Spring Break: no class MTu |
+|6| Feb 15-19 | Ethical Data |  | |
+|7| Feb 22-26 | Modeling | ||
+|8| Mar 1-5 | Modeling | Deadline for submission | |
+|9| Mar 8-12 | TBD| | Spring Break: no class MTu |
 |10| Mar 15-19 | TBD | ||
 |11| Mar 22-26 | TBD | Begin technical report ||
 |12| Mar 29 - Apr 1 | TBD |  ||
