@@ -16,8 +16,7 @@ This week we will be discussing what to do when we have missing data and how han
 | Reading from R4DS book | Chapter 7. Pay special attention to sections 7.4 and 7.5. Post any questions in the Slack channel. |[:book:](https://r4ds.had.co.nz/exploratory-data-analysis.html) | |
 |Code Tutorial|Explore missing values using the `naniar` package|[:link:](https://allisonhorst.shinyapps.io/missingexplorer/)||
 |`naniar` resource|This vignette (basically a how-to for using the package) includes most of the information from the code tutorial in a scrollable format|[:link:](https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html)||
-|Project Work|We will begin dealing with missing data. Using this **.Rmd** on Wednesday's class, answer Questions 9-13 |[:link:](https://math4180.netlify.app/exercises/wids-missing)||
-|Dataset|Use the following data set to impute missing values during our class on Wednesday. Download [here](https://math4180.netlify.app/missingheightweight.csv) or from the *wids_datathon* channel  |||
-|Exercise|Finish cleaning your data sets and use a package of your choice to plot correlations. Post your code and correlation plot to your project group's Slack channel in a *single **.Rmd** file*.||Mon Feb 15 by 2pm|
+|Project Work|We will begin dealing with missing data. Using this **.Rmd** on Wednesday's class, answer Questions 9-14.  |[:link:](https://math4180.netlify.app/exercises/wids-missing)| |
+|Exercise|Using Question 9 from Wednesday's meeting as a template, meet with your group to explore the vitals and labs columns in the diabetes data. Use your group's Slack channel to take notes about the insights you see. We will be talking about the insights you posted on Monday.||Mon Feb 15 2pm|
 
 
