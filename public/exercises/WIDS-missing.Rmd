@@ -187,7 +187,7 @@ training %>%
 ```
 
 ### Question 9: 
-Use the above code chunks to explore the various vital/lab types. What did you find?
+How would you read this upset plot? You can use resources or ask R, or simply discuss what you see. On your own time, go back to the above two code chunks and explore the various vital/lab types. Take note of any important insights you find.
 
 
 ## Demographics
