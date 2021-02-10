@@ -148,7 +148,8 @@ Let's take at all the variables associated with vitals/labs.
 ```{r check_vitals}
 dictionary %>%
   filter(Category  %in% c("labs", "vitals", "labs blood gas")) %>%
-  count()
+  select(`Variable Name`) %>%
+  pull()
 ```
 
 ### Question 8 
