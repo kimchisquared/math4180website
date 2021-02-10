@@ -2991,26 +2991,21 @@ dictionary &lt;- read_csv(&quot;~/Desktop/math4180/DataDictionaryWiDS2021.csv&qu
 <p>So what are these values? Would any be indicators for our target variable? <em>Answer here</em></p>
 </div>
 </div>
-<div id="vitals" class="section level2">
-<h2>Vitals</h2>
-<p>Let’s take at all the variables associated with vitals.</p>
+<div id="vitals-labs" class="section level2">
+<h2>Vitals &amp; Labs</h2>
+<p>Let’s take at all the variables associated with vitals/labs.</p>
 <pre class="r"><code>dictionary %&gt;%
-  filter(Category == &quot;vitals&quot;) %&gt;%
-  select(`Variable Name`)</code></pre>
-<pre><code>## # A tibble: 52 x 1
-##    `Variable Name`          
-##    &lt;chr&gt;                    
-##  1 d1_diasbp_invasive_max   
-##  2 d1_diasbp_invasive_min   
-##  3 d1_diasbp_max            
-##  4 d1_diasbp_min            
-##  5 d1_diasbp_noninvasive_max
-##  6 d1_diasbp_noninvasive_min
-##  7 d1_heartrate_max         
-##  8 d1_heartrate_min         
-##  9 d1_mbp_invasive_max      
-## 10 d1_mbp_invasive_min      
-## # … with 42 more rows</code></pre>
+  filter(Category  %in% c(&quot;labs&quot;, &quot;vitals&quot;, &quot;labs blood gas&quot;)) %&gt;%
+  count()</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##       n
+##   &lt;int&gt;
+## 1   128</code></pre>
+<pre class="r"><code>vitalnames&lt;- training %&gt;%
+  select(contains(&quot;h1&quot;)|contains(&quot;d1&quot;)) %&gt;% 
+  names()
+
+vitalnames&lt;-gsub(&quot;^(h|d)1_&quot;,&quot;&quot;,vitalnames)</code></pre>
 <div id="question-8" class="section level3">
 <h3>Question 8</h3>
 <p>What do you notice about the variable names? <em>Answer here</em></p>

@@ -16,5 +16,6 @@ This week we will be discussing what to do when we have missing data and how han
 | Reading from R4DS book | Chapter 7. Pay special attention to sections 7.4 and 7.5. Post any questions in the Slack channel. |[:book:]https://r4ds.had.co.nz/exploratory-data-analysis.html) | |
 |Code Tutorial|Explore missing values using the `naniar` package|[:link:](https://allisonhorst.shinyapps.io/missingexplorer/)||
 |`naniar` resource|This vignette (basically a how-to for using the package) includes most of the information from the code tutorial in a scrollable format|[:link:](https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html)||
+|Exercise|Finish cleaning your data sets and use a package of your choice to plot correlations. Post your code and correlation plot to your project group's Slack channel in a *single **.Rmd** file*.||Mon Feb 15 by 2pm|
 
 
