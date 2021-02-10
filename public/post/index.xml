@@ -58,7 +58,7 @@ This week we will be discussing data wrangling techniques using the dplyr functi
       <guid>/missing-data/</guid>
       <description>Missing Data and the naniar package
 This week we will be discussing what to do when we have missing data and how handle missingness in real-world healthcare data.
-    Tasks Notes Links Due    Reading from R4DS book Chapter 7. Pay special attention to sections 7.4 and 7.5. Post any questions in the Slack channel. [📖]https://r4ds.had.co.nz/exploratory-data-analysis.html)   Code Tutorial Explore missing values using the naniar package 🔗   naniar resource This vignette (basically a how-to for using the package) includes most of the information from the code tutorial in a scrollable format 🔗   Exercise Finish cleaning your data sets and use a package of your choice to plot correlations.</description>
+    Tasks Notes Links Due    Reading from R4DS book Chapter 7. Pay special attention to sections 7.4 and 7.5. Post any questions in the Slack channel. [📖]https://r4ds.had.co.nz/exploratory-data-analysis.html)   Code Tutorial Explore missing values using the naniar package 🔗   naniar resource This vignette (basically a how-to for using the package) includes most of the information from the code tutorial in a scrollable format 🔗   Dataset Use the following data set to impute missing values during our class on Wednesday.</description>
     </item>
     
   </channel>
