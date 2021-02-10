@@ -1,5 +1,5 @@
 ---
-title: "WiDS Data Cleaning and Wrangling"
+title: "WiDS Missing Values"
 author: "Math 4180"
 date: "2/1/2021"
 output: html_document
@@ -40,12 +40,13 @@ What other information would we want to know about our data set?
 
 ## Read in our data
 
-You will need to install the `janitor` and `skimr` packages if you do not have them. 
+You will need to install the `janitor`,`skimr` and `naniar` packages if you do not have them. 
 ```{r load-libraries, warning=F, message=F}
 library(tidyverse)
 library(readr) #for reading in data
 library(janitor) #for tably function (similar to table function)
 library(skimr) # for skim function (similar to summary function)
+library(naniar) #for missing values
 ```
 
 
@@ -147,13 +148,154 @@ Let's take at all the variables associated with vitals/labs.
 ```{r check_vitals}
 dictionary %>%
   filter(Category  %in% c("labs", "vitals", "labs blood gas")) %>%
-  select(`Variable Name`) %>%
-  pull()
+  count()
 ```
-
 
 ### Question 8 
 What do you notice about the variable names? 
 *Answer here*
 
+Let's see if we can tease out the important information
+```{r vital_categories}
+vitalnames<- training %>%
+  select(contains("h1")|contains("d1")) %>% 
+  names()%>%
+  gsub("^[h|d]1_(.*)_[minmax]+","\\1",.) %>%
+  gsub("(.*)_.*", "\\1", .) %>%
+  unique()
+
+vitalnames
+```
+So it appears that we have 24 types of vitals/labs we can use. 
+
+## Missing Data
+Next, let's use the `var_miss` function to see where missingness occurs. Since our dataset is so large, we can either downsample our data (use less of it) using the command `sample_frac(size=0.8)` or warn the `vis_miss` function that the data coming in is quite large using the `warn_large_data=F` argument (or both!)
+
+### Vitals
+```{r vitals_missing_plot}
+training %>%
+  sample_frac(size=0.8) %>%
+  select(contains(vitalnames[3])) %>%
+  vis_miss(warn_large_data = F)
+```
+
+```{r vitals_upset_plot}
+training %>%
+  select(contains(vitalnames[3])) %>%
+  gg_miss_upset(nsets=15)
+```
+
+### Question 9: 
+Use the above code chunks to explore the various vital/lab types. What did you find?
+
+
+## Demographics
+We can also use the `vis_mis` function to see where missingness occurs in the demographic data. Let's use the data dictionary to find all columns that are demographic:
+```{r dict_demog}
+demog <- dictionary %>%
+  filter(Category=="demographic") %>%
+  select(`Variable Name`) %>%
+  pull() #changes all column entries to a vector so that we can use it inside a select(contains()) command
+```
+
+And now we can use this to similarly to the vitals/labs to visualize missingness:
+```{r missing_demog}
+training %>%
+  sample_frac(size=0.8) %>%
+  select(contains(demog)) %>% 
+  vis_miss(warn_large_data = F)
+```
+
+### Question 9
+What do you notice about this graphic? Which values would be important to have as little missing data as possible? 
+
+### Question 10
+Imputing values is a technique for filling in missing values (NA's) and can use the mean, mode, or even a distribution to do this. Which of the demographic variables would be good candidates for imputing values? Which variables would be problematic if we were to impute them? 
+
+### Replacing NA's in categorical data
+Several of our demographics are categorical, namely ethnicity and gender. Let's take a look at the categories for each of these variables using the `janitor::tabyl` command
+
+```{r check_cat_demog}
+training %>%
+  select(gender) %>%
+  janitor::tabyl(gender)
+
+training %>%
+  select(ethnicity) %>%
+  janitor::tabyl(ethnicity)
+```
+
+### Question 11
+What could we replace the NA's with so that all our instances included in a category?
+
+Using `mutate` and `replace_na` replace all NA values in the gender and ethnicity columns with the appropriate category.
+```{r replace_na_demog, eval=F}
+training <- training %>%
+  mutate(___ = replace_na(___, ___)) %>%
+  mutate(___ = replace_na(___, ___))
+training %>%
+  janitor::tabyl(___)
+training %>%
+  janitor::tabyl(___)
+```
+
+
+
+### BMI
+According to the World Health Organization, BMI, or body mass index, is a known risk factor for diabetes[1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5507834/#:~:text=General%20obesity%20measured%20by%20body,sex%20and%20race%5B3%5D.) . Although BMI is often advocated as a simple measure to determine disease risk, it has several limitations [2](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5507834/#:~:text=General%20obesity%20measured%20by%20body,sex%20and%20race%5B3%5D.). BMI can be calculated as the ratio of weight(kilograms) to height squared (meters squared).
+
+### Question 12
+What are the limitations that you can think of when it comes to BMI?
+
+
+Let's take a peak at the demographic columns we may be interested with regards to BMI using the `skimr::skim()` function
+
+```{r skim_heightweight}
+training %>%
+  select(height, weight, bmi) %>%
+  skimr::skim()
+```
+
+Let's try replacing the missing values with the mean for height and weight respectively. This technique is called imputing. Two techniques for doing this include using an `ifelse()` function or using the `coalesce()` function inside of a `mutate()` command.
+
+```{r impute_hw, eval=F}
+training %>%
+  mutate(___ = ifelse(___,mean(___, na.rm = TRUE),___)) %>%
+  mutate(___ = coalesce(___, mean(___, na.rm = TRUE))) %>%
+  skimr::skim(___, ___)
+```
+
+### Question 13
+The above code chunk has one glaring misuse of data. What would you have to include to the code chunk to fix this issue?
+
+Let's also add in BMI information. If we fix our mistake from the previous code chunk and have all our heights and weights filled in, we can actually use these values to calculate BMI rather. Add a `mutate` command to the fixed code chunk to do this.
+
+Altogether our code should be in the form:
+```{r missing_demog_format, eval=F}
+
+training%>%
+  mutate(___ = replace_na(___,___)) %>%
+  mutate(___ = replace_na(___, ___)) %>%
+  group_by(___)%>%
+  filter(___ !=___) %>%
+  mutate(___ = coalesce(___, mean(___, na.rm = TRUE))) %>%
+  mutate(___ = coalesce(___, mean(___, na.rm = TRUE)))%>%
+  mutate(___ = (___/(___)^2)) %>%
+  skimr::skim(___, ___, ____, ___)
+
+```
+
+```{r fix_missing_demog, echo=F}
+
+training%>%
+  mutate(gender = replace_na(gender,"Unknown")) %>%
+  mutate(ethnicity = replace_na(ethnicity, "Other/Unknown")) %>%
+  group_by(gender)%>%
+  filter(gender!="Unknown") %>%
+  mutate(new_height = coalesce(height, mean(height, na.rm = TRUE))) %>%
+  mutate(new_weight = coalesce(weight, mean(weight, na.rm = TRUE)))%>%
+  mutate(new_bmi = (new_weight/(new_height/100)^2)) %>%
+  skimr::skim(gender, height, weight, new_height, new_weight, bmi, new_bmi)
+
+```
 

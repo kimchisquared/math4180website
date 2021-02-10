@@ -147,46 +147,13 @@ Let's take at all the variables associated with vitals/labs.
 ```{r check_vitals}
 dictionary %>%
   filter(Category  %in% c("labs", "vitals", "labs blood gas")) %>%
-  count()
+  select(`Variable Name`) %>%
+  pull()
 ```
 
-```{r}
-vitalnames<- training %>%
-  select(contains("h1")|contains("d1")) %>% 
-  names()
-
-vitalnames<-gsub("^(h|d)1_","",vitalnames)
-
-```
 
 ### Question 8 
 What do you notice about the variable names? 
 *Answer here*
 
-
-```{r, eval=F, echo=F}
-lildata %>%
-  janitor::tabyl(gender)
-
-#categorical NAs
-training %>%
-  mutate(ethnicity = replace_na(ethnicity, "Other/Unknown")) %>%
-  mutate(gender = replace_na(gender, "Unknown")) %>%
-  janitor::tabyl(gender)
-
-#numberic NA's wrt to demographics
-imputed<- lildata%>%
-  group_by(gender)%>%
-  #filter(gender!="Unknown") %>%
-  mutate(height = ifelse(is.na(height),mean(height, na.rm = TRUE),height))
-
-
-  mutate(height = coalesce(height, mean(height, na.rm = TRUE)))
-  #mutate(new_weight = coalesce(weight, mean(weight, na.rm = TRUE)))%>%
-  #mutate(new_bmi = (new_weight/(new_height/100)^2)) %>%
-  #skimr::skim()
-
-training %>%
-  skimr::skim(age)
-```
 

@@ -2996,16 +2996,72 @@ dictionary &lt;- read_csv(&quot;~/Desktop/math4180/DataDictionaryWiDS2021.csv&qu
 <p>Let’s take at all the variables associated with vitals/labs.</p>
 <pre class="r"><code>dictionary %&gt;%
   filter(Category  %in% c(&quot;labs&quot;, &quot;vitals&quot;, &quot;labs blood gas&quot;)) %&gt;%
-  count()</code></pre>
-<pre><code>## # A tibble: 1 x 1
-##       n
-##   &lt;int&gt;
-## 1   128</code></pre>
-<pre class="r"><code>vitalnames&lt;- training %&gt;%
-  select(contains(&quot;h1&quot;)|contains(&quot;d1&quot;)) %&gt;% 
-  names()
-
-vitalnames&lt;-gsub(&quot;^(h|d)1_&quot;,&quot;&quot;,vitalnames)</code></pre>
+  select(`Variable Name`) %&gt;%
+  pull()</code></pre>
+<pre><code>##   [1] &quot;d1_diasbp_invasive_max&quot;    &quot;d1_diasbp_invasive_min&quot;   
+##   [3] &quot;d1_diasbp_max&quot;             &quot;d1_diasbp_min&quot;            
+##   [5] &quot;d1_diasbp_noninvasive_max&quot; &quot;d1_diasbp_noninvasive_min&quot;
+##   [7] &quot;d1_heartrate_max&quot;          &quot;d1_heartrate_min&quot;         
+##   [9] &quot;d1_mbp_invasive_max&quot;       &quot;d1_mbp_invasive_min&quot;      
+##  [11] &quot;d1_mbp_max&quot;                &quot;d1_mbp_min&quot;               
+##  [13] &quot;d1_mbp_noninvasive_max&quot;    &quot;d1_mbp_noninvasive_min&quot;   
+##  [15] &quot;d1_resprate_max&quot;           &quot;d1_resprate_min&quot;          
+##  [17] &quot;d1_spo2_max&quot;               &quot;d1_spo2_min&quot;              
+##  [19] &quot;d1_sysbp_invasive_max&quot;     &quot;d1_sysbp_invasive_min&quot;    
+##  [21] &quot;d1_sysbp_max&quot;              &quot;d1_sysbp_min&quot;             
+##  [23] &quot;d1_sysbp_noninvasive_max&quot;  &quot;d1_sysbp_noninvasive_min&quot; 
+##  [25] &quot;d1_temp_max&quot;               &quot;d1_temp_min&quot;              
+##  [27] &quot;h1_diasbp_invasive_max&quot;    &quot;h1_diasbp_invasive_min&quot;   
+##  [29] &quot;h1_diasbp_max&quot;             &quot;h1_diasbp_min&quot;            
+##  [31] &quot;h1_diasbp_noninvasive_max&quot; &quot;h1_diasbp_noninvasive_min&quot;
+##  [33] &quot;h1_heartrate_max&quot;          &quot;h1_heartrate_min&quot;         
+##  [35] &quot;h1_mbp_invasive_max&quot;       &quot;h1_mbp_invasive_min&quot;      
+##  [37] &quot;h1_mbp_max&quot;                &quot;h1_mbp_min&quot;               
+##  [39] &quot;h1_mbp_noninvasive_max&quot;    &quot;h1_mbp_noninvasive_min&quot;   
+##  [41] &quot;h1_resprate_max&quot;           &quot;h1_resprate_min&quot;          
+##  [43] &quot;h1_spo2_max&quot;               &quot;h1_spo2_min&quot;              
+##  [45] &quot;h1_sysbp_invasive_max&quot;     &quot;h1_sysbp_invasive_min&quot;    
+##  [47] &quot;h1_sysbp_max&quot;              &quot;h1_sysbp_min&quot;             
+##  [49] &quot;h1_sysbp_noninvasive_max&quot;  &quot;h1_sysbp_noninvasive_min&quot; 
+##  [51] &quot;h1_temp_max&quot;               &quot;h1_temp_min&quot;              
+##  [53] &quot;d1_albumin_max&quot;            &quot;d1_albumin_min&quot;           
+##  [55] &quot;d1_bilirubin_max&quot;          &quot;d1_bilirubin_min&quot;         
+##  [57] &quot;d1_bun_max&quot;                &quot;d1_bun_min&quot;               
+##  [59] &quot;d1_calcium_max&quot;            &quot;d1_calcium_min&quot;           
+##  [61] &quot;d1_creatinine_max&quot;         &quot;d1_creatinine_min&quot;        
+##  [63] &quot;d1_glucose_max&quot;            &quot;d1_glucose_min&quot;           
+##  [65] &quot;d1_hco3_max&quot;               &quot;d1_hco3_min&quot;              
+##  [67] &quot;d1_hemaglobin_max&quot;         &quot;d1_hemaglobin_min&quot;        
+##  [69] &quot;d1_hematocrit_max&quot;         &quot;d1_hematocrit_min&quot;        
+##  [71] &quot;d1_inr_max&quot;                &quot;d1_inr_min&quot;               
+##  [73] &quot;d1_lactate_max&quot;            &quot;d1_lactate_min&quot;           
+##  [75] &quot;d1_platelets_max&quot;          &quot;d1_platelets_min&quot;         
+##  [77] &quot;d1_potassium_max&quot;          &quot;d1_potassium_min&quot;         
+##  [79] &quot;d1_sodium_max&quot;             &quot;d1_sodium_min&quot;            
+##  [81] &quot;d1_wbc_max&quot;                &quot;d1_wbc_min&quot;               
+##  [83] &quot;h1_albumin_max&quot;            &quot;h1_albumin_min&quot;           
+##  [85] &quot;h1_bilirubin_max&quot;          &quot;h1_bilirubin_min&quot;         
+##  [87] &quot;h1_bun_max&quot;                &quot;h1_bun_min&quot;               
+##  [89] &quot;h1_calcium_max&quot;            &quot;h1_calcium_min&quot;           
+##  [91] &quot;h1_creatinine_max&quot;         &quot;h1_creatinine_min&quot;        
+##  [93] &quot;h1_glucose_max&quot;            &quot;h1_glucose_min&quot;           
+##  [95] &quot;h1_hco3_max&quot;               &quot;h1_hco3_min&quot;              
+##  [97] &quot;h1_hemaglobin_max&quot;         &quot;h1_hemaglobin_min&quot;        
+##  [99] &quot;h1_hematocrit_max&quot;         &quot;h1_hematocrit_min&quot;        
+## [101] &quot;h1_inr_max&quot;                &quot;h1_inr_min&quot;               
+## [103] &quot;h1_lactate_max&quot;            &quot;h1_lactate_min&quot;           
+## [105] &quot;h1_platelets_max&quot;          &quot;h1_platelets_min&quot;         
+## [107] &quot;h1_potassium_max&quot;          &quot;h1_potassium_min&quot;         
+## [109] &quot;h1_sodium_max&quot;             &quot;h1_sodium_min&quot;            
+## [111] &quot;h1_wbc_max&quot;                &quot;h1_wbc_min&quot;               
+## [113] &quot;d1_arterial_pco2_max&quot;      &quot;d1_arterial_pco2_min&quot;     
+## [115] &quot;d1_arterial_ph_max&quot;        &quot;d1_arterial_ph_min&quot;       
+## [117] &quot;d1_arterial_po2_max&quot;       &quot;d1_arterial_po2_min&quot;      
+## [119] &quot;d1_pao2fio2ratio_max&quot;      &quot;d1_pao2fio2ratio_min&quot;     
+## [121] &quot;h1_arterial_pco2_max&quot;      &quot;h1_arterial_pco2_min&quot;     
+## [123] &quot;h1_arterial_ph_max&quot;        &quot;h1_arterial_ph_min&quot;       
+## [125] &quot;h1_arterial_po2_max&quot;       &quot;h1_arterial_po2_min&quot;      
+## [127] &quot;h1_pao2fio2ratio_max&quot;      &quot;h1_pao2fio2ratio_min&quot;</code></pre>
 <div id="question-8" class="section level3">
 <h3>Question 8</h3>
 <p>What do you notice about the variable names? <em>Answer here</em></p>
