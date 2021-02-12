@@ -1,0 +1,12 @@
+name: diabetes_vitals
+title: diabetes_vitals
+username:
+account: kimosa
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3626389
+bundleId: 4213269
+url: https://kimosa.shinyapps.io/diabetes_vitals/
+when: 1613099470.97709
+asMultiple: FALSE
+asStatic: FALSE
