@@ -5,8 +5,8 @@ account: kimosa
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3626389
-bundleId: 4213269
+bundleId: 4216013
 url: https://kimosa.shinyapps.io/diabetes_vitals/
-when: 1613099470.97709
+when: 1613157196.32314
 asMultiple: FALSE
 asStatic: FALSE

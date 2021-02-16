@@ -9,15 +9,15 @@
 
 library(tidyverse)
 library(readr) #for reading in data
+library(data.table) # for reading in large files
 library(janitor) #for tably function (similar to table function)
 library(skimr) # for skim function (similar to summary function)
 library(naniar) #for missing values
 library(shiny)
 
 
-training <- read_csv("~/Desktop/math4180/TrainingWiDS2021.csv")
-dictionary <- read_csv("~/Desktop/math4180/DataDictionaryWiDS2021.csv")
-
+training <- fread("https://math4180.netlify.app/data/TrainingWiDS2021.csv")
+dictionary <- fread("https://math4180.netlify.app/data/DataDictionaryWiDS2021.csv")
 vitalnames<- training %>%
     select(contains("h1")|contains("d1")) %>% 
     names()%>%
@@ -43,8 +43,7 @@ ui <- fluidPage(
 
         # Show a plot of the generated distribution
         mainPanel(
-           plotOutput("missing_subsets"),
-           plotOutput("missing_plot")
+           plotOutput("missing_subsets")
         )
     )
 )

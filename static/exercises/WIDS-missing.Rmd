@@ -281,12 +281,13 @@ training%>%
   filter(___ !=___) %>%
   mutate(___ = coalesce(___, mean(___, na.rm = TRUE))) %>%
   mutate(___ = coalesce(___, mean(___, na.rm = TRUE)))%>%
+  ungroup() %>%
   mutate(___ = (___/(___)^2)) %>%
   skimr::skim(___, ___, ____, ___)
 
 ```
 
-```{r fix_missing_demog, echo=F}
+```{r fix_missing_demog}
 
 training%>%
   mutate(gender = replace_na(gender,"Unknown")) %>%
@@ -295,6 +296,7 @@ training%>%
   filter(gender!="Unknown") %>%
   mutate(new_height = coalesce(height, mean(height, na.rm = TRUE))) %>%
   mutate(new_weight = coalesce(weight, mean(weight, na.rm = TRUE)))%>%
+  ungroup() %>%
   mutate(new_bmi = (new_weight/(new_height/100)^2)) %>%
   skimr::skim(gender, height, weight, new_height, new_weight, bmi, new_bmi)
 

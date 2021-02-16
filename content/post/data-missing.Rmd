@@ -8,7 +8,7 @@ weight: 50
 
 **Missing Data and the naniar package**\
 \
-This week we will be discussing what to do when we have missing data and how handle missingness in real-world healthcare data.
+This week we will be discussing what to do when we have missing data and how to handle missingness in real-world healthcare data.
 \
 
 | Tasks | Notes | Links | Due |
