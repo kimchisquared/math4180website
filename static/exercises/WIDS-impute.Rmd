@@ -1,0 +1,609 @@
+---
+title: "WiDS Feature Imputation"
+author: "Math 4180"
+date: "2/1/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Problem Definition 
+
+In the Women in Data Science (WiDS) Datathon 2021, we will build a model to **determine whether a patient has been diagnosed with Diabetes Mellitus within the first 24 hours of being admitted to an Intensive Care Unit (ICU)**. To improve a patient's outcome in an ICU knowledge about their medical conditions can improve clinical decisions. However, often a patient's medical records are not immediately available due to transfer times. An additional challenge is when a patient is not able to provide such information due to their health condition, e.g. shock or unconsciousness. Therefore, it is important to be able to diagnose whether a patient has chronic diseases based on data that can be gathered within the first 24 hours of being admitted to an ICU.
+
+# Diabetes Mellitus
+
+According to the World Health Organization (WHO) Diabetes Mellitus, or commonly know as diabetes, is defined as follows:
+
+> Diabetes is a chronic disease that occurs either when the pancreas **does not produce enough insulin or when the body cannot effectively use the insulin it produces**. Insulin is a hormone that regulates blood sugar. Hyperglycaemia, or **raised blood sugar**, is a common effect of uncontrolled diabetes and over time leads to serious damage to many of the body's systems, especially the nerves and blood vessels. - [WHO Diabetes Fact Sheet](https://www.who.int/news-room/fact-sheets/detail/diabetes)
+
+There are two types of diabetes - **Type 1 diabetes and Type 2 diabetes**. Type 2 diabetes is more common than Type 1 diabetes and often results from excess body weight and physical inactivity while Type 1 diabetes is independent on body size. Additionally, there is **Gestational diabetes** in which a woman without diabetes develops high blood sugar levels during pregnancy. The latter usually resolves after birth while the other two types of diabetes have to be treated in the long-term.
+
+Around 8.5% of the adult population is diagnosed with Diabetes independent of the gender (World Health Organization, 2020).
+
+Diabetes mellitus is characterized by high blood sugar levels over a prolonged period of time and is diagnosed by demonstrating any one of the following:
+
+- Fasting plasma glucose level ≥ 7.0 mmol/L (126 mg/dL)
+- Plasma glucose ≥ 11.1 mmol/L (200 mg/dL) two hours after a 75 gram oral glucose load as in a glucose tolerance test
+- Symptoms of high blood sugar and casual plasma glucose ≥ 11.1 mmol/L (200 mg/dL)
+- Glycated hemoglobin (HbA1C) ≥ 48 mmol/mol (≥ 6.5 DCCT %)
+
+# Data Overview
+[MIT's GOSSIS (Global Open Source Severity of Illness Score)](https://gossis.mit.edu/) initiative, with privacy certification from the Harvard Privacy Lab, has provided a dataset of more than 130,000 hospital Intensive Care Unit (ICU) visits from patients, spanning a one-year timeframe. This data is part of a growing global effort and consortium spanning Argentina, Australia, New Zealand, Sri Lanka, Brazil, and more than 200 hospitals in the United States.. It contains:
+
+- 179 features from 6 feature categories: identifier, demographic, APACHE co-variate, vitals, labs blood gas, APACHE co-morbidity
+- 1 target *diabetes_mellitus*
+
+## Read in our data
+You will need to install any of these packages if you do not already have them. 
+```{r load-libraries, warning=F, message=F}
+library(tidyverse)
+library(readr) #for reading in data on your local machine
+library(data.table) #for reading in big data from a url
+library(janitor) #for tably function (similar to table function)
+library(corrr) # for correlations
+library(skimr) # for skim function (similar to summary function)
+library(naniar) #for missing value visualization
+library(mice) # for missing value imputation
+library(purrr) #for mapping functions during feat imputation.
+```
+
+
+We need to read in our data. You can download the **TrainingWiDS2021** and **DataDictionaryWiDS2021** [here](https://www.kaggle.com/c/widsdatathon2021/data). If you keep the data sets in your Downloads folder, you can use the command `read_csv("~/Desktop/math4180/TrainingWiDS2021.csv")`. If you keep this .Rmd file and the data sets in the same folder and set that as your working directory, you can just refer to the data by its name and use this command `read_csv("TrainingWiDS2021.csv")`. I am going to use the fact that I uploaded the datasets to our course website and call them using `data.table::fread`. This command works better for big data using a url.
+
+```{r load-data, warning=F, message=F}
+training <- fread("https://math4180.netlify.app/data/TrainingWiDS2021.csv")
+dictionary <- fread("https://math4180.netlify.app/data/DataDictionaryWiDS2021.csv")
+```
+
+# Skim our data
+You can take a look at the entire data set using the `head` command. Here I just want to point out a single column so I'm adding a `select` to narrow the scope
+```{r data-head, message=F}
+training %>% select(V1) %>%head()
+```
+
+## Removing columns
+Notice, the first column is just the left-over indices from the csv file. We can go ahead and add this column to a list `cols_to_remove` for future removal. We do this instead of outrightly removing columns (ie using `training <- training[,-1]`) so that we can check where we made changes down the line. We may find that some columns are useful for exploring our dataset, but they do not add significant impact to the final goal. Additionally, it's also nice to not accidentally overwrite your data and find you need to reread in everything.
+
+```{r remove-index}
+cols_to_remove = c()
+cols_to_remove = c(cols_to_remove, "V1")
+training_clean <- training
+```
+
+
+# EDA
+Now let's see descriptive statistics for this data set. We can use the `summary(training)` command, or we can use a slightly more descriptive `skim()` command from the `skimr` package. Again, I'm using `select` to narrow the scope so that not all columns are output
+```{r skim-data}
+training_clean %>% select(readmission_status) %>% skimr::skim()
+```
+
+Note it looks like *readmission_status* is just full of 0's. Let's add that to `cols_to_remove`:
+```{r remove_admin}
+cols_to_remove=c(cols_to_remove, "readmission_status")
+```
+
+## Subsetting data
+You may find that subsetting your data into smaller chunks will make your workload easier to manage. You can do this in a few different ways: 
+
+1. Know background information about your data - this is where our data dictionary comes into play. We have the column `Category` which categorizes the columns based off certain criteria like `labs` or `demographics`. You may see in the future that you need to pull data from different sources and keeping track of that in a column in your data dictionary would be helpful not only for cleaning but also for data checks.
+
+2. Know what type of data you're working with. Sometimes analyses break the data down into what *data type* it is: categorical, numeric, binary, character/string. This is a very common way to chunk the data as certain data types may need to be handled and executed in a certain way. Take `NA` values for example.. For categorical data, `NA`s could be changed to *Unknown* or *Missing* whereas numeric data may be changed to an empty entry or imputed using mean, mode or a distribution (we will get to this later on in this worksheet). Knowing the type of data is always recommended for sound analysis.
+
+3. Naming conventions. This is slightly more nuanced, but like we've seen for our `vitals` and `labs` we may encounter similar naming conventions: hour or day *h1* or *d1* + *_* + lab type + *_* + highest or lowest value *min* or *max*. Depending on the type of work you're doing, your columns may contain certain keywords that can help you separate the data into usuable chunks.
+
+
+## Categories from Data Dict
+
+Demographics
+```{r cols_demogs}
+demog_cols<-dictionary %>%
+  filter(Category  %in% c("demographic")) %>%
+  select(`Variable Name`) %>% 
+  filter(`Variable Name` != "icu_admit_type") %>% #this isn't actually in our dataset
+  pull()
+#demog_cols
+```
+
+Identifiers
+```{r cols_ids}
+id_cols<-dictionary %>%
+  filter(Category  %in% c("identifier")) %>%
+  select(`Variable Name`) %>% 
+  pull() 
+#id_cols
+```
+
+Vitals or Labs
+```{r cols_vitals}
+vitalcols<- dictionary %>%
+  filter(Category  %in% c("labs", "vitals", "labs blood gas")) %>%
+  select(`Variable Name`) %>% 
+  pull() 
+#vitalcols
+```
+
+APACHE columns: comorbidity and vitals. We will use the `vitalcols` and `apvitalcols` later on to see what vitals overlap between these two categories.
+```{r cols_apache}
+comorbidcols<- dictionary %>%
+  filter(Category  %in% c("APACHE comorbidity")) %>%
+  select(`Variable Name`) %>% 
+  pull() 
+#comorbidcols
+
+apvitalcols <- dictionary %>%
+  filter(Category  %in% c("APACHE covariate")) %>%
+  select(`Variable Name`) %>% 
+  pull() 
+
+#apvitalcols
+```
+
+
+## Correlations
+Find correlations from our columns to the target variable. We will want to see if there are medical reasons behind key correlations. This will inform the imputation process and determining what sort of features we would like to extract. Note: the type of correlation we're going to do only deals with numeric values. Also, for some correlation plots, I'm filtering by correlations > 0.05.
+
+Here is the general outline for doing this plot:
+```{r corr-outline, warning=F, message=F, eval=F}
+training %>%
+  select(______, diabetes_mellitus) %>% #columns your interested in *and* your target column
+  select_if(is.numeric) %>% #only checking numeric values
+  corrr::correlate() %>% #find correlations
+  corrr::focus(diabetes_mellitus) %>% #focus on your target column's correlations
+  #filter(abs(diabetes_mellitus)>0.05) %>% # optional command: only outputs "important" corrs
+  ggplot(aes(fct_reorder(term,diabetes_mellitus), diabetes_mellitus)) + #reorder to make the graph
+  geom_col(aes(fill = diabetes_mellitus >=0)) + #fill to separate the pos and neg values
+  coord_flip() + #makes it easier to read columns
+  labs(y = "diabetes_mellitus", #target column
+       x = "numeric variables",
+       title = "Correlations to target variable",
+       subtitle = "using demographics and comorbidities")+
+  theme(text = element_text(size=5)) #change text size to reduce overlapping text
+```
+You can change the `_______` to any of the categories we set up earlier like `apvitalcols` or `demog_cols`. You can also add in two of these categories if you want to: just separate with a comma : `demog_cols, apvital_cols`
+
+### Demographics and Comorbidities
+```{r corr-demogs_comorbs, warning=F, message=F, echo=F}
+training %>%
+  select(demog_cols, diabetes_mellitus, comorbidcols) %>%
+  select_if(is.numeric) %>%
+  corrr::correlate() %>%
+  corrr::focus(diabetes_mellitus) %>% 
+  ggplot(aes(fct_reorder(term,diabetes_mellitus), diabetes_mellitus)) +
+  geom_col(aes(fill = diabetes_mellitus >=0)) +
+  coord_flip() +
+  labs(y = "diabetes_mellitus",
+       x = "numeric variables",
+       title = "Correlations to target variable",
+       subtitle = "using demographics and comorbidities")+
+  theme(text = element_text(size=5))
+```
+
+Looks like bmi, weight and age are important factors which is related to what we know about diabetes.
+
+### Hourly vitals
+```{r corr-hourly-vitals, warning=F, message=F, echo=F}
+training %>%
+  select(diabetes_mellitus, contains("h1")) %>%
+  select_if(is.numeric) %>%
+  corrr::correlate() %>%
+  corrr::focus(diabetes_mellitus) %>% 
+  ggplot(aes(fct_reorder(term,diabetes_mellitus), diabetes_mellitus)) +
+  geom_col(aes(fill = diabetes_mellitus >=0)) +
+  coord_flip() +
+  labs(y = "diabetes_mellitus",
+       x = "numeric variables",
+       title = "Correlations to target variable",
+       subtitle = "using vitals and labs in the first hour")+
+  theme(text = element_text(size=5))
+```
+In the first hour, glucose, bun, creatinine, potassium and calcium are positively correlated to diabetes whereas diastolic and mbp (noninvasive and invasive), hemoglobin, hematocrit and hco3 (bicarb) are negatively correlated to the target. Let's check and see if that is the case for the daily vitals as well:
+
+### Daily vitals
+```{r corr-daily-vitals, warning=F, message=F, echo=F}
+training %>%
+  select(diabetes_mellitus, contains("d1")) %>%
+  select_if(is.numeric) %>%
+  corrr::correlate() %>%
+  corrr::focus(diabetes_mellitus) %>% 
+  ggplot(aes(fct_reorder(term,diabetes_mellitus), diabetes_mellitus)) +
+  geom_col(aes(fill = diabetes_mellitus >=0)) +
+  coord_flip() +
+  labs(y = "diabetes_mellitus",
+       x = "numeric variables",
+       title = "Correlations to target variable",
+       subtitle = "using vitals and labs in the first hour")+
+  theme(text = element_text(size=5))
+```
+For daily vitals, systolic measures are included (positive) with slightly more correlation than sodium measures and bilirubin (liver) are now included (negative).
+
+### All vitals
+
+#### All positive correlations wrt vitals/labs within the first 24 hours
+
+```{r corr-vitals_positive, warning=F, message=F, echo=F}
+training %>%
+  select(diabetes_mellitus, vitalcols, apvitalcols) %>%
+  select_if(is.numeric) %>%
+  corrr::correlate() %>%
+  corrr::focus(diabetes_mellitus) %>% 
+  filter(abs(diabetes_mellitus)>0.05) %>%
+  filter(diabetes_mellitus >=0) %>%
+  ggplot(aes(fct_reorder(term,diabetes_mellitus), diabetes_mellitus)) +
+  geom_col(aes(fill = diabetes_mellitus >=0)) +
+  coord_flip() +
+  labs(y = "diabetes_mellitus",
+       x = "numeric variables",
+       title = "Positive correlations to target variable",
+       subtitle = "using daily, hourly and APACHE labs and vitals")+
+  theme(text = element_text(size=5),
+        legend.position = "none") +
+  scale_fill_manual( values = "#00BFC4")
+  
+```
+
+#### All negative correlations wrt vitals/labs within the first 24 hours
+```{r corr-vitals_negative, warning=F, message=F, echo=F}
+training %>%
+  select(diabetes_mellitus, vitalcols, apvitalcols) %>%
+  select_if(is.numeric) %>%
+  corrr::correlate() %>%
+  corrr::focus(diabetes_mellitus) %>% 
+  filter(abs(diabetes_mellitus)>0.05) %>%
+  filter(diabetes_mellitus <0) %>%
+  ggplot(aes(fct_reorder(term,diabetes_mellitus), diabetes_mellitus)) +
+  geom_col(aes(fill = diabetes_mellitus <0)) +
+  coord_flip() +
+  labs(y = "diabetes_mellitus",
+       x = "numeric variables",
+       title = "Negative correlations to target variable",
+       subtitle = "using daily, hourly and APACHE labs and vitals")+
+  theme(text = element_text(size=5),
+        legend.position = "none")
+```
+
+### Identifiers
+```{r corr-demogs_ids, warning=F, message=F, echo=F}
+training %>%
+  select( diabetes_mellitus, id_cols) %>%
+  select_if(is.numeric) %>%
+  corrr::correlate() %>%
+  corrr::focus(diabetes_mellitus) %>% 
+  ggplot(aes(fct_reorder(term,diabetes_mellitus), diabetes_mellitus)) +
+  geom_col(aes(fill = diabetes_mellitus >=0)) +
+  coord_flip() +
+  labs(y = "diabetes_mellitus",
+       x = "numeric variables",
+       title = "Correlations to target variable",
+       subtitle = "using identifiers")+
+  theme(text = element_text(size=5))
+```
+
+Some columns may not be good candidates to include in the model. Take the identifier columns: we have identifiers for the hospital (*encounter_id*) and identifiers for the data set to distinguish which hospital it came from (*hospital_id*), but both appear to low correlations with the target variable (veeeeeery close to 0). We can verify this claim by taking a peak at our test set and comparing to our training set - doing this, we would see that these two columns are mainly disjoint (roughly a 0.3% overlap).
+
+```{r remove_ids}
+cols_to_remove = c(cols_to_remove, id_cols)
+```
+
+
+## Adversarial Validation
+
+A better way would be to use adversarial validation. Adversarial validation is a technique to double check that our test and training sets come from the same population, ie if they are *independent and identically distributed* (iid). To do this, we can create a new binary column to our test and training sets where a 1 denotes the testing set and a 0 denotes the training set and then combine them together (using `rbind` or a similar command). We then train a classifier (decision tree, random forest) to see if it is able to distinguish our test set (1) from our training set (0). 
+
+If we used random chance, ie a null hypothesis model, we would expect 50% of our combined data sets to be correctly identified. This would correspond to a model evaluation ROC AUC of 0.50 or 50%. Why do adversarial validation? Well if the training and testing sets are significantly different, we do not have the iid assumption and are therefore tuning a model that would not be representative of our data. This also would be a prime example of overfitting our training set. This will also give us an idea of columns that could be removed (ie the ones that are important features for this model in distinguishing the difference) to allow better classification down the line.
+
+# Feature Imputation
+
+## Labs/Vitals Dummy Vars
+Before we begin filling in missing values, we need to consider the reason behind their missingness. In medicine, missing values are super informative - a patient not doing a test may often indicate that the medical staff did not think it necessary. We can create a new variable to indicate if a patient had a specific test or not. We call this a dummy variable since it only tells us one piece of information (ie if the patient had an NA in a specific column). We may also want to sum up all daily, hourly and total labs to see how many labs the patient needed in specific time frames. We can use the `cbind` command later on to combine these new columns with our original training set.
+
+```{r dummy_vitals}
+dummy_vitals<- training_clean %>%
+  select(contains(vitalcols)| contains(apvitalcols)) %>%
+  mutate_all(list(na = ~if_else(is.na(.),1,0))) %>%
+  select(matches("_na$")) 
+
+hourly_labs<- dummy_vitals %>%
+  select(contains("h1")) %>% 
+  mutate(hourlylabs = rowSums(.)) %>% 
+  select(hourlylabs)
+
+daily_labs<- dummy_vitals %>%
+  select(contains("d1")) %>% 
+  mutate(dailylabs = rowSums(.)) %>% 
+  select(dailylabs)
+
+total_labs<- dummy_vitals %>%
+  mutate(totallabs = rowSums(.)) %>% 
+  select(totallabs)
+
+```
+
+ We can check how these dummy vars compare to our target
+```{r corr-dummy_vitals, warning=F, message=F}
+training %>%
+  select(diabetes_mellitus, age, bmi, height, weight) %>%
+  cbind(dummy_vitals, hourly_labs, daily_labs, total_labs) %>%
+  select_if(is.numeric) %>%
+  corrr::correlate() %>%
+  corrr::focus(diabetes_mellitus) %>% 
+  filter(abs(diabetes_mellitus)>0.05) %>%
+  ggplot(aes(fct_reorder(term,diabetes_mellitus), diabetes_mellitus)) +
+  geom_col(aes(fill = diabetes_mellitus >=0)) +
+  coord_flip() +
+  labs(y = "diabetes_mellitus",
+       x = "numeric variables",
+       title = "Correlations to target variable",
+       subtitle = "using vitals and labs in the first hour")+
+  theme(text = element_text(size=5))
+```
+So it appears that missing a measure for glucose is just as important as bmi and weight.. Looking further, let's try to see when glucose is na and compare to the target.
+```{r glucose-corr}
+training %>%
+  select(contains("glucose"), diabetes_mellitus) %>% 
+  pivot_longer(!diabetes_mellitus, names_to = "glucose_labs", values_to="count") %>%
+  group_by(glucose_labs,diabetes_mellitus) %>%
+  skim()
+
+training_clean %>%
+  select(diabetes_mellitus, age, bmi, height, weight) %>%
+  cbind(dummy_vitals, hourly_labs, daily_labs, total_labs) %>%
+  select(contains("glucose")|hourlylabs, dailylabs, totallabs, age, bmi, height, weight, diabetes_mellitus) %>%
+  pivot_longer(!diabetes_mellitus, names_to = "measures", values_to = "count") %>%
+  group_by(measures, diabetes_mellitus) %>%
+  skim()
+```
+Adding total labs for hour and day don't really seem important. For the most part, it seems like the only important feature is if they are missing values for glucose in the first 24 hours...
+
+## Set notation for looking at vitals
+Let's take at all the variables associated with vitals/labs. 
+
+We have from 128 columns if we combine the *labs*, *vitals*, and *labs blood gas* categories. Notice all these columns begin with a *h1* or *d1*. This is nice because we can easily sort using `select` and do some string manipulation with the `gsub` command.
+
+```{r vital_categories}
+vitalcats<- training %>%
+  select(contains("h1")|contains("d1")) %>% 
+  names()%>%
+  gsub("^[hd]1_(.*)_(.*)+","\\1",.) %>%
+  unique()
+vitalcats
+```
+Our 128 columns reduced down to 24 categories. This is nice to know because we may want to explore the data a bit more. We may also want to fill in missing values - we can do this by combining columns within categories (if we want overall max glucose, we can ask R to look at all columns associated with glucose and pick the highest value)
+
+Likewise, we can take all the APACHE columns and see what they're about:
+```{r apache_categories}
+apachecats<- training %>%
+  select(contains("apache")) %>% 
+  names()%>%
+  gsub("_apache$", "", .) %>%
+  gsub("^apache_", "", .) %>%
+  gsub("heart_rate", "heartrate",.) %>%
+  unique()
+apachecats
+```
+All 28 APACHE columns are unique. Let's see what happens if we combine the vital categories list together with the APACHE categories list:
+```{r combine-cats}
+union(apachecats, vitalcats)
+setdiff(apachecats, vitalcats)
+intersect(vitalcats, apachecats)
+```
+So from 24 vital cats and 28 APACHE cats, we have 42 total test categories. We have 10 categories that are similar across the vitals/labs and apache columns. This would be important if we would like to fill in missing values.
+
+### Max and Min fill
+```{r vital_columns, echo=F, eval=F}
+diasbp_cols<-training%>%select(contains("diasbp"))%>%names()
+heartrate_cols<-training%>%select(contains("heartrate"))%>%names()
+mbp_cols<-training%>%select(contains("mbp"))%>%names()
+resprate_cols<-training%>%select(contains("resprate"))%>%names()
+spo2_cols<-training%>%select(contains("spo2"))%>%names()
+sysbp_cols<-training%>%select(contains("sysbp"))%>%names()
+temp_cols<-training%>%select(contains("temp"))%>%names()
+albumin_cols<-training%>%select(contains("albumin"))%>%names()
+bilirubin_cols<-training%>%select(contains("bilirubin"))%>%names()
+bun_cols<-training%>%select(contains("bun"))%>%names()
+calcium_cols<-training%>%select(contains("calcium"))%>%names()
+creatinine_cols<-training%>%select(contains("creatinine"))%>%names()
+glucose_cols<-training%>%select(contains("glucose"))%>%names()
+hco3_cols<-training%>%select(contains("hco3"))%>%names()
+hemaglobin_cols<-training%>%select(contains("hemaglobin"))%>%names()
+hematocrit_cols<-training%>%select(contains("hematocrit"))%>%names()
+inr_cols<-training%>%select(contains("inr"))%>%names()
+lactate_cols<-training%>%select(contains("lactate"))%>%names()
+hemaglobin_cols<-training%>%select(contains("hemaglobin"))%>%names()
+platelets_cols<-training%>%select(contains("platelets"))%>%names()
+potassium_cols<-training%>%select(contains("potassium"))%>%names()
+sodium_cols<-training%>%select(contains("sodium"))%>%names()
+wbc_cols<-training%>%select(contains("wbc"))%>%names()
+arterial_cols<-training%>%select(contains("arterial"))%>%names()
+pao2fio2ratio_cols<-training%>%select(contains("pao2fio2ratio"))%>%names()
+
+```
+
+
+Start off by using a small sample. 
+```{r vital_max_min,warning=F}
+set.seed(1233)
+dat <- training %>% sample_n(10000)
+cols_to_add<- dat %>% select(contains(demog_cols), diabetes_mellitus)
+testcats<-intersect(vitalcats, apachecats)
+
+tabyl(dat$diabetes_mellitus) #check if rep of dataset
+tabyl(training$diabetes_mellitus)
+
+min_max_vitals<-map_dfc(testcats,
+            ~dat %>%
+              rowwise() %>%
+              transmute(!!paste('min', .x, sep = '_') := min(c_across(matches(.x)), na.rm = TRUE), 
+                        !!paste('max', .x, sep = '_') := max(c_across(matches(.x)), na.rm = TRUE)) %>%
+              replace_with_na_all(condition = ~.x == Inf))
+min_max_vitals <- cbind(min_max_vitals, cols_to_add)
+```
+
+Correlations may be exaggerated due to low sample size (roughly 7.7% of dataset)
+```{r vital_min_max-corr, warning=F, echo=F}
+min_max_vitals %>%
+  select_if(is.numeric) %>%
+  corrr::correlate() %>%
+  corrr::focus(diabetes_mellitus) %>% 
+  filter(abs(diabetes_mellitus)>0.05) %>%
+  ggplot(aes(fct_reorder(term,diabetes_mellitus), diabetes_mellitus)) +
+  geom_col(aes(fill = diabetes_mellitus >=0)) +
+  coord_flip() +
+  labs(y = "diabetes_mellitus",
+       x = "numeric variables",
+       title = "Correlations to target variable",
+       subtitle = "using imputed min/max labs and vitals")+
+  theme(text = element_text(size=5),
+        legend.position = "none")
+```
+
+```{r corr-daily-vitals_sample, warning=F, message=F, echo=F}
+dat %>%
+  select(diabetes_mellitus, contains("d1"), demog_cols) %>%
+  select_if(is.numeric) %>%
+  corrr::correlate() %>%
+  corrr::focus(diabetes_mellitus) %>% 
+  filter(abs(diabetes_mellitus)>0.05) %>%
+  ggplot(aes(fct_reorder(term,diabetes_mellitus), diabetes_mellitus)) +
+  geom_col(aes(fill = diabetes_mellitus >=0)) +
+  coord_flip() +
+  labs(y = "diabetes_mellitus",
+       x = "numeric variables",
+       title = "Correlations to target variable",
+       subtitle = "using sample labs and vitals for daily lab/vital values")+
+  theme(text = element_text(size=5),
+        legend.position = "none")
+```
+So it doesn't appear that filling in missing values really changes much more than just using daily stats. We now have the evidence we needed to justify taking out all columns with *h1* ~except~ those with *glucose* measures.
+
+```{r remove-h1}
+h1_nogluc_cols<-training %>% select(contains("h1"),-contains("glucose")) %>% names()
+cols_to_remove = c(cols_to_remove, h1_nogluc_cols)
+```
+
+
+## Demographics
+
+Up until now we have used the following for cleaning our demographic columns:
+```{r clean_demogs, eval=F}
+training%>%
+  group_by(gender) %>%
+  mutate(height = coalesce(height, mean(height, na.rm = TRUE))) %>%
+  mutate(weight = coalesce(weight, mean(weight, na.rm = TRUE))) %>%
+  ungroup() %>%
+  mutate(bmi = (weight/(height/100)^2))%>%
+  mutate(gender = replace_na(gender, "Unknown")) %>%
+  mutate(ethnicity = replace_na(ethnicity, "Other/Unknown"))
+```
+
+Let's take a look at the `mice` package for imputing numeric features
+### MICE package
+
+So first we need a few datasets. We're going to pull 10 records from our training set that include values for all our selected columns. Then using `lapply` we're going to replace some of those values with `NA`s. The reason behind this is that we now have a set that mimicks real-life data `impute_set_nas` but we also have an "answer key" `impute_set` to check how well the different imputation methods work.
+
+You do **not** have to be able to reproduce the code below. Rather, be comfortable with the notation and the reason behind why we're doing this. The `set.seed()` command let's us use the same dataset over and over again - if you change or remove this, then when the `sample_n` command is run, you will get different a `impute_set`.
+
+```{r impute_sets}
+set.seed(2021)
+impute_set<- training %>%
+  select(gender, height, weight, ethnicity, bmi, age) %>%
+  na.omit() %>%
+  sample_n(10) 
+impute_set
+
+set.seed(1989)
+impute_set_nas <- lapply(impute_set, function(cc) cc[sample(c(TRUE, NA), prob = c(0.85, 0.15), size = length(cc), replace=TRUE)]) %>% as_tibble()
+impute_set_nas
+
+```
+
+Now onto using the `mice` package. We can actually visualize missingness here using a lil matrix plot
+```{r mice-missing-plot}
+md.pattern(impute_set_nas)
+```
+
+
+.The below code will take our simulated real-life data `impute_set_nas` and put it into a format that is compatible with the `mice` package using the `mice` command. The command that fills in our `NA` with a specified method is the `complete` command. Below no real method is set, rather we're just going to use the default `method = "ppm"`
+```{r mice-ppm}
+ppmModel<- mice(impute_set_nas, maxit = 10)
+method <- ppmModel$method
+predictorMatrix <- ppmModel$predictorMatrix
+imputedData_ppm <- mice(impute_set_nas, method, predictorMatrix, m=5)
+imputedData_ppm <-complete(imputedData_ppm)
+imputedData_ppm
+```
+
+We can use the `stripplot` command to check where the missingness occurs within each feature.
+```{r mice-stripplot}
+stripplot(ppmModel, bmi, pch=19, xlab = "BMI")
+stripplot(ppmModel, age, pch=19, xlab = "Age")
+stripplot(ppmModel, height, pch=19, xlab = "Height")
+stripplot(ppmModel, weight, pch=19, xlab = "Weight")
+```
+
+Now let's compare. We can do a few things:
+1. plain inspection
+```{r mice-compare-inspection}
+impute_set
+impute_set_nas
+imputedData_ppm
+```
+
+2. Compare means (for categorical features you can use `table` rather than `mean`)
+```{r ppm-compare-means}
+#Height
+mean(impute_set$height)
+mean(imputedData_ppm$height)
+
+#Weight
+mean(impute_set$weight)
+mean(imputedData_ppm$weight)
+
+#BMI
+mean(impute_set$bmi)
+mean(imputedData_ppm$bmi)
+#BMI
+mean(impute_set$age)
+mean(imputedData_ppm$age)
+```
+
+3. Compare using plots - compare imputed values (red) to actual values (blue)
+```{r mice-xyplots}
+xyplot(ppmModel, bmi ~ height)
+xyplot(ppmModel, bmi ~ weight)
+```
+
+4. Compare distributions. The multiple red lines indicate the number of times we went through and imputed values
+```{r mice-denisty-plots}
+densityplot(ppmModel, ~height)
+densityplot(ppmModel, ~weight)
+densityplot(ppmModel, ~age)
+```
+
+We can also create more models and compare to either our original data `impute_set` or against other models like `ppmModel`. Let's create a model using just `mean`.. here we designate our method and then run the rest of the code.
+```{r mice-mean}
+#mean
+emptyModel<- mice(impute_set_nas, method = "mean", maxit = 10)
+method <- emptyModel$method
+predictorMatrix <- emptyModel$predictorMatrix
+imputedData_mean <- mice(impute_set_nas, method, predictorMatrix, m=5)
+imputedData_mean <-complete(imputedData_mean)
+```
+
+You can use the various comparisons above to see the changes between `imputedData_ppm` and `imputedData_mean`.
+```{r}
+imputedData_mean
+imputedData_ppm
+```
+
+Another way is to use different methods depending on which feature you're using. Here we set method equal to a list of methods where empty methods indicate features we don't want to include. You can double check how this is set up by calling either `emptyModel$method` or, in our case, we assigned that to *method* so calling method would work too.
+```{r mice_multiplemethods}
+#various methods (first and fourth in method should stay empty)
+emptyModel<- mice(impute_set_nas, method = c("", "cart", "sample", "", "rf", "norm.predict"), maxit = 10)
+method <- emptyModel$method
+method
+predictorMatrix <- emptyModel$predictorMatrix
+imputedData_various <- mice(impute_set_nas,method, predictorMatrix, m=5)
+imputedData_various <-complete(imputedData_various)
+imputedData_various
+```
+

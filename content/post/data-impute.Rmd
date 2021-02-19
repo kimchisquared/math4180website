@@ -1,0 +1,23 @@
+---
+title: 'Weeks 6-7: Feature Imputation and Engineering'
+subtitle: 'using tidyverse and mice'
+slug: impute-data
+weight: 50
+---
+
+
+**Imputing Data and the mice package**\
+\
+We will be discussing what to do when we have to impute missing data and the process for validating whether or not certain features should be included in our analyses.
+\
+
+| Tasks | Notes | Links | Due |
+| -------- | ------------- | ------ | ---- |
+|Project Work|We will begin imputing data. Using this **.Rmd** go over the methods presented with your group. Ask any questions in the Slack channel  |[:link:](https://math4180.netlify.app/exercises/wids-impute)| |
+|`mice` package||[:link:](https://cran.r-project.org/web/packages/mice/mice.pdf)||
+|`mice` resource||[:link:](https://datascienceplus.com/imputing-missing-data-with-r-mice-package/)||
+
+Updates for reading material: *TBD*
+
+
+

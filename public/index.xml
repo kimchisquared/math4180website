@@ -62,6 +62,17 @@ This week we will be discussing what to do when we have missing data and how to 
     </item>
     
     <item>
+      <title>Weeks 6-7: Feature Imputation and Engineering</title>
+      <link>/impute-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/impute-data/</guid>
+      <description>Imputing Data and the mice package
+We will be discussing what to do when we have to impute missing data and the process for validating whether or not certain features should be included in our analyses.
+    Tasks Notes Links Due    Project Work We will begin imputing data. Using this .Rmd go over the methods presented with your group. Ask any questions in the Slack channel 🔗   mice package  🔗   mice resource  🔗     Updates for reading material: TBD</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>/materials/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

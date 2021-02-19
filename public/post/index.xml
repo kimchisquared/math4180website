@@ -61,5 +61,16 @@ This week we will be discussing what to do when we have missing data and how to 
     Tasks Notes Links Due    Reading from R4DS book Chapter 7. Pay special attention to sections 7.4 and 7.5. Post any questions in the Slack channel. 📖   Code Tutorial Explore missing values using the naniar package 🔗   naniar resource This vignette (basically a how-to for using the package) includes most of the information from the code tutorial in a scrollable format 🔗   Project Work We will begin dealing with missing data.</description>
     </item>
     
+    <item>
+      <title>Weeks 6-7: Feature Imputation and Engineering</title>
+      <link>/impute-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/impute-data/</guid>
+      <description>Imputing Data and the mice package
+We will be discussing what to do when we have to impute missing data and the process for validating whether or not certain features should be included in our analyses.
+    Tasks Notes Links Due    Project Work We will begin imputing data. Using this .Rmd go over the methods presented with your group. Ask any questions in the Slack channel 🔗   mice package  🔗   mice resource  🔗     Updates for reading material: TBD</description>
+    </item>
+    
   </channel>
 </rss>

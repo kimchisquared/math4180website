@@ -5,12 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Posts | MATH 4180</title>
+<title>Weeks 6-7: Feature Imputation and Engineering | MATH 4180</title>
 
 <meta name="keywords" content="" />
-<meta name="description" content="A website for the MATH 4180 course at the University of Minnesota Duluth.">
+<meta name="description" content="Imputing Data and the mice package
+We will be discussing what to do when we have to impute missing data and the process for validating whether or not certain features should be included in our analyses.
+    Tasks Notes Links Due    Project Work We will begin imputing data. Using this .Rmd go over the methods presented with your group. Ask any questions in the Slack channel 🔗   mice package  🔗   mice resource  🔗     Updates for reading material: TBD">
 <meta name="author" content="">
-<link rel="canonical" href="/post/" />
+<link rel="canonical" href="/impute-data/" />
 <link href="/assets/css/stylesheet.min.d070982e74499bfc7e365ce059942e04be78ff23f45ff9cd1e58831f2cc279c7.css" integrity="sha256-0HCYLnRJm/x&#43;NlzgWZQuBL54/yP0X/nNHliDHyzCecc=" rel="preload stylesheet"
     as="style">
 
@@ -22,23 +24,56 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.80.0" />
-<link rel="alternate" type="application/rss&#43;xml" href="/post/index.xml">
 
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="A website for the MATH 4180 course at the University of Minnesota Duluth." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/post/" />
+<meta property="og:title" content="Weeks 6-7: Feature Imputation and Engineering" />
+<meta property="og:description" content="Imputing Data and the mice package
+We will be discussing what to do when we have to impute missing data and the process for validating whether or not certain features should be included in our analyses.
+    Tasks Notes Links Due    Project Work We will begin imputing data. Using this .Rmd go over the methods presented with your group. Ask any questions in the Slack channel 🔗   mice package  🔗   mice resource  🔗     Updates for reading material: TBD" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/impute-data/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="A website for the MATH 4180 course at the University of Minnesota Duluth."/>
+<meta name="twitter:title" content="Weeks 6-7: Feature Imputation and Engineering"/>
+<meta name="twitter:description" content="Imputing Data and the mice package
+We will be discussing what to do when we have to impute missing data and the process for validating whether or not certain features should be included in our analyses.
+    Tasks Notes Links Due    Project Work We will begin imputing data. Using this .Rmd go over the methods presented with your group. Ask any questions in the Slack channel 🔗   mice package  🔗   mice resource  🔗     Updates for reading material: TBD"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Weeks 6-7: Feature Imputation and Engineering",
+  "name": "Weeks 6-7: Feature Imputation and Engineering",
+  "description": "Imputing Data and the mice package\nWe will be discussing what to do when we have to impute missing data and the process for validating whether or not certain features should be …",
+  "keywords": [
+    
+  ],
+  "articleBody": "  Imputing Data and the mice package\nWe will be discussing what to do when we have to impute missing data and the process for validating whether or not certain features should be included in our analyses.\n    Tasks Notes Links Due    Project Work We will begin imputing data. Using this .Rmd go over the methods presented with your group. Ask any questions in the Slack channel 🔗   mice package  🔗   mice resource  🔗     Updates for reading material: TBD\n",
+  "wordCount" : "77",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/impute-data/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "MATH 4180",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
 
 
 
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -112,110 +147,72 @@
     </nav>
 </header>
 
-    <main class="main"> 
-<header class="page-header">
-  <h1>Posts</h1>
-</header>
+    <main class="main">
 
-
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Week 1: Getting Started
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>Introduction to the Course and Tools
-Welcome to the course! Before we start any data science we will get to know each other, the tools we will use, and the policies of the course. If you have any questions about Week 1 materials please post them on Slack (you will soon see what Slack is) under the in-class channel.
-The following is the basic set-up for all tasks required each week....</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to Week 1: Getting Started" href="/getting-started/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Week 2: Intro to Visualizing Data
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>Grammar of Graphics &amp; ggplot
-This week we will be discussing what qualities makes a graphic legible and how we can use R to implement readability using the Grammar of Graphics.
-    Tasks Notes Links Due    Data Viz: intro Slides 🔗   Recap video Follow Dr. B as she overviews the tasks to do for this week 📼   Reading from MSDR book Chapter 2: Data visualization....</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to Week 2: Intro to Visualizing Data" href="/data-viz-intro/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Week 3: Visualizing Data
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>Grammar of Graphics &amp; ggplot cont’d
-This week we will be discussing ggplot functionality.
-    Tasks Notes Links Due    Webinar Tutorial about R Markdown basics. Post any questions in the questions channel. Watch when it suits your schedule. 📼   Webinar Tutorial about dplyr Post any questions in the questions channel. 📼 Watch at least the first half before Wed meeting  Primers Check out with Work with Data and Tidy Your Data....</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to Week 3: Visualizing Data" href="/data-viz-ggplot/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Week 4: Wrangling Data
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>Data Wrangling, pipe operators, and dplyr commands
-This week we will be discussing data wrangling techniques using the dplyr functions: select, filter, arrange, mutate, summarise, group_by
-    Tasks Notes Links Due    Cheatsheets You can find these by going to Help &gt; Cheatsheets in RStudio as well 🔗   Reading from MDSR book Chapter 4. Post reading response (include one takeaway, one thing that would improve the reading, and any questions that you may have) in the reading_response_wrangling channel 📖   Reading from R4DS book Chapter 5....</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to Week 4: Wrangling Data" href="/data-wrangle/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Week 5: Missing Data
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>Missing Data and the naniar package
-This week we will be discussing what to do when we have missing data and how to handle missingness in real-world healthcare data.
-    Tasks Notes Links Due    Reading from R4DS book Chapter 7. Pay special attention to sections 7.4 and 7.5. Post any questions in the Slack channel. 📖   Code Tutorial Explore missing values using the naniar package 🔗   naniar resource This vignette (basically a how-to for using the package) includes most of the information from the code tutorial in a scrollable format 🔗   Project Work We will begin dealing with missing data....</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to Week 5: Missing Data" href="/missing-data/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
       Weeks 6-7: Feature Imputation and Engineering
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>Imputing Data and the mice package
-We will be discussing what to do when we have to impute missing data and the process for validating whether or not certain features should be included in our analyses.
-    Tasks Notes Links Due    Project Work We will begin imputing data. Using this .Rmd go over the methods presented with your group. Ask any questions in the Slack channel 🔗   mice package  🔗   mice resource  🔗     Updates for reading material: TBD...</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to Weeks 6-7: Feature Imputation and Engineering" href="/impute-data/"></a>
-</article>
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">
 
+    </div>
+  </header> 
+
+  <div class="post-content">
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p><strong>Imputing Data and the mice package</strong><br />
+<br />
+We will be discussing what to do when we have to impute missing data and the process for validating whether or not certain features should be included in our analyses.<br />
+</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="41%" />
+<col width="19%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tasks</th>
+<th>Notes</th>
+<th>Links</th>
+<th>Due</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Project Work</td>
+<td>We will begin imputing data. Using this <strong>.Rmd</strong> go over the methods presented with your group. Ask any questions in the Slack channel</td>
+<td><a href="https://math4180.netlify.app/exercises/wids-impute">🔗</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>mice</code> package</td>
+<td></td>
+<td><a href="https://cran.r-project.org/web/packages/mice/mice.pdf">🔗</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>mice</code> resource</td>
+<td></td>
+<td><a href="https://datascienceplus.com/imputing-missing-data-with-r-mice-package/">🔗</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Updates for reading material: <em>TBD</em></p>
+
+</div>
+  <footer class="post-footer">
+  </footer>
+</article>
     </main><footer class="footer">
     <span>&copy; 2021 <a href="/">MATH 4180</a></span>
     <span>&middot;</span>
