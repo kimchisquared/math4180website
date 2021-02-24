@@ -304,18 +304,18 @@ dummy_vitals<- training_clean %>%
 
 hourly_labs<- dummy_vitals %>%
   select(contains("h1")) %>% 
-  mutate(hourlylabs = rowSums(.)) %>% 
+  mutate(hourlylabs = length(.) - rowSums(.)) %>% 
   select(hourlylabs)
-
+hourly_labs
 daily_labs<- dummy_vitals %>%
   select(contains("d1")) %>% 
-  mutate(dailylabs = rowSums(.)) %>% 
+  mutate(dailylabs = length(.) - rowSums(.)) %>% 
   select(dailylabs)
-
-total_labs<- dummy_vitals %>%
-  mutate(totallabs = rowSums(.)) %>% 
+daily_labs
+total_labs<- dummy_vitals %>% 
+  mutate(totallabs = length(.) - rowSums(.)) %>% 
   select(totallabs)
-
+total_labs
 ```
 
  We can check how these dummy vars compare to our target
