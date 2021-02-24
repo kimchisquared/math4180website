@@ -299,7 +299,7 @@ Before we begin filling in missing values, we need to consider the reason behind
 ```{r dummy_vitals}
 dummy_vitals<- training_clean %>%
   select(contains(vitalcols)| contains(apvitalcols)) %>%
-  mutate_all(list(na = ~if_else(is.na(.),1,0))) %>%
+  mutate_all(list(na = ~if_else(is.na(.),0,1))) %>%
   select(matches("_na$")) 
 
 hourly_labs<- dummy_vitals %>%
@@ -307,11 +307,19 @@ hourly_labs<- dummy_vitals %>%
   mutate(hourlylabs = length(.) - rowSums(.)) %>% 
   select(hourlylabs)
 hourly_labs
+
 daily_labs<- dummy_vitals %>%
   select(contains("d1")) %>% 
   mutate(dailylabs = length(.) - rowSums(.)) %>% 
   select(dailylabs)
 daily_labs
+
+apache_labs<- dummy_vitals %>%
+  select(contains("apache")) %>% 
+  mutate(apachelabs = length(.) - rowSums(.)) %>% 
+  select(apachelabs)
+apache_labs
+
 total_labs<- dummy_vitals %>% 
   mutate(totallabs = length(.) - rowSums(.)) %>% 
   select(totallabs)
