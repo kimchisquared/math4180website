@@ -16,6 +16,8 @@ We will be introducing how to implement models using the `tidymodels` package.
 |Project Work| Intro to model building. Download the **.Rmd** [here](https://math4180.netlify.app/exercises/wids-modeling.Rmd) or visit the link to view in your browser |[:link:](https://math4180.netlify.app/exercises/wids-modeling)| |
 |`tidymodels` package||[:link:](https://www.tidymodels.org/start/)||
 |`tidymodels` tutorial||[:videocassette:](https://www.youtube.com/watch?v=dbXDkEEuvCU&t=220s&ab_channel=JuliaSilge)||
+|`parsnip` logistic_reg() function|Documentation on parameters and usage of logistic regression within the `tidymodels` framework|[:link:](https://parsnip.tidymodels.org/reference/logistic_reg.html)||
+|`tidymodels` model search |For finding information and usage of models supported in the `tidymodels`|[:link:](https://www.tidymodels.org/find/)||
 
 
 
