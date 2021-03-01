@@ -59,7 +59,7 @@ diabetes <- training %>%
   mutate(diabetes_mellitus = factor(diabetes_mellitus))
 ```
 
-#Modeling
+# Modeling
 
 ## Spliting data
 Set up data for model building and evaluation 
@@ -180,7 +180,7 @@ null_preds %>%
 
 # Next Steps
 
-- How should we handle missing numeric values? (ie our vitals)
+- How should we handle missing numeric values? (i.e. our vitals)
 
 - How does this model compare to a null model? How could we implement this? (hint: you can create a null model using the same set up as the logistic model we did)
 
