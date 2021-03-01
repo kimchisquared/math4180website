@@ -96,6 +96,7 @@ diabetes_recipe <- recipe(diabetes_mellitus ~., data = diabetes_train) %>%
   step_rm(gender, ethnicity) %>% #remove variables with bias
   step_zv(all_numeric()) %>% #keep only zero-variance variables
   step_normalize(all_numeric(), na_rm = T) %>% #rescale all numeric to same scale while exclusing NAs (they would move the data)
+  step_mutate_at(all_numeric(), fn=~ if_else(is.na(.), -999, . )) %>% #fill in all missing numeric with super extreme value AFTER we normalize 
   prep() #fill in recipe with our specific training set variables
 
 #apply recipe to training set
@@ -114,6 +115,10 @@ Declaring model selection
 log_spec <- logistic_reg() %>%
   set_engine("glm") %>%
   set_mode("classification")
+
+null_spec <- null_model() %>%
+  set_engine("parsnip") %>%
+  set_mode("classification")
 ```
 
 Fitting to our training set
@@ -122,12 +127,20 @@ Fitting to our training set
 log_fit <- log_spec %>%
   fit(diabetes_mellitus~.,
       data = train_baked)
+
+null_fit <- null_spec %>%
+  fit(diabetes_mellitus~.,
+      data = train_baked)
 ```
 
 Evaluation using the evaluation set
 ```{r evaluation}
 #using the fitted data, predict the target variable for the evaluation set
 log_preds<- log_fit %>%
+  predict(eval_baked) %>%
+  bind_cols(eval_baked %>% select(diabetes_mellitus))
+
+null_preds<- null_fit %>%
   predict(eval_baked) %>%
   bind_cols(eval_baked %>% select(diabetes_mellitus))
 ```
@@ -141,7 +154,17 @@ log_preds %>%
   as_tibble() %>%
   ggplot(aes(Prediction, Truth, alpha = n)) +
   geom_tile(show.legend = FALSE) +
-  geom_text(aes(label = n), colour = "white", alpha = 1, size = 8)
+  geom_text(aes(label = n), colour = "white", alpha = 1, size = 8)+
+  labs(title = "Logistic Predictions")
+
+null_preds %>%
+  conf_mat(diabetes_mellitus, .pred_class) %>%
+  pluck(1) %>%
+  as_tibble() %>%
+  ggplot(aes(Prediction, Truth, alpha = n)) +
+  geom_tile(show.legend = FALSE) +
+  geom_text(aes(label = n), colour = "white", alpha = 1, size = 8)+
+  labs(title = "Null Prediction")
   
 #output accuracy
 log_preds %>%
@@ -149,6 +172,10 @@ log_preds %>%
   select(-.estimator) %>%
   filter(.metric == "accuracy") 
 
+null_preds %>%
+  metrics(diabetes_mellitus, .pred_class) %>%
+  select(-.estimator) %>%
+  filter(.metric == "accuracy") 
 ```
 
 # Next Steps
