@@ -80,7 +80,7 @@ We will be discussing what to do when we have to impute missing data and the pro
       <guid>/model-build/</guid>
       <description>  Building Models using recipes and evaluations from the tidymodels package 
 We will be introducing how to implement models using the tidymodels package.
-  Tasks Notes Links Due    Project Work Model Building 🔗   tidymodels package  🔗   tidymodels tutorial  📼     </description>
+    Tasks Notes Links Due    Project Work Intro to model building. Download the .Rmd here or visit the link to view in your browser 🔗   tidymodels package  🔗   tidymodels tutorial  📼     </description>
     </item>
     
     <item>
@@ -124,7 +124,7 @@ Office Hours MWF 12-1:30pm CST</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/schedule/</guid>
-      <description>   Week Dates Course Topic Project Component Notes     1 Jan 13-15 Getting Started     2 Jan 18-22 Intro to Visualizations  MLK: no class M   3 Jan 25-29 Data Vizualizations using ggplot     4 Feb 1-5 Wrangling Data Team selection    5 Feb 8-12 Missing Data Submit management timeline    6 Feb 15-19 Ethical Data     7 Feb 22-26 Modeling     8 Mar 1-5 Modeling Deadline for submission    9 Mar 8-12 TBD  Spring Break: no class MTu   10 Mar 15-19 TBD     11 Mar 22-26 TBD Begin technical report    12 Mar 29 - Apr 1 TBD     13 Apr 5-9 Personal Websites: Blogdown     14 Apr 12-16 Personal Websites: Netlify     15 Apr 19-23 Interactive Graphics: Shiny Report revision    16 Apr 26-30 Resume Building Presentation practice     May 3-7  Presentations     </description>
+      <description>   Week Dates Course Topic Project Component Notes     1 Jan 13-15 Getting Started     2 Jan 18-22 Intro to Visualizations  MLK: no class M   3 Jan 25-29 Data Vizualizations using ggplot     4 Feb 1-5 Wrangling Data Team selection    5 Feb 8-12 Missing Data Submit management timeline    6 Feb 15-19 Imputing Data     7 Feb 22-26 Imputing Data     8 Mar 1-5 Model Building     9 Mar 8-12 TBD  Spring Break: no class MTu   10 Mar 15-19 TBD     11 Mar 22-26 TBD     12 Mar 29 - Apr 1 TBD     13 Apr 5-9 TBD     14 Apr 12-16 TBD     15 Apr 19-23 TBD Report revision    16 Apr 26-30 TBD Presentation practice     May 3-7  Presentations     </description>
     </item>
     
   </channel>

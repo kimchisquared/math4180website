@@ -1,6 +1,6 @@
 ---
 title: "WIDS-modeling"
-author: "Kim"
+author: "Math 4180"
 date: "2/28/2021"
 output: html_document
 editor_options: 

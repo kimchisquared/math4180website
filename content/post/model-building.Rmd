@@ -13,7 +13,7 @@ We will be introducing how to implement models using the `tidymodels` package.
 
 | Tasks | Notes | Links | Due |
 | -------- | ------------- | ------ | ---- |
-|Project Work| Model Building |[:link:](https://math4180.netlify.app/exercises/wids-modeling)| |
+|Project Work| Intro to model building. Download the **.Rmd** [here](https://math4180.netlify.app/exercises/wids-modeling.Rmd) or visit the link to view in your browser |[:link:](https://math4180.netlify.app/exercises/wids-modeling)| |
 |`tidymodels` package||[:link:](https://www.tidymodels.org/start/)||
 |`tidymodels` tutorial||[:videocassette:](https://www.youtube.com/watch?v=dbXDkEEuvCU&t=220s&ab_channel=JuliaSilge)||
 
