@@ -92,7 +92,7 @@ janitor::tabyl(diabetes_eval$diabetes_mellitus)
 Define recipe for modeling and apply to our new datasets
 ```{r recipe_and_bake}
 diabetes_recipe <- recipe(diabetes_mellitus ~., data = diabetes_train) %>%
-  themis::step_downsample(diabetes_mellitus) %>% #class imbalance
+  #themis::step_downsample(diabetes_mellitus) %>% #class imbalance if not using strata in initial.split()
   step_rm(gender, ethnicity) %>% #remove variables with bias
   step_zv(all_numeric()) %>% #keep only zero-variance variables
   step_normalize(all_numeric(), na_rm = T) %>% #rescale all numeric to same scale while exclusing NAs (they would move the data)

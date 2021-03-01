@@ -480,7 +480,7 @@ dim(diabetes_eval)</code></pre>
 <h2>Recipe</h2>
 <p>Define recipe for modeling and apply to our new datasets</p>
 <pre class="r"><code>diabetes_recipe &lt;- recipe(diabetes_mellitus ~., data = diabetes_train) %&gt;%
-  themis::step_downsample(diabetes_mellitus) %&gt;% #class imbalance
+  #themis::step_downsample(diabetes_mellitus) %&gt;% #class imbalance if not using strata in initial.split()
   step_rm(gender, ethnicity) %&gt;% #remove variables with bias
   step_zv(all_numeric()) %&gt;% #keep only zero-variance variables
   step_normalize(all_numeric(), na_rm = T) %&gt;% #rescale all numeric to same scale while exclusing NAs (they would move the data)
