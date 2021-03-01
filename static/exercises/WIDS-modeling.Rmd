@@ -1,0 +1,162 @@
+---
+title: "WIDS-modeling"
+author: "Kim"
+date: "2/28/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Set Up
+
+## Libraries
+You will need to install any of these packages if you do not already have them. 
+```{r load-libraries, warning=F, message=F}
+library(tidyverse)
+library(data.table) #for reading in big data from a url
+library(janitor) #for tably function (similar to table function)
+library(corrr) # for correlations
+library(skimr) # for skim function (similar to summary function)
+library(tidymodels) #for modeling
+library(themis) #for downsampling
+```
+
+## Read in data
+```{r load-data, warning=F, message=F}
+training <- fread("https://math4180.netlify.app/data/TrainingWiDS2021.csv")
+dictionary <- fread("https://math4180.netlify.app/data/DataDictionaryWiDS2021.csv")
+```
+
+# Cleaning Data
+
+Keeping columns with correlation to target filtering using 0.05 threshold
+```{r column-selection}
+cols_to_keep<- training %>%
+  select(diabetes_mellitus, contains("d1")|contains("apache")) %>%
+  select_if(is.numeric) %>%
+  corrr::correlate() %>%
+  corrr::focus(diabetes_mellitus) %>% 
+  filter(abs(diabetes_mellitus)>=0.05) %>%
+  select(term) %>%
+  pull()
+
+cols_to_keep<-c(cols_to_keep, "age", "gender", "bmi", "height", "weight", "pre_icu_los_days", "ethnicity", "diabetes_mellitus")
+
+```
+
+Imputing missing demographic data
+```{r cleaning-data}
+diabetes <- training %>%
+  select(cols_to_keep) %>% 
+  group_by(gender) %>%
+  mutate(height = coalesce(height, mean(height, na.rm = TRUE))) %>%
+  mutate(weight = coalesce(weight, mean(weight, na.rm = TRUE))) %>%
+  ungroup() %>%
+  mutate(bmi = (weight/(height/100)^2))%>%
+  mutate(gender = replace_na(gender, "Unknown")) %>%
+  mutate(ethnicity = replace_na(ethnicity, "Other/Unknown")) %>%
+  filter(age != 0) %>%
+  mutate(diabetes_mellitus = factor(diabetes_mellitus))
+```
+
+#Modeling
+
+## Spliting data
+Set up data for model building and evaluation 
+```{r split-by-strata}
+#split data randomly but use equal proportions of target variable
+set.seed(2021)
+diabetes_split <- initial_split(diabetes, strata = diabetes_mellitus)
+
+#create new training and evaluation sets for modeling
+diabetes_train <- training(diabetes_split)
+diabetes_eval <- testing(diabetes_split)
+```
+
+Check that the strata are appropriate
+```{r strata-distribution}
+#original distribution of target variable (strata variable)
+janitor::tabyl(training$diabetes_mellitus)
+
+#new training set strata
+dim(diabetes_train)
+janitor::tabyl(diabetes_train$diabetes_mellitus)
+
+#new evaluation set strata
+dim(diabetes_eval)
+janitor::tabyl(diabetes_eval$diabetes_mellitus)
+
+```
+
+## Recipe
+Define recipe for modeling and apply to our new datasets
+```{r recipe_and_bake}
+diabetes_recipe <- recipe(diabetes_mellitus ~., data = diabetes_train) %>%
+  themis::step_downsample(diabetes_mellitus) %>% #class imbalance
+  step_rm(gender, ethnicity) %>% #remove variables with bias
+  step_zv(all_numeric()) %>% #keep only zero-variance variables
+  step_normalize(all_numeric(), na_rm = T) %>% #rescale all numeric to same scale while exclusing NAs (they would move the data)
+  prep() #fill in recipe with our specific training set variables
+
+#apply recipe to training set
+train_baked <- bake(diabetes_recipe, new_data = diabetes_train)
+
+#apply recipe to evaluation set
+eval_baked <- bake(diabetes_recipe, new_data = diabetes_eval)
+
+
+```
+
+## Model Selection
+Declaring model selection
+```{r model-selection}
+# Specify the model: set the engine (ie what library you're using) and set the mode (regression or classification)
+log_spec <- logistic_reg() %>%
+  set_engine("glm") %>%
+  set_mode("classification")
+```
+
+Fitting to our training set
+```{r model-fit}
+#fit model specification to our training data where our target variable is diabetes_mellitus
+log_fit <- log_spec %>%
+  fit(diabetes_mellitus~.,
+      data = train_baked)
+```
+
+Evaluation using the evaluation set
+```{r evaluation}
+#using the fitted data, predict the target variable for the evaluation set
+log_preds<- log_fit %>%
+  predict(eval_baked) %>%
+  bind_cols(eval_baked %>% select(diabetes_mellitus))
+```
+
+Visualizing predictions and outputting accuracy
+```{r eval-viz}
+#visualize the accuracy using a confusion matrix
+log_preds %>%
+  conf_mat(diabetes_mellitus, .pred_class) %>%
+  pluck(1) %>%
+  as_tibble() %>%
+  ggplot(aes(Prediction, Truth, alpha = n)) +
+  geom_tile(show.legend = FALSE) +
+  geom_text(aes(label = n), colour = "white", alpha = 1, size = 8)
+  
+#output accuracy
+log_preds %>%
+  metrics(diabetes_mellitus, .pred_class) %>%
+  select(-.estimator) %>%
+  filter(.metric == "accuracy") 
+
+```
+
+# Next Steps
+
+- How should we handle missing numeric values? (ie our vitals)
+
+- How does this model compare to a null model? How could we implement this? (hint: you can create a null model using the same set up as the logistic model we did)
+
+- What other models would be useful given that we have a binary output?
+
+- Should we include other variables?

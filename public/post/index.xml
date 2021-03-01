@@ -72,5 +72,16 @@ We will be discussing what to do when we have to impute missing data and the pro
     Tasks Notes Links Due    Project Work We will begin imputing data. Using this .Rmd go over the methods presented with your group. Ask any questions in the Slack channel 🔗   mice package  🔗   mice resource  🔗     Updates for reading material: TBD</description>
     </item>
     
+    <item>
+      <title>Week 8: Model Buliding</title>
+      <link>/model-build/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/model-build/</guid>
+      <description>  Building Models using recipes and evaluations from the tidymodels package 
+We will be introducing how to implement models using the tidymodels package.
+  Tasks Notes Links Due    Project Work Model Building 🔗   tidymodels package  🔗   tidymodels tutorial  📼     </description>
+    </item>
+    
   </channel>
 </rss>

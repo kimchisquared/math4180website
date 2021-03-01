@@ -1,0 +1,23 @@
+---
+title: 'Week 8: Model Buliding'
+subtitle: 'using tidymodels'
+slug: model-build
+weight: 60
+---
+
+
+**Building Models using recipes and evaluations from the tidymodels package **\
+\
+We will be introducing how to implement models using the `tidymodels` package.
+\
+
+| Tasks | Notes | Links | Due |
+| -------- | ------------- | ------ | ---- |
+|Project Work| Model Building |[:link:](https://math4180.netlify.app/exercises/wids-modeling)| |
+|`tidymodels` package||[:link:](https://www.tidymodels.org/start/)||
+|`tidymodels` tutorial||[:videocassette:](https://www.youtube.com/watch?v=dbXDkEEuvCU&t=220s&ab_channel=JuliaSilge)||
+
+
+
+
+
